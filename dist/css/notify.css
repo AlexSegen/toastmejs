@@ -1,0 +1,240 @@
+@font-face {
+    font-family: 'notify';
+    src: url('../icons/notify.eot?cksqmu');
+    src: url('../icons/notify.eot?cksqmu#iefix') format('embedded-opentype'),
+        url('../icons/notify.ttf?cksqmu') format('truetype'),
+        url('../icons/notify.woff?cksqmu') format('woff'),
+        url('../icons/notify.svg?cksqmu#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.notify,
+ul>li:hover>.delete {
+    display: inline-block
+}
+
+.notify {
+    font-size: 13px;
+    font-family: helvetica, "san-serif";
+    color: #737373;
+    max-width: 250px;
+    text-align: left;
+    padding: 6px 6px 6px 45px;
+    border-radius: 2px;
+    background-color: #f5f5f5;
+    position: fixed;
+    opacity: .7;
+    cursor: pointer;
+    z-index: 100;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    -webkit-animation: toastIn .2s ease-in-out 0s forwards;
+    animation: toastIn .2s ease-in-out 0s forwards
+}
+
+.notify:focus,
+.notify:hover {
+    opacity: 1
+}
+
+.notify.success {
+    color: #fff;
+    background-color: #8bc34a
+}
+
+.notify.success .notify-ico {
+    color: #8bc34a
+}
+
+.notify.success .notify-ico:before {
+    content: "\EA10"
+}
+
+.notify.error {
+    color: #fff;
+    background-color: #f44336
+}
+
+.notify.error .notify-ico {
+    color: #f44336
+}
+
+.notify.error .notify-ico:before {
+    content: "\EA0D"
+}
+
+.notify.warning {
+    color: #fff;
+    background-color: #ff9800
+}
+
+.notify.warning .notify-ico {
+    color: #ff9800
+}
+
+.notify.warning .notify-ico:before {
+    content: "\EA07"
+}
+
+.notify.info {
+    color: #fff;
+    background-color: #2196f3
+}
+
+.notify.info .notify-ico {
+    color: #2196f3
+}
+
+.notify.info .notify-ico:before {
+    content: "\EA0C"
+}
+
+.notify .notify-close {
+    color: #333;
+    opacity: .7;
+    float: right;
+    right: -10px;
+    top: -5px;
+    position: relative;
+    background: transparent;
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    cursor: pointer;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out
+}
+
+.notify .notify-close:after {
+    content: "X";
+    color: #ddd
+}
+
+.notify .notify-close:focus,
+.notify .notify-close:hover {
+    opacity: 1
+}
+
+.notify .notify-ico {
+    font-family: notify !important;
+    font-size: 1.5rem;
+    speak: none;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #333;
+    float: left;
+    font-style: normal;
+    width: 30px;
+    height: 30px;
+    border-radius: 2px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    background: #fff
+}
+
+.notify .notify-ico:before {
+    content: "\EA08"
+}
+
+.notify .notify-content {
+    /* white-space: nowrap; 
+    max-width: 200px;*/
+}
+
+.notify.light.success {
+    color: #737373;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd
+}
+
+.notify.light.success .notify-ico {
+    color: #8bc34a
+}
+
+.notify.light.success .notify-ico:before {
+    content: "\EA10"
+}
+
+.notify.light.error {
+    color: #737373;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd
+}
+
+.notify.light.error .notify-ico {
+    color: #f44336
+}
+
+.notify.light.error .notify-ico:before {
+    content: "\EA0D"
+}
+
+.notify.light.warning {
+    color: #737373;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd
+}
+
+.notify.light.warning .notify-ico {
+    color: #ff9800
+}
+
+.notify.light.warning .notify-ico:before {
+    content: "\EA07"
+}
+
+.notify.light.info {
+    color: #737373;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd
+}
+
+.notify.light.info .notify-ico {
+    color: #2196f3
+}
+
+.notify.light.info .notify-ico:before {
+    content: "\EA0C"
+}
+
+@-webkit-keyframes toastIn {
+    0% {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+@keyframes toastIn {
+    0% {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}

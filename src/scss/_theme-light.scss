@@ -1,0 +1,61 @@
+.notify {
+    &.light {
+        &.success {
+            color: $font-color-light;
+            background-color: $bg-light;
+            border: 1px solid $border-light;
+
+            .notify-ico {
+                color: $success;
+
+                &:before {
+                    content: "\ea10";
+                }
+            }
+        }
+
+
+        &.error {
+            color: $font-color-light;
+            background-color: $bg-light;
+            border: 1px solid $border-light;
+
+            .notify-ico {
+                color: $danger;
+
+                &:before {
+                    content: "\ea0d";
+                }
+            }
+        }
+
+        &.warning {
+            color: $font-color-light;
+            background-color: $bg-light;
+            border: 1px solid $border-light;
+
+            .notify-ico {
+                color: $warning;
+
+                &:before {
+                    content: "\ea07";
+                }
+            }
+        }
+
+        &.info {
+            color: $font-color-light;
+            background-color: $bg-light;
+            border: 1px solid $border-light;
+
+            .notify-ico {
+                color: $info;
+
+                &:before {
+                    content: "\ea0c";
+                }
+            }
+        }
+    }
+
+}

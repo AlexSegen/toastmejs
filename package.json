@@ -1,0 +1,26 @@
+{
+  "name": "notifyme",
+  "version": "1.0.0",
+  "description": "Notifications with pure javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexSegen/notifyme.git"
+  },
+  "keywords": [
+    "toast",
+    "notifications",
+    "notify",
+    "alerts",
+    "javascript"
+  ],
+  "author": "AlexSegen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexSegen/notifyme/issues"
+  },
+  "homepage": "https://github.com/AlexSegen/notifyme#readme"
+}

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Notify Demo</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    
+    <!--Notify CSS-->
+    <link rel="stylesheet" href="./dist/css/notify.css">
+    
+    <!--Demo CSS-->
+    <style>
+        body {
+            color: #333;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+        }
+        h1 {
+            margin-top: 50px;
+            margin-bottom: 5px;
+            font-size: 30px;
+            font-weight: normal;
+        }
+        h3 {
+            color: #737373;
+            font-size: 24px;
+            font-weight: normal;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .button {
+            cursor: pointer;
+            padding: 10px 25px;
+            box-shadow: none;
+            border: none;
+            margin-bottom: 10px;
+            min-width: 100px;
+
+        }
+        .button.default {
+            color: #737373;
+            background-color: #f5f5f5;
+        }
+        .button.success {
+            color: #fff;
+            background-color: #8BC34A;
+        }
+        .button.error {
+            color: #fff;
+            background-color: #f44336;
+        }
+        .button.warning {
+            color: #fff;
+            background-color: #FF9800;
+        }
+        .button.info {
+            color: #fff;
+            background-color: #2196F3;
+        }
+        .button.success.light {
+            color: #8BC34A;
+            background-color: #f5f5f5!important;
+        }
+        .button.error.light {
+            color: #f44336;
+            background-color: #f5f5f5!important;
+        }
+        .button.warning.light {
+            color: #FF9800;
+            background-color: #f5f5f5!important;
+        }
+        .button.info.light {
+            color: #2196F3;
+            background-color: #f5f5f5!important;
+        }
+        pre {
+            text-align: left;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 10px;
+            border-radius: 3px;
+            border: 1px solid #ddd;
+        }
+        .options {
+            text-align: left;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        .options > li {
+            margin-bottom: 10px;
+        }
+        .options span {
+            color: #737373;
+            font-weight: 600;
+        }
+        .demos {
+            color: #737373;
+            max-width: 400px;
+            margin: 15px auto;
+            position: relative
+        }
+        .demos .list{
+            float: left;
+            width: 50%;
+        }
+        .clearfix {
+            clear: both;
+        }
+        @@media(max-width: 767px) {
+            .demos .list{
+                float: unset;
+                width: 100%;
+            } 
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Notify</h1>
+    <p>Click some buttons!</p>
+    <div class="demos">
+        <div class="list">
+            <p>Default theme</p>
+            <ul>
+                <li><button type="button" class="button success" onclick="success()"> Success </button></li>
+                <li><button type="button" class="button error" onclick="error()"> Error </button></li>
+                <li><button type="button" class="button warning" onclick="warning()"> Warning </button></li>
+                <li><button type="button" class="button info" onclick="info()"> Info </button></li>
+            </ul>
+        </div>
+        <div class="list">
+            <p>Light theme</p>
+            <ul>
+                <li><button type="button" class="button success light" onclick="successL()"> Success </button></li>
+                <li><button type="button" class="button error light" onclick="errorL()"> Error </button></li>
+                <li><button type="button" class="button warning light" onclick="warningL()"> Warning </button></li>
+                <li><button type="button" class="button info light" onclick="infoL()"> Info </button></li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+
+    <h3>Customize</h3>
+    <p>You can customize duration, position, distance, z-index and a <strong>light theme</strong></p>
+    <ol class="options">
+        <li><span>timeout:</span> miliseconds</li>
+        <li><span>positionY:</span> 'top' or 'bottom'</li>
+        <li><span>positionX:</span> 'left', 'right' or 'center' position</li>
+        <li><span>distanceY:</span> distance from the Y axis</li>
+        <li><span>distanceX:</span> distance from the X axis</li>
+        <li><span>zIndex:</span> overlapping order</li>
+        <li><span>light:</span> change to 'true' if you want Light themed notifications.</li>
+    </ol>
+    <p>
+<pre>
+        const config = {
+            timeout: 5000,
+            positionY: "bottom", // top or bottom
+            positionX: "center", // right left, center
+            distanceY: 20, // Integer value
+            distanceX: 20, // Integer value
+            zIndex: 100, // Integer value
+            light: true // Light theme
+        };
+
+</pre></p>
+
+
+
+</body>
+
+<!--Notify JS-->
+<script src="./dist/js/notify.js" ></script>
+
+<script>
+ 
+
+ 
+ function success () {
+        notify.success("This is a 'success' notification")
+    }
+
+    function error () {
+        notify.error("This is an 'error' notification")
+    }
+    function warning () {
+        notify.warning("This is a 'warning' notification")
+    }
+    function info () {
+        notify.info("This is an 'info' notification")
+    }
+
+    //CUSTOMIZATION
+
+    const config = {
+            timeout: 50000,
+            positionY: "top", // top or bottom
+            positionX: "right", // right left, center
+            distanceY: 20, // Integer value
+            distanceX: 20, // Integer value
+            zIndex: 100, // Integer value
+            light: true // Light theme
+        };
+        
+    const myNotify = new Notify(config);
+
+    function successL () {
+        myNotify.success("This is a 'success' notification")
+    }
+
+    function errorL () {
+        myNotify.error("This is an 'error' notification")
+    }
+    function warningL () {
+        myNotify.warning("This is a 'warning' notification")
+    }
+    function infoL () {
+        myNotify.info("This is an 'info' notification")
+    }
+
+</script>
+</html>
