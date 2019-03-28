@@ -1,26 +1,41 @@
 {
-  "name": "notifyme",
-  "version": "1.0.0",
-  "description": "Notifications with pure javascript",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AlexSegen/notifyme.git"
-  },
-  "keywords": [
-    "toast",
-    "notifications",
-    "notify",
-    "alerts",
-    "javascript"
-  ],
-  "author": "AlexSegen",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AlexSegen/notifyme/issues"
-  },
-  "homepage": "https://github.com/AlexSegen/notifyme#readme"
+	"name": "notifyme",
+	"version": "0.0.1",
+	"description": "Notifications with pure javascript",
+	"main": "./dist/js/notifyme.js",
+	"author": {
+		"name": "alexsegen",
+		"url": "https://pixelagil.com"
+	},
+	"keywords": [
+		"toast",
+		"notifications",
+		"notify",
+		"alerts",
+		"javascript"
+	  ],
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/AlexSegen/notifyme.git"
+	},
+	"devDependencies": {
+		"gulp": "4.0.0",
+		"del": "3.0.0",
+		"lazypipe": "1.0.1",
+		"gulp-flatmap": "1.0.2",
+		"gulp-header": "2.0.5",
+		"gulp-rename": "1.4.0",
+		"jshint": "2.9.6",
+		"gulp-jshint": "2.1.0",
+		"jshint-stylish": "2.2.1",
+		"gulp-concat": "2.6.1",
+		"gulp-terser": "1.1.7",
+		"gulp-optimize-js": "1.1.0",
+		"gulp-sass": "4.0.2",
+		"gulp-cssnano": "2.1.3",
+		"gulp-autoprefixer": "6.0.0",
+		"gulp-svgmin": "2.1.0",
+		"browser-sync": "2.26.3"
+	}
 }

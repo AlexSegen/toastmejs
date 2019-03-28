@@ -1,4 +1,12 @@
-export class Notify {
+/*!
+ * notifyme v0.0.1
+ * Notifications with pure javascript
+ * (c) 2019 alexsegen
+ * MIT License
+ * git+https://github.com/AlexSegen/notifyme.git
+ */
+
+class Notify {
   constructor(
     config = {
       timeout: null,
@@ -19,28 +27,28 @@ export class Notify {
     this.light = config.light || false;
   }
   init() {
-    document.addEventListener("click", function(e) {
+    document.addEventListener("click", (function (e) {
       if (e.target.classList.contains("notify-close")) {
         e.target.parentNode.remove();
       }
-    });
+    }));
   }
   getMessage(type, str) {
-    
+
     this.closeAll();
-    
+
     this.init();
-    
+
     var notify = document.createElement("div");
     notify.classList.add("notify", type, this.light ? 'light' : false);
-    this.positionX == 'center' ? (notify.style.right = '50%') : (notify.style[this.positionX] = this.distanceX + "px");
+    this.positionX == 'center' ? (notify.style.right = '50%', notify.style.marginRight = '-125px') : (notify.style[this.positionX] = this.distanceX + "px");
     //notify.style[this.positionX] = this.distanceX + "px";
     notify.style[this.positionY] = this.distanceY + "px";
     notify.style.zIndex = this.zIndex;
     notify.innerHTML = `
-        <button class="notify-close"></button>
-        <i class="notify-ico"></i>
-        <div class="notify-content">${str}</div>`;
+          <button class="notify-close"></button>
+          <i class="notify-ico"></i>
+          <div class="notify-content">${str}</div>`;
     setTimeout(() => {
       notify.remove();
     }, this.timeout);
@@ -60,12 +68,10 @@ export class Notify {
   }
   closeAll() {
     let array = document.querySelectorAll(".notify");
-    array.forEach(function(item) {
+    array.forEach((function (item) {
       item.parentNode.removeChild(item);
-    });
+    }));
   }
 }
 
 const notify = new Notify();
-
-export default notify
