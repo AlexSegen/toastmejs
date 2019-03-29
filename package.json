@@ -1,5 +1,5 @@
 {
-	"name": "notifymejs",
+	"name": "@alexsegen/notifymejs",
 	"version": "0.0.1",
 	"description": "Notifications with pure javascript",
 	"main": "./dist/js/notifyme.js",
@@ -17,7 +17,7 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/AlexSegen/notifyme.git"
+		"url": "git+https://github.com/AlexSegen/notifymejs.git"
 	},
 	"devDependencies": {
 		"gulp": "4.0.0",
