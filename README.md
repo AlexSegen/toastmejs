@@ -33,27 +33,25 @@ Want to see a demo? Click [here](https://alexsegen.github.io/notifymejs/)
 Notifyme does not have any dependencies to run. Just include necesary files  on your project
 
   
-
+```sh
 <link rel="stylesheet" href="./dist/css/notifyme.css">
-
 <script src="./dist/js/notifyme.js" ></script>
-
+```
   
 
 ### Usage
 
 Call one of these functions to show the notification you need
 
-  
+```sh
+notify.success("This is a 'success' notification")
 
-    notify.success("This is a 'success' notification")
-    
-    notify.error("This is an 'error' notification")
-    
-    notify.warning("This is a 'warning' notification")
-    
-    notify.info("This is an 'info' notification")
+notify.error("This is an 'error' notification")
 
+notify.warning("This is a 'warning' notification")
+
+notify.info("This is an 'info' notification")
+```
   
   
 
