@@ -30,7 +30,20 @@ Want to see a demo? Click [here](https://alexsegen.github.io/toastmejs/)
 
   
 
-Toastme does not have any dependencies to run. Just include necesary files  on your project
+Toastme does not have any dependencies.  Just run next command:
+
+```sh
+$ npm install toastjs --save
+```
+And import toastme
+
+
+```sh
+$ import toastme from 'toastjs
+```
+
+
+Or, download and include necesary files on your project
 
   
 ```sh
@@ -72,7 +85,6 @@ You can customize duration, position, distance, z-index and a ligh theme
 - **ligh:** change to 'true' if you want ligh themed notifications.
 
   
-
 You need to declare a new Object with new settings, finally, create a new **Toastme Class** instance.
 
 
