@@ -4,9 +4,9 @@
  */
 
 var settings = {
-	clean: false,
+	clean: true,
 	scripts: true,
-	polyfills: false,
+	polyfills: true,
 	styles: true,
 	svgs: false,
 	copy: true,

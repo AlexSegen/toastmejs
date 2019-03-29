@@ -1,19 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Copy Me</title>
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NotifymeJS Demo</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    
+    <!--Notify CSS-->
+    <link rel="stylesheet" href="./dist/css/notifyme.css">
+    
+    <!--Demo CSS-->
+    <style>
+        body{color:#333;text-align:center;font-family:Roboto,sans-serif}h1{margin-top:50px;margin-bottom:5px;font-size:30px;font-weight:400}h3{color:#737373;font-size:24px;font-weight:400;margin-top:10px;margin-bottom:20px}ul{list-style:none;padding:0;margin:20px 0}.button{cursor:pointer;padding:10px 25px;box-shadow:none;border:none;margin-bottom:10px;min-width:100px}.button.default{color:#737373;background-color:#f5f5f5}.button.success{color:#fff;background-color:#8bc34a}.button.error{color:#fff;background-color:#f44336}.button.warning{color:#fff;background-color:#ff9800}.button.info{color:#fff;background-color:#2196f3}.button.success.ligh{color:#8bc34a;background-color:#f5f5f5!important}.button.error.ligh{color:#f44336;background-color:#f5f5f5!important}.button.warning.ligh{color:#ff9800;background-color:#f5f5f5!important}.button.info.ligh{color:#2196f3;background-color:#f5f5f5!important}pre{text-align:left;max-width:400px;margin:20px auto;padding:10px;border-radius:3px;border:1px solid #ddd}.options{text-align:left;max-width:400px;margin:20px auto}.options>li{margin-bottom:10px}.options span{color:#737373;font-weight:600}.demos{color:#737373;max-width:400px;margin:15px auto;position:relative}.demos .list{float:left;width:50%}.clearfix{clear:both}@media(max-width:767px){.demos .list{float:unset;width:100%}}
+    </style>
+
 </head>
 <body>
-	<h1>Copy Me</h1>
+    <h1>NotifymeJS</h1>
+    <p>Click some buttons!</p>
+    <div class="demos">
+        <div class="list">
+            <p>Default theme</p>
+            <ul>
+                <li><button type="button" class="button success" onclick="success()"> Success </button></li>
+                <li><button type="button" class="button error" onclick="error()"> Error </button></li>
+                <li><button type="button" class="button warning" onclick="warning()"> Warning </button></li>
+                <li><button type="button" class="button info" onclick="info()"> Info </button></li>
+            </ul>
+        </div>
+        <div class="list">
+            <p>Ligh theme</p>
+            <ul>
+                <li><button type="button" class="button success ligh" onclick="successL()"> Success </button></li>
+                <li><button type="button" class="button error ligh" onclick="errorL()"> Error </button></li>
+                <li><button type="button" class="button warning ligh" onclick="warningL()"> Warning </button></li>
+                <li><button type="button" class="button info ligh" onclick="infoL()"> Info </button></li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </div>
 
-	<p>Anything you put in the <code>copy</code> directory gets copied as-is into the <code>dist</code> directory.</p>
 
-	<p><button id="click-me">Click Me</button></p>
+    <h3>Customize</h3>
+    <p>You can customize duration, position, distance, z-index and a <strong>ligh theme</strong></p>
+    <ol class="options">
+        <li><span>timeout:</span> miliseconds</li>
+        <li><span>positionY:</span> 'top' or 'bottom'</li>
+        <li><span>positionX:</span> 'left', 'right' or 'center' position</li>
+        <li><span>distanceY:</span> distance from the Y axis</li>
+        <li><span>distanceX:</span> distance from the X axis</li>
+        <li><span>zIndex:</span> overlapping order</li>
+        <li><span>ligh:</span> change to 'true' if you want Ligh themed notifications.</li>
+    </ol>
+    <p>
+<pre>
+const config = {
+    timeout: 5000,
+    positionY: "bottom", // top or bottom
+    positionX: "center", // right left, center
+    distanceY: 20, // Integer value
+    distanceX: 20, // Integer value
+    zIndex: 100, // Integer value
+    ligh: true // 'true' or 'false to set ligh theme
+};
+</pre></p>
 
-	<!-- Scripts -->
-	<script src="js/detects.js"></script>
-	<script src="js/another-file.js"></script>
-	<script src="js/main.polyfills.js"></script>
+
+
 </body>
+
+<!--Notify JS-->
+<script src="./dist/js/notifyme.js" ></script>
+
+<script>
+ function success () {
+        notifyme.success("This is a 'success' <a href='#'>Go to google</a> notification")
+    }
+
+    function error () {
+        notifyme.error("This is an 'error' notification")
+    }
+    function warning () {
+        notifyme.warning("This is a 'warning' notification")
+    }
+    function info () {
+        notifyme.info("This is an 'info' notification")
+    }
+
+    //CUSTOMIZATION
+
+    const config = {
+            timeout: 3000,
+            positionY: "top", // top or bottom
+            positionX: "right", // right left, center
+            distanceY: 20, // Integer value
+            distanceX: 20, // Integer value
+            zIndex: 100, // Integer value
+            ligh: true // Ligh theme
+        };
+        
+    const myNotify = new Notifyme(config);
+
+    function successL () {
+        myNotify.success("This is a 'success' notification")
+    }
+
+    function errorL () {
+        myNotify.error("This is an 'error' notification")
+    }
+    function warningL () {
+        myNotify.warning("This is a 'warning' notification")
+    }
+    function infoL () {
+        myNotify.info("This is an 'info' notification")
+    }
+</script>
 </html>
