@@ -22,7 +22,7 @@ NotifymeJS is a very simple and ligh weigth plugin that shows notifications on y
   
 # Demo
 
-Want to see a demo? Click [here]([https://alexsegen.github.io/notifymejs/index.html](https://alexsegen.github.io/notifymejs/index.html))
+Want to see a demo? Click [here](https://alexsegen.github.io/notifymejs/)
 
 # Features!
 
