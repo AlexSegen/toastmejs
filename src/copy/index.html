@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>NotifymeJS Demo</title>
+    <title>ToastmeJS Demo</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
     
-    <!--Notify CSS-->
-    <link rel="stylesheet" href="./dist/css/notifyme.css">
+    <!--Toastme CSS-->
+    <link rel="stylesheet" href="./dist/css/toastme.css">
     
     <!--Demo CSS-->
     <style>
@@ -17,7 +17,7 @@
 
 </head>
 <body>
-    <h1>NotifymeJS</h1>
+    <h1>ToastmeJS</h1>
     <p>Click some buttons!</p>
     <div class="demos">
         <div class="list">
@@ -70,22 +70,22 @@ const config = {
 
 </body>
 
-<!--Notify JS-->
-<script src="./dist/js/notifyme.js" ></script>
+<!--toastme JS-->
+<script src="./dist/js/toastme.js" ></script>
 
 <script>
- function success () {
-        notifyme.success("This is a 'success' <a href='#'>Go to google</a> notification")
+    function success () {
+        toastme.success("This is a 'success' <a href='#'>Go to google</a> notification")
     }
 
     function error () {
-        notifyme.error("This is an 'error' notification")
+        toastme.error("This is an 'error' notification")
     }
     function warning () {
-        notifyme.warning("This is a 'warning' notification")
+        toastme.warning("This is a 'warning' notification")
     }
     function info () {
-        notifyme.info("This is an 'info' notification")
+        toastme.info("This is an 'info' notification")
     }
 
     //CUSTOMIZATION
@@ -100,20 +100,20 @@ const config = {
             ligh: true // Ligh theme
         };
         
-    const myNotify = new Notifyme(config);
+    const myToast = new Toastme(config);
 
     function successL () {
-        myNotify.success("This is a 'success' notification")
+        myToast.success("This is a 'success' notification")
     }
 
     function errorL () {
-        myNotify.error("This is an 'error' notification")
+        myToast.error("This is an 'error' notification")
     }
     function warningL () {
-        myNotify.warning("This is a 'warning' notification")
+        myToast.warning("This is a 'warning' notification")
     }
     function infoL () {
-        myNotify.info("This is an 'info' notification")
+        myToast.info("This is an 'info' notification")
     }
 </script>
 </html>

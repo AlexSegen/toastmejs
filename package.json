@@ -1,8 +1,8 @@
 {
-	"name": "@alexsegen/notifymejs",
-	"version": "0.0.1",
+	"name": "toastmejs",
+	"version": "0.0.3",
 	"description": "Notifications with pure javascript",
-	"main": "./dist/js/notifyme.js",
+	"main": "./dist/js/toastme.js",
 	"author": {
 		"name": "alexsegen",
 		"url": "https://pixelagil.com"
@@ -17,7 +17,7 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/AlexSegen/notifymejs.git"
+		"url": "git+https://github.com/AlexSegen/toastmejs.git"
 	},
 	"devDependencies": {
 		"gulp": "4.0.0",

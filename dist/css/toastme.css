@@ -1,21 +1,21 @@
 /*!
- * notifymejs v0.0.1
+ * toastmejs v0.0.3
  * Notifications with pure javascript
  * (c) 2019 alexsegen
  * MIT License
- * git+https://github.com/AlexSegen/notifyme.git
+ * git+https://github.com/AlexSegen/toastmejs.git
  */
 
 @font-face {
-  font-family: 'notifyme';
-  src: url("../icons/notifyme.eot?cksqmu");
-  src: url("../icons/notifyme.eot?cksqmu#iefix") format("embedded-opentype"), url("../icons/notifyme.ttf?cksqmu") format("truetype"), url("../icons/notifyme.woff?cksqmu") format("woff"), url("../icons/notifyme.svg?cksqmu#notifyme") format("svg");
+  font-family: 'toastme';
+  src: url("../icons/toastme.eot?cksqmu");
+  src: url("../icons/toastme.eot?cksqmu#iefix") format("embedded-opentype"), url("../icons/toastme.ttf?cksqmu") format("truetype"), url("../icons/toastme.woff?cksqmu") format("woff"), url("../icons/toastme.svg?cksqmu#toastme") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
-/* line 14, src/sass/notifyme.scss */
-.notifyme {
+/* line 14, src/sass/toastme.scss */
+.toastme {
   font-size: 13px;
   font-family: Helvetica, "san-serif";
   color: #737373;
@@ -42,77 +42,77 @@
           animation: toastIn .2s forwards 0s ease-in-out;
 }
 
-/* line 33, src/sass/notifyme.scss */
-.notifyme:hover, .notifyme:focus {
+/* line 33, src/sass/toastme.scss */
+.toastme:hover, .toastme:focus {
   opacity: 1;
 }
 
-/* line 38, src/sass/notifyme.scss */
-.notifyme.success {
+/* line 38, src/sass/toastme.scss */
+.toastme.success {
   color: #fff;
   background-color: #8BC34A;
 }
 
-/* line 41, src/sass/notifyme.scss */
-.notifyme.success .notifyme-ico {
+/* line 41, src/sass/toastme.scss */
+.toastme.success .toastme-ico {
   color: #8BC34A;
 }
 
-/* line 43, src/sass/notifyme.scss */
-.notifyme.success .notifyme-ico:before {
+/* line 43, src/sass/toastme.scss */
+.toastme.success .toastme-ico:before {
   content: "\ea10";
 }
 
-/* line 50, src/sass/notifyme.scss */
-.notifyme.error {
+/* line 50, src/sass/toastme.scss */
+.toastme.error {
   color: #fff;
   background-color: #f44336;
 }
 
-/* line 53, src/sass/notifyme.scss */
-.notifyme.error .notifyme-ico {
+/* line 53, src/sass/toastme.scss */
+.toastme.error .toastme-ico {
   color: #f44336;
 }
 
-/* line 55, src/sass/notifyme.scss */
-.notifyme.error .notifyme-ico:before {
+/* line 55, src/sass/toastme.scss */
+.toastme.error .toastme-ico:before {
   content: "\ea0d";
 }
 
-/* line 61, src/sass/notifyme.scss */
-.notifyme.warning {
+/* line 61, src/sass/toastme.scss */
+.toastme.warning {
   color: #fff;
   background-color: #FF9800;
 }
 
-/* line 64, src/sass/notifyme.scss */
-.notifyme.warning .notifyme-ico {
+/* line 64, src/sass/toastme.scss */
+.toastme.warning .toastme-ico {
   color: #FF9800;
 }
 
-/* line 66, src/sass/notifyme.scss */
-.notifyme.warning .notifyme-ico:before {
+/* line 66, src/sass/toastme.scss */
+.toastme.warning .toastme-ico:before {
   content: "\ea07";
 }
 
-/* line 72, src/sass/notifyme.scss */
-.notifyme.info {
+/* line 72, src/sass/toastme.scss */
+.toastme.info {
   color: #fff;
   background-color: #2196F3;
 }
 
-/* line 75, src/sass/notifyme.scss */
-.notifyme.info .notifyme-ico {
+/* line 75, src/sass/toastme.scss */
+.toastme.info .toastme-ico {
   color: #2196F3;
 }
 
-/* line 77, src/sass/notifyme.scss */
-.notifyme.info .notifyme-ico:before {
+/* line 77, src/sass/toastme.scss */
+.toastme.info .toastme-ico:before {
   content: "\ea0c";
 }
 
-/* line 84, src/sass/notifyme.scss */
-.notifyme .notifyme-close {
+/* line 84, src/sass/toastme.scss */
+.toastme .toastme-close {
   color: #333;
   opacity: 0.7;
   float: right;
@@ -128,20 +128,20 @@
   transition: all .2s ease-in-out;
 }
 
-/* line 96, src/sass/notifyme.scss */
-.notifyme .notifyme-close:after {
+/* line 96, src/sass/toastme.scss */
+.toastme .toastme-close:after {
   content: 'x';
   color: #ddd;
 }
 
-/* line 100, src/sass/notifyme.scss */
-.notifyme .notifyme-close:hover, .notifyme .notifyme-close:focus {
+/* line 100, src/sass/toastme.scss */
+.toastme .toastme-close:hover, .toastme .toastme-close:focus {
   opacity: 1;
 }
 
-/* line 106, src/sass/notifyme.scss */
-.notifyme .notifyme-ico {
-  font-family: 'notifyme' !important;
+/* line 106, src/sass/toastme.scss */
+.toastme .toastme-ico {
+  font-family: 'toastme' !important;
   font-size: 1.5rem;
   speak: none;
   font-style: normal;
@@ -172,81 +172,81 @@
   background: #fff;
 }
 
-/* line 130, src/sass/notifyme.scss */
-.notifyme .notifyme-ico:before {
+/* line 130, src/sass/toastme.scss */
+.toastme .toastme-ico:before {
   content: "\ea08";
 }
 
-/* line 134, src/sass/notifyme.scss */
-.notifyme .notifyme-content {
+/* line 134, src/sass/toastme.scss */
+.toastme .toastme-content {
   white-space: nowrap;
 }
 
 /* line 3, src/sass/_theme-ligh.scss */
-.notifyme.ligh.success {
+.toastme.ligh.success {
   color: #737373;
   background-color: #f9f9f9;
   border: 1px solid #ddd;
 }
 
 /* line 8, src/sass/_theme-ligh.scss */
-.notifyme.ligh.success .notifyme-ico {
+.toastme.ligh.success .toastme-ico {
   color: #8BC34A;
 }
 
 /* line 11, src/sass/_theme-ligh.scss */
-.notifyme.ligh.success .notifyme-ico:before {
+.toastme.ligh.success .toastme-ico:before {
   content: "\ea10";
 }
 
 /* line 18, src/sass/_theme-ligh.scss */
-.notifyme.ligh.error {
+.toastme.ligh.error {
   color: #737373;
   background-color: #f9f9f9;
   border: 1px solid #ddd;
 }
 
 /* line 23, src/sass/_theme-ligh.scss */
-.notifyme.ligh.error .notifyme-ico {
+.toastme.ligh.error .toastme-ico {
   color: #f44336;
 }
 
 /* line 26, src/sass/_theme-ligh.scss */
-.notifyme.ligh.error .notifyme-ico:before {
+.toastme.ligh.error .toastme-ico:before {
   content: "\ea0d";
 }
 
 /* line 32, src/sass/_theme-ligh.scss */
-.notifyme.ligh.warning {
+.toastme.ligh.warning {
   color: #737373;
   background-color: #f9f9f9;
   border: 1px solid #ddd;
 }
 
 /* line 37, src/sass/_theme-ligh.scss */
-.notifyme.ligh.warning .notifyme-ico {
+.toastme.ligh.warning .toastme-ico {
   color: #FF9800;
 }
 
 /* line 40, src/sass/_theme-ligh.scss */
-.notifyme.ligh.warning .notifyme-ico:before {
+.toastme.ligh.warning .toastme-ico:before {
   content: "\ea07";
 }
 
 /* line 46, src/sass/_theme-ligh.scss */
-.notifyme.ligh.info {
+.toastme.ligh.info {
   color: #737373;
   background-color: #f9f9f9;
   border: 1px solid #ddd;
 }
 
 /* line 51, src/sass/_theme-ligh.scss */
-.notifyme.ligh.info .notifyme-ico {
+.toastme.ligh.info .toastme-ico {
   color: #2196F3;
 }
 
 /* line 54, src/sass/_theme-ligh.scss */
-.notifyme.ligh.info .notifyme-ico:before {
+.toastme.ligh.info .toastme-ico:before {
   content: "\ea0c";
 }
 

@@ -1,12 +1,12 @@
 /*!
- * notifymejs v0.0.1
+ * toastmejs v0.0.3
  * Notifications with pure javascript
  * (c) 2019 alexsegen
  * MIT License
- * git+https://github.com/AlexSegen/notifyme.git
+ * git+https://github.com/AlexSegen/toastmejs.git
  */
 
-class Notifyme {
+class Toastme {
   constructor(
     config = {
       timeout: null,
@@ -28,7 +28,7 @@ class Notifyme {
   }
   init() {
     document.addEventListener("click", (function (e) {
-      if (e.target.classList.contains("notifyme-close")) {
+      if (e.target.classList.contains("toastme-close")) {
         e.target.parentNode.remove();
       }
     }));
@@ -39,19 +39,19 @@ class Notifyme {
 
     this.init();
 
-    var notifyme = document.createElement("div");
-    notifyme.classList.add("notifyme", type, this.ligh ? 'ligh' : false);
-    this.positionX == 'center' ? (notifyme.style.right = '50%', notifyme.style.marginRight = '-125px') : (notifyme.style[this.positionX] = this.distanceX + "px");
-    notifyme.style[this.positionY] = this.distanceY + "px";
-    notifyme.style.zIndex = this.zIndex;
-    notifyme.innerHTML = `
-          <button class="notifyme-close"></button>
-          <i class="notifyme-ico"></i>
-          <div class="notifyme-content">${str}</div>`;
+    var toastme = document.createElement("div");
+    toastme.classList.add("toastme", type, this.ligh ? 'ligh' : false);
+    this.positionX == 'center' ? (toastme.style.right = '50%', toastme.style.marginRight = '-125px') : (toastme.style[this.positionX] = this.distanceX + "px");
+    toastme.style[this.positionY] = this.distanceY + "px";
+    toastme.style.zIndex = this.zIndex;
+    toastme.innerHTML = `
+          <button class="toastme-close"></button>
+          <i class="toastme-ico"></i>
+          <div class="toastme-content">${str}</div>`;
     setTimeout(() => {
-      notifyme.remove();
+      toastme.remove();
     }, this.timeout);
-    return notifyme;
+    return toastme;
   }
   success(str) {
     document.body.appendChild(this.getMessage("success", str));
@@ -66,11 +66,11 @@ class Notifyme {
     document.body.appendChild(this.getMessage("info", str));
   }
   closeAll() {
-    let array = document.querySelectorAll(".notifyme");
+    let array = document.querySelectorAll(".toastme");
     array.forEach((function (item) {
       item.parentNode.removeChild(item);
     }));
   }
 }
 
-const notifyme = new Notifyme();
+const toastme = new Toastme();

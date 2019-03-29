@@ -1,5 +1,5 @@
 
-# NotifymeJS
+# ToastmeJS
 
 
 
@@ -7,7 +7,7 @@
 
   
 
-NotifymeJS is a very simple and light weigth plugin that shows notifications on your browser.
+ToastmeJS is a very simple and light weigth plugin that shows notifications on your browser.
 
   
 
@@ -15,7 +15,7 @@ NotifymeJS is a very simple and light weigth plugin that shows notifications on 
 - Customize position
 - Default and ligh theme!
 
-Want to see a demo? Click [here](https://alexsegen.github.io/notifymejs/)
+Want to see a demo? Click [here](https://alexsegen.github.io/toastmejs/)
 
 # Features!
 
@@ -30,12 +30,12 @@ Want to see a demo? Click [here](https://alexsegen.github.io/notifymejs/)
 
   
 
-Notifyme does not have any dependencies to run. Just include necesary files  on your project
+Toastme does not have any dependencies to run. Just include necesary files  on your project
 
   
 ```sh
-<link rel="stylesheet" href="./dist/css/notifyme.css">
-<script src="./dist/js/notifyme.js" ></script>
+<link rel="stylesheet" href="./dist/css/toastme.css">
+<script src="./dist/js/toastme.js" ></script>
 ```
   
 
@@ -44,13 +44,13 @@ Notifyme does not have any dependencies to run. Just include necesary files  on 
 Call one of these functions to show the notification you need
 
 ```sh
-notify.success("This is a 'success' notification")
+toastme.success("This is a 'success' notification")
 
-notify.error("This is an 'error' notification")
+toastme.error("This is an 'error' notification")
 
-notify.warning("This is a 'warning' notification")
+toastme.warning("This is a 'warning' notification")
 
-notify.info("This is an 'info' notification")
+toastme.info("This is an 'info' notification")
 ```
   
   
@@ -73,6 +73,9 @@ You can customize duration, position, distance, z-index and a ligh theme
 
   
 
+You need to declare a new Object with new settings, finally, create a new **Toastme Class** instance.
+
+
 ```sh
 const config = {
 	timeout: 5000,
@@ -84,7 +87,13 @@ const config = {
 	ligh: true // Ligh theme
 };
 
-const myNotify = new Notify(config);
+const myToast = new Toastme(config);
+```
+
+Next, you can call the function with new configurations:
+
+```sh
+	myToast.success('This is a new success notification')
 ```
 
   

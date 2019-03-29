@@ -1,11 +1,11 @@
-.notifyme {
+.toastme {
     &.ligh {
         &.success {
             color: $font-color-light;
             background-color: $bg-light;
             border: 1px solid $border-light;
 
-            .notifyme-ico {
+            .toastme-ico {
                 color: $success;
 
                 &:before {
@@ -20,7 +20,7 @@
             background-color: $bg-light;
             border: 1px solid $border-light;
 
-            .notifyme-ico {
+            .toastme-ico {
                 color: $danger;
 
                 &:before {
@@ -34,7 +34,7 @@
             background-color: $bg-light;
             border: 1px solid $border-light;
 
-            .notifyme-ico {
+            .toastme-ico {
                 color: $warning;
 
                 &:before {
@@ -48,7 +48,7 @@
             background-color: $bg-light;
             border: 1px solid $border-light;
 
-            .notifyme-ico {
+            .toastme-ico {
                 color: $info;
 
                 &:before {

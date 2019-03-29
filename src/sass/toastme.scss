@@ -1,17 +1,17 @@
 @import 'variables';
 
 @font-face {
-  font-family: 'notifyme';
-  src:  url('../icons/notifyme.eot?cksqmu');
-  src:  url('../icons/notifyme.eot?cksqmu#iefix') format('embedded-opentype'),
-    url('../icons/notifyme.ttf?cksqmu') format('truetype'),
-    url('../icons/notifyme.woff?cksqmu') format('woff'),
-    url('../icons/notifyme.svg?cksqmu#notifyme') format('svg');
+  font-family: 'toastme';
+  src:  url('../icons/toastme.eot?cksqmu');
+  src:  url('../icons/toastme.eot?cksqmu#iefix') format('embedded-opentype'),
+    url('../icons/toastme.ttf?cksqmu') format('truetype'),
+    url('../icons/toastme.woff?cksqmu') format('woff'),
+    url('../icons/toastme.svg?cksqmu#toastme') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
-.notifyme {
+.toastme {
   font-size: $font-size;
   font-family: $font-family;
   color: $font-color-default;
@@ -38,7 +38,7 @@
   &.success {
     color: $font-color;
     background-color: $success;
-    .notifyme-ico {
+    .toastme-ico {
       color: $success;
       &:before {
         content: "\ea10";
@@ -50,7 +50,7 @@
     &.error {
     color: $font-color;
     background-color: $danger;
-    .notifyme-ico {
+    .toastme-ico {
       color: $danger;
       &:before {
         content: "\ea0d";
@@ -61,7 +61,7 @@
   &.warning {
     color: $font-color;
     background-color: $warning;
-    .notifyme-ico {
+    .toastme-ico {
       color: $warning;
       &:before {
         content: "\ea07";
@@ -72,7 +72,7 @@
   &.info {
     color: $font-color;
     background-color: $info;
-    .notifyme-ico {
+    .toastme-ico {
       color: $info;
         &:before {
           content: "\ea0c";
@@ -81,7 +81,7 @@
   }
   
   
-  .notifyme-close {
+  .toastme-close {
     color: #333;
     opacity: 0.7;
     float: right;
@@ -103,8 +103,8 @@
     }
   }
   
-  .notifyme-ico {
-    font-family: 'notifyme' !important;
+  .toastme-ico {
+    font-family: 'toastme' !important;
     font-size: 1.5rem;
     speak: none;
     font-style: normal;
@@ -131,7 +131,7 @@
       content: "\ea08";
     }
   }
-  .notifyme-content {
+  .toastme-content {
     white-space: nowrap;
   }
 }
