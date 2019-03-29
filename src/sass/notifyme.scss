@@ -1,23 +1,23 @@
 @import 'variables';
 
 @font-face {
-  font-family: 'notify';
-  src:  url('../icons/notify.eot?cksqmu');
-  src:  url('../icons/notify.eot?cksqmu#iefix') format('embedded-opentype'),
-    url('../icons/notify.ttf?cksqmu') format('truetype'),
-    url('../icons/notify.woff?cksqmu') format('woff'),
-    url('../icons/notify.svg?cksqmu#icomoon') format('svg');
+  font-family: 'notifyme';
+  src:  url('../icons/notifyme.eot?cksqmu');
+  src:  url('../icons/notifyme.eot?cksqmu#iefix') format('embedded-opentype'),
+    url('../icons/notifyme.ttf?cksqmu') format('truetype'),
+    url('../icons/notifyme.woff?cksqmu') format('woff'),
+    url('../icons/notifyme.svg?cksqmu#notifyme') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
-.notify {
-  font-size: 13px;
-  font-family: helvetica, 'san-serif';
+.notifyme {
+  font-size: $font-size;
+  font-family: $font-family;
   color: $font-color-default;
   display: flex;
   align-items: center;
-  max-width: 250px;
+  max-width: $max-width;
   text-align: left;
   padding: 10px 10px 10px 45px;
   border-radius: 2px;
@@ -38,7 +38,7 @@
   &.success {
     color: $font-color;
     background-color: $success;
-    .notify-ico {
+    .notifyme-ico {
       color: $success;
       &:before {
         content: "\ea10";
@@ -50,7 +50,7 @@
     &.error {
     color: $font-color;
     background-color: $danger;
-    .notify-ico {
+    .notifyme-ico {
       color: $danger;
       &:before {
         content: "\ea0d";
@@ -61,7 +61,7 @@
   &.warning {
     color: $font-color;
     background-color: $warning;
-    .notify-ico {
+    .notifyme-ico {
       color: $warning;
       &:before {
         content: "\ea07";
@@ -72,7 +72,7 @@
   &.info {
     color: $font-color;
     background-color: $info;
-    .notify-ico {
+    .notifyme-ico {
       color: $info;
         &:before {
           content: "\ea0c";
@@ -81,7 +81,7 @@
   }
   
   
-  .notify-close {
+  .notifyme-close {
     color: #333;
     opacity: 0.7;
     float: right;
@@ -103,8 +103,8 @@
     }
   }
   
-  .notify-ico {
-    font-family: 'notify' !important;
+  .notifyme-ico {
+    font-family: 'notifyme' !important;
     font-size: 1.5rem;
     speak: none;
     font-style: normal;
@@ -131,13 +131,13 @@
       content: "\ea08";
     }
   }
-  .notify-content {
+  .notifyme-content {
     white-space: nowrap;
   }
 }
 
 //Light Theme
-@import 'theme-light';
+@import 'theme-ligh';
 
 @keyframes toastIn {
   0% {

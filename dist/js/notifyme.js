@@ -1,12 +1,12 @@
 /*!
- * notifyme v0.0.1
+ * notifymejs v0.0.1
  * Notifications with pure javascript
  * (c) 2019 alexsegen
  * MIT License
  * git+https://github.com/AlexSegen/notifyme.git
  */
 
-class Notify {
+class Notifyme {
   constructor(
     config = {
       timeout: null,
@@ -15,7 +15,7 @@ class Notify {
       positionY: null,
       positionX: null,
       zIndex: null,
-      light: false
+      ligh: false
     }
   ) {
     this.timeout = config.timeout || 5000;
@@ -24,11 +24,11 @@ class Notify {
     this.positionY = config.positionY || "bottom";
     this.positionX = config.positionX || "right"; //right, left, center
     this.zIndex = config.zIndex || 100;
-    this.light = config.light || false;
+    this.ligh = config.ligh || false;
   }
   init() {
     document.addEventListener("click", (function (e) {
-      if (e.target.classList.contains("notify-close")) {
+      if (e.target.classList.contains("notifyme-close")) {
         e.target.parentNode.remove();
       }
     }));
@@ -39,20 +39,19 @@ class Notify {
 
     this.init();
 
-    var notify = document.createElement("div");
-    notify.classList.add("notify", type, this.light ? 'light' : false);
-    this.positionX == 'center' ? (notify.style.right = '50%', notify.style.marginRight = '-125px') : (notify.style[this.positionX] = this.distanceX + "px");
-    //notify.style[this.positionX] = this.distanceX + "px";
-    notify.style[this.positionY] = this.distanceY + "px";
-    notify.style.zIndex = this.zIndex;
-    notify.innerHTML = `
-          <button class="notify-close"></button>
-          <i class="notify-ico"></i>
-          <div class="notify-content">${str}</div>`;
+    var notifyme = document.createElement("div");
+    notifyme.classList.add("notifyme", type, this.ligh ? 'ligh' : false);
+    this.positionX == 'center' ? (notifyme.style.right = '50%', notifyme.style.marginRight = '-125px') : (notifyme.style[this.positionX] = this.distanceX + "px");
+    notifyme.style[this.positionY] = this.distanceY + "px";
+    notifyme.style.zIndex = this.zIndex;
+    notifyme.innerHTML = `
+          <button class="notifyme-close"></button>
+          <i class="notifyme-ico"></i>
+          <div class="notifyme-content">${str}</div>`;
     setTimeout(() => {
-      notify.remove();
+      notifyme.remove();
     }, this.timeout);
-    return notify;
+    return notifyme;
   }
   success(str) {
     document.body.appendChild(this.getMessage("success", str));
@@ -67,11 +66,11 @@ class Notify {
     document.body.appendChild(this.getMessage("info", str));
   }
   closeAll() {
-    let array = document.querySelectorAll(".notify");
+    let array = document.querySelectorAll(".notifyme");
     array.forEach((function (item) {
       item.parentNode.removeChild(item);
     }));
   }
 }
 
-const notify = new Notify();
+const notifyme = new Notifyme();

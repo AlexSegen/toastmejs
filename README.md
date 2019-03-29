@@ -1,26 +1,19 @@
 
 # NotifymeJS
 
-  
 
-[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
-
-  
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
   
 
-NotifymeJS is a very simple and ligh weigth plugin that shows notifications on your browser.
+NotifymeJS is a very simple and light weigth plugin that shows notifications on your browser.
 
   
 
 - Customize colors
 - Customize position
-- Default and light theme!
-
-  
-# Demo
+- Default and ligh theme!
 
 Want to see a demo? Click [here](https://alexsegen.github.io/notifymejs/)
 
@@ -29,7 +22,7 @@ Want to see a demo? Click [here](https://alexsegen.github.io/notifymejs/)
   
 
 - Customizable
-- Ligh weight < 12kb
+- Light weight < 12kb
 
   
 
@@ -68,7 +61,7 @@ Call one of these functions to show the notification you need
 
   
 
-You can customize duration, position, distance, z-index and a light theme
+You can customize duration, position, distance, z-index and a ligh theme
 
   
 
@@ -78,7 +71,7 @@ You can customize duration, position, distance, z-index and a light theme
 - **distanceY:** distance from the Y axis
 - **distanceX:** distance from the X axis
 - **zIndex:** overlapping order
-- **light:** change to 'true' if you want Light themed notifications.
+- **ligh:** change to 'true' if you want ligh themed notifications.
 
   
 
@@ -90,7 +83,7 @@ const config = {
 	distanceY: 20, // Integer value
 	distanceX: 20, // Integer value
 	zIndex: 100, // Integer value
-	light: true // Light theme
+	ligh: true // Ligh theme
 };
 
 const myNotify = new Notify(config);

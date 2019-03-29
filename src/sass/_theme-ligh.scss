@@ -1,11 +1,11 @@
-.notify {
-    &.light {
+.notifyme {
+    &.ligh {
         &.success {
             color: $font-color-light;
             background-color: $bg-light;
             border: 1px solid $border-light;
 
-            .notify-ico {
+            .notifyme-ico {
                 color: $success;
 
                 &:before {
@@ -20,7 +20,7 @@
             background-color: $bg-light;
             border: 1px solid $border-light;
 
-            .notify-ico {
+            .notifyme-ico {
                 color: $danger;
 
                 &:before {
@@ -34,7 +34,7 @@
             background-color: $bg-light;
             border: 1px solid $border-light;
 
-            .notify-ico {
+            .notifyme-ico {
                 color: $warning;
 
                 &:before {
@@ -48,7 +48,7 @@
             background-color: $bg-light;
             border: 1px solid $border-light;
 
-            .notify-ico {
+            .notifyme-ico {
                 color: $info;
 
                 &:before {
