@@ -65,10 +65,16 @@ class Toastme {
   }
 }
 
-export {
+/* export {
   Toastme
 }
 
-const toastme = new Toastme();
+const toastme = new Toastme(); */
+/*
+* import Toastme from 'toastmejs/index'
+* new Toastme().success('hola');
+*
+*/
 
-export default toastme
+
+module.exports = Toastme
