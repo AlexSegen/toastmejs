@@ -1,6 +1,6 @@
 {
 	"name": "toastmejs",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "Notifications with pure javascript",
 	"main": "./dist/js/toastme.js",
 	"author": {
