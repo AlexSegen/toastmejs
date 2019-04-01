@@ -1,5 +1,5 @@
 /*!
- * toastmejs v0.0.3
+ * toastmejs v0.0.6
  * Notifications with pure javascript
  * (c) 2019 alexsegen
  * MIT License
@@ -74,3 +74,5 @@ class Toastme {
 }
 
 const toastme = new Toastme();
+
+module.exports = toastme

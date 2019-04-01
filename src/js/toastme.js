@@ -66,3 +66,5 @@ class Toastme {
 }
 
 const toastme = new Toastme();
+
+module.exports = toastme
