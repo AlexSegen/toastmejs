@@ -116,8 +116,8 @@
   color: #333;
   opacity: 0.7;
   float: right;
-  right: -4px;
-  top: -4px;
+  right: -2px;
+  top: -2px;
   position: absolute;
   background: transparent;
   border: none;
@@ -180,6 +180,7 @@
 /* line 134, src/sass/toastme.scss */
 .toastme .toastme-content {
   white-space: nowrap;
+  min-width: 150px;
 }
 
 /* line 3, src/sass/_theme-ligh.scss */
