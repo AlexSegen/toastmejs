@@ -37,6 +37,10 @@ $question: #3F51B5;
         background-size: 100% 100%;
         background-image: url(../icons/toastme-dialog-ico-warning.png);
     }
+    &.question {
+        background-size: 100% 100%;
+        background-image: url(../icons/toastme-dialog-ico-question.png);
+    }
 }
 
 .toastme-dialog {

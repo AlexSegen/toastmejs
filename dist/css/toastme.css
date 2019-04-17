@@ -1,0 +1,451 @@
+/*!
+ * toastmejs v0.1.0
+ * Notifications with pure javascript
+ * (c) 2019 alexsegen
+ * MIT License
+ * git+https://github.com/AlexSegen/toastmejs.git
+ */
+
+/* line 7, src/sass/_dialog.scss */
+.toastme-dialog-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 999;
+}
+
+/* line 19, src/sass/_dialog.scss */
+.toastme-dialog-ico {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+/* line 24, src/sass/_dialog.scss */
+.toastme-dialog-ico.success {
+  background-size: 100% 100%;
+  background-image: url(../icons/toastme-dialog-ico-success.png);
+}
+
+/* line 28, src/sass/_dialog.scss */
+.toastme-dialog-ico.danger {
+  background-size: 100% 100%;
+  background-image: url(../icons/toastme-dialog-ico-danger.png);
+}
+
+/* line 32, src/sass/_dialog.scss */
+.toastme-dialog-ico.info {
+  background-size: 100% 100%;
+  background-image: url(../icons/toastme-dialog-ico-info.png);
+}
+
+/* line 36, src/sass/_dialog.scss */
+.toastme-dialog-ico.warning {
+  background-size: 100% 100%;
+  background-image: url(../icons/toastme-dialog-ico-warning.png);
+}
+
+/* line 40, src/sass/_dialog.scss */
+.toastme-dialog-ico.question {
+  background-size: 100% 100%;
+  background-image: url(../icons/toastme-dialog-ico-question.png);
+}
+
+/* line 46, src/sass/_dialog.scss */
+.toastme-dialog {
+  padding: 10px;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  display: inline-block;
+  color: #737373;
+  background: #f9f9f9;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  width: 280px;
+  position: absolute;
+  top: calc(50% - 200px);
+  left: calc(50% - 190px);
+  z-index: 1000;
+  -webkit-transition: all ease-in-out .2s;
+  transition: all ease-in-out .2s;
+  -webkit-box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.05);
+  -webkit-animation: toastDialogIn .2s ease-in-out .0s forwards;
+          animation: toastDialogIn .2s ease-in-out .0s forwards;
+}
+
+/* line 65, src/sass/_dialog.scss */
+.toastme-dialog.toastme-dialog-closing {
+  -webkit-animation: toastDialogOut .2s ease-in-out .0s forwards;
+          animation: toastDialogOut .2s ease-in-out .0s forwards;
+}
+
+/* line 69, src/sass/_dialog.scss */
+.toastme-dialog .toastme-dialog-text {
+  font-size: 14px;
+  color: #737373;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0 0 10px;
+  line-height: 14px;
+}
+
+/* line 77, src/sass/_dialog.scss */
+.toastme-dialog .toastme-dialog-title {
+  font-size: 15px;
+  color: #4c4c4c;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0 0 10px;
+  line-height: 16px;
+}
+
+/* line 85, src/sass/_dialog.scss */
+.toastme-dialog .--toastme-confirm {
+  color: #fff;
+  font-size: 14px;
+  white-space: nowrap;
+  cursor: pointer;
+  background: #3F51B5;
+  border: 1px solid #3F51B5;
+  padding: 8px 15px;
+  margin: 3px;
+  border-radius: 3px;
+}
+
+/* line 97, src/sass/_dialog.scss */
+.toastme-dialog .--toastme-cancel {
+  color: #4c4c4c;
+  font-size: 14px;
+  white-space: nowrap;
+  cursor: pointer;
+  background: #eee;
+  border: 1px solid #ddd;
+  padding: 8px 15px;
+  margin: 3px;
+  border-radius: 3px;
+}
+
+@-webkit-keyframes toastDialogIn {
+  0% {
+    -webkit-transform: rotate(0) translateY(-30px);
+            transform: rotate(0) translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotate(0) translateY(0);
+            transform: rotate(0) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toastDialogIn {
+  0% {
+    -webkit-transform: rotate(0) translateY(-30px);
+            transform: rotate(0) translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotate(0) translateY(0);
+            transform: rotate(0) translateY(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes toastDialogOut {
+  0% {
+    -webkit-transform: rotate(0) translateY(0);
+            transform: rotate(0) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: rotate(0) translateY(-30px);
+            transform: rotate(0) translateY(-30px);
+    opacity: 0;
+  }
+}
+
+@keyframes toastDialogOut {
+  0% {
+    -webkit-transform: rotate(0) translateY(0);
+            transform: rotate(0) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: rotate(0) translateY(-30px);
+            transform: rotate(0) translateY(-30px);
+    opacity: 0;
+  }
+}
+
+@font-face {
+  font-family: 'toastme';
+  src: url("../icons/toastme.eot?cksqmu");
+  src: url("../icons/toastme.eot?cksqmu#iefix") format("embedded-opentype"), url("../icons/toastme.ttf?cksqmu") format("truetype"), url("../icons/toastme.woff?cksqmu") format("woff"), url("../icons/toastme.svg?cksqmu#toastme") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* line 16, src/sass/toastme.scss */
+.toastme {
+  font-size: 13px;
+  font-family: Helvetica, "san-serif";
+  color: #737373;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 250px;
+  text-align: left;
+  padding: 10px 10px 10px 45px;
+  border-radius: 2px;
+  background-color: #f5f5f5;
+  position: fixed;
+  opacity: 0.7;
+  cursor: pointer;
+  z-index: 100;
+  -webkit-transform: translateY(20px);
+          transform: translateY(20px);
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  -webkit-animation: toastIn .2s forwards 0s ease-in-out;
+          animation: toastIn .2s forwards 0s ease-in-out;
+}
+
+/* line 35, src/sass/toastme.scss */
+.toastme:hover, .toastme:focus {
+  opacity: 1;
+}
+
+/* line 40, src/sass/toastme.scss */
+.toastme.success {
+  color: #fff;
+  background-color: #8BC34A;
+}
+
+/* line 43, src/sass/toastme.scss */
+.toastme.success .toastme-ico {
+  color: #8BC34A;
+}
+
+/* line 45, src/sass/toastme.scss */
+.toastme.success .toastme-ico:before {
+  content: "\ea10";
+}
+
+/* line 52, src/sass/toastme.scss */
+.toastme.error {
+  color: #fff;
+  background-color: #f44336;
+}
+
+/* line 55, src/sass/toastme.scss */
+.toastme.error .toastme-ico {
+  color: #f44336;
+}
+
+/* line 57, src/sass/toastme.scss */
+.toastme.error .toastme-ico:before {
+  content: "\ea0d";
+}
+
+/* line 63, src/sass/toastme.scss */
+.toastme.warning {
+  color: #fff;
+  background-color: #FFC107;
+}
+
+/* line 66, src/sass/toastme.scss */
+.toastme.warning .toastme-ico {
+  color: #FFC107;
+}
+
+/* line 68, src/sass/toastme.scss */
+.toastme.warning .toastme-ico:before {
+  content: "\ea07";
+}
+
+/* line 74, src/sass/toastme.scss */
+.toastme.info {
+  color: #fff;
+  background-color: #03A9F4;
+}
+
+/* line 77, src/sass/toastme.scss */
+.toastme.info .toastme-ico {
+  color: #03A9F4;
+}
+
+/* line 79, src/sass/toastme.scss */
+.toastme.info .toastme-ico:before {
+  content: "\ea0c";
+}
+
+/* line 86, src/sass/toastme.scss */
+.toastme .toastme-close {
+  color: #333;
+  opacity: 0.7;
+  float: right;
+  right: -2px;
+  top: -2px;
+  position: absolute;
+  background: transparent;
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  cursor: pointer;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+/* line 98, src/sass/toastme.scss */
+.toastme .toastme-close:after {
+  content: 'x';
+  color: #ddd;
+}
+
+/* line 102, src/sass/toastme.scss */
+.toastme .toastme-close:hover, .toastme .toastme-close:focus {
+  opacity: 1;
+}
+
+/* line 108, src/sass/toastme.scss */
+.toastme .toastme-ico {
+  font-family: 'toastme' !important;
+  font-size: 1.5rem;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #333;
+  float: left;
+  font-style: normal;
+  width: 30px;
+  height: 30px;
+  border-radius: 2px;
+  position: absolute;
+  left: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  background: #fff;
+}
+
+/* line 132, src/sass/toastme.scss */
+.toastme .toastme-ico:before {
+  content: "\ea08";
+}
+
+/* line 136, src/sass/toastme.scss */
+.toastme .toastme-content {
+  white-space: nowrap;
+  min-width: 150px;
+}
+
+/* line 3, src/sass/_theme-ligh.scss */
+.toastme.ligh.success {
+  color: #737373;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+}
+
+/* line 8, src/sass/_theme-ligh.scss */
+.toastme.ligh.success .toastme-ico {
+  color: #8BC34A;
+}
+
+/* line 11, src/sass/_theme-ligh.scss */
+.toastme.ligh.success .toastme-ico:before {
+  content: "\ea10";
+}
+
+/* line 18, src/sass/_theme-ligh.scss */
+.toastme.ligh.error {
+  color: #737373;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+}
+
+/* line 23, src/sass/_theme-ligh.scss */
+.toastme.ligh.error .toastme-ico {
+  color: #f44336;
+}
+
+/* line 26, src/sass/_theme-ligh.scss */
+.toastme.ligh.error .toastme-ico:before {
+  content: "\ea0d";
+}
+
+/* line 32, src/sass/_theme-ligh.scss */
+.toastme.ligh.warning {
+  color: #737373;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+}
+
+/* line 37, src/sass/_theme-ligh.scss */
+.toastme.ligh.warning .toastme-ico {
+  color: #FFC107;
+}
+
+/* line 40, src/sass/_theme-ligh.scss */
+.toastme.ligh.warning .toastme-ico:before {
+  content: "\ea07";
+}
+
+/* line 46, src/sass/_theme-ligh.scss */
+.toastme.ligh.info {
+  color: #737373;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+}
+
+/* line 51, src/sass/_theme-ligh.scss */
+.toastme.ligh.info .toastme-ico {
+  color: #03A9F4;
+}
+
+/* line 54, src/sass/_theme-ligh.scss */
+.toastme.ligh.info .toastme-ico:before {
+  content: "\ea0c";
+}
+
+@-webkit-keyframes toastIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes toastIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}

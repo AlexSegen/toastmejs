@@ -67,53 +67,6 @@ const config = {
 </pre></p>
 
 
-<h1>Toastme Dialogs</h1>
-<p>Click some buttons to get some dialogs!</p>
-
-<div class="demos">
-        <div class="list">
-                <ul>
-                    <p>Default types</p>
-    
-                </ul>
-            </div>
-        <div class="list">
-            <ul>
-                <p>Dialog types</p>
-                <li><button type="button" class="button success ligh" onclick="successDialog()"> Success </button></li>
-                <li><button type="button" class="button error ligh" onclick="dangerDialog()"> Danger </button></li>
-                <li><button type="button" class="button warning ligh" onclick="warningDialog()"> Warning </button></li>
-                <li><button type="button" class="button info ligh" onclick="infoDialog()"> Info </button></li>
-                <li><button type="button" class="button info ligh" onclick="questionDialog()"> Question </button></li>
-            </ul>
-        </div>
-        <div class="clearfix"></div>
-</div>
-
-
-<h3>Customize your dialogs</h3>
-<p>You can customize your toastme dialog</p>
-<ol class="options">
-    <li><span>title:</span> dialog title</li>
-    <li><span>text:</span> dialog text</li>
-    <li><span>textConfirm:</span> confirm button caption</li>
-    <li><span>textCancel:</span> cancel button caption</li>
-    <li><span>showCancel:</span> Show cancel button? 'true' or 'false'</li>
-    <li><span>zIndex:</span> overlapping order</li>
-    <li><span>ligh:</span> change to 'true' if you want Ligh themed notifications.</li>
-</ol>
-<p>
-<pre>
-    {
-        title: "You are the winner!"
-        text: "Do you want to pick your price?"
-        textConfirm: "Yes"
-        textCancel: "No"
-        showCancel: true
-        type: "success"
-    }
-</pre></p>
-
 
 </body>
 
@@ -121,8 +74,6 @@ const config = {
 <script src="./dist/js/toastme.js" ></script>
 
 <script>
-
-    //TOASTME
     function success () {
         toastme.success("This is a 'success' <a href='#'>Go to google</a> notification")
     }
@@ -163,66 +114,6 @@ const config = {
     }
     function infoL () {
         myToast.info("This is an 'info' notification")
-    }
-
-
-    //TOASTME DIALOG
-
-
-    function successDialog () {
-        toastme.yesNoDialog({
-            title: "You are the Winner!",
-            text: "Do you want to pick your price?",
-            textConfirm: "Yes, collect price.",
-            textCancel: "Maybe later",
-            showCancel: true,
-            type: "success"
-        }).then(function(value) {
-            if (value) {
-                myToast.success("You have picked your price")
-            } else {
-                myToast.warning("You can pick your price later")
-            }
-        });
-    }
-
-    function dangerDialog () {
-        toastme.yesNoDialog({
-            title: "Do you want to delete?",
-            text: "You can't undone this",
-            textConfirm: "Confirm delete",
-            textCancel: "Cancel",
-            showCancel: true,
-            type: "danger"
-        }).then(function(value) {
-            if (value) {
-                toastme.error("You have deleted")
-            }
-        });
-    }
-    function warningDialog () {
-        toastme.yesNoDialog({
-            text: "This is a warning Dialog",
-            textConfirm: "I like it",
-            showCancel: false,
-            type: "warning"
-        })
-    }
-    function infoDialog () {
-        toastme.yesNoDialog({
-            text: "You can fork this repository!",
-            textConfirm: "Awesome!",
-            showCancel: false,
-            type: "info"
-        })
-    }
-    function questionDialog () {
-        toastme.yesNoDialog({
-            text: "Will you share this with your friends?",
-            textConfirm: "I will share it!",
-            showCancel: false,
-            type: "question"
-        })
     }
 </script>
 </html>
