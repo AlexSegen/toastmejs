@@ -34,23 +34,6 @@ class Toastme {
       }
     }));
   }
-  initDialog() {
-    document.addEventListener("click", (function (e) {
-      if (e.target.classList.contains("--toastme-dialog-action")) {
-        let array = document.querySelectorAll(".toastme-dialog-bg");
-        array.forEach((function (item) {
-          item.childNodes[1].classList.add("toastme-dialog-closing");
-        }));
-        setTimeout(() => {
-          let array = document.querySelectorAll(".toastme-dialog-bg");
-          array.forEach((function (item) {
-            item.style.display = "none";
-            item.parentNode.removeChild(item);
-          }));
-        }, 500);
-      }
-    }));
-  }
   getMessage(type, str) {
 
     this.closeAllToasts();
@@ -85,12 +68,31 @@ class Toastme {
   }
 
   //Toastme Dialog 
+
+  initDialog() {
+    document.addEventListener("click", (function (e) {
+      if (e.target.classList.contains("--toastme-dialog-action")) {
+        let array = document.querySelectorAll(".toastme-dialog-bg");
+        array.forEach((function (item) {
+          item.childNodes[1].classList.add("toastme-dialog-closing");
+        }));
+        setTimeout(() => {
+          let array = document.querySelectorAll(".toastme-dialog-bg");
+          array.forEach((function (item) {
+            item.style.display = "none";
+            item.parentNode.removeChild(item);
+          }));
+        }, 500);
+      }
+    }));
+  }
+
   buildDialog(title, text, textConfirm, textCancel, showCancel, type) {
     var showTitle = title ? `<p class="toastme-dialog-title">${title}</p>` : "";
     var showText = text ? `<p class="toastme-dialog-text">${text}</p>` : "";
     var showType = this.selectType(type) ? this.selectType(type) : "";
     var btnCancel = showCancel ?
-      `<button id="toastmeCancel" class="--toastme-dialog-action --toastme-cancel">${textCancel}</button>` :
+      `<button id="toastmeCancel" class="--toastme-dialog-action --toastme-cancel">${textCancel || "Cancel"}</button>` :
       "";
     var dialog = document.createElement("div");
     dialog.setAttribute("id", "toastme-dialog-bg");
@@ -100,7 +102,7 @@ class Toastme {
         <div class="toastme-dialog-content">
             ${showType} ${showTitle} ${showText}
 			<div class="toastme-diag-actions">
-				<button id="toastmeConfirm" class="--toastme-dialog-action --toastme-confirm">${textConfirm}</button>
+				<button id="toastmeConfirm" class="--toastme-dialog-action --toastme-confirm">${textConfirm || "Confirm"}</button>
                 ${btnCancel}
 			</div>
         </div>
@@ -117,7 +119,7 @@ class Toastme {
         return `<div class="toastme-dialog-ico info"></div>`;
       case "warning":
         return `<div class="toastme-dialog-ico warning"></div>`;
-      case "warning":
+      case "question":
         return `<div class="toastme-dialog-ico question"></div>`;
       default:
         return false;
@@ -152,11 +154,12 @@ class Toastme {
         .addEventListener("click", (function () {
           resolve(true);
         }));
-      document
-        .getElementById("toastmeCancel")
-        .addEventListener("click", (function () {
-          resolve(false);
-        }));
+        var btnCancel = document.getElementById("toastmeCancel");
+        if(btnCancel) {
+          btnCancel.addEventListener("click", (function () {
+            resolve(false);
+          }));
+        }
     });
     return yesNoDialog;
   }

@@ -6,13 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ToastmeJS Demo</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
     
     <!--Toastme CSS-->
     <link rel="stylesheet" href="./dist/css/toastme.css">
     
     <!--Demo CSS-->
     <style>
-        body{color:#333;text-align:center;font-family:Roboto,sans-serif}h1{margin-top:50px;margin-bottom:5px;font-size:30px;font-weight:400}h3{color:#737373;font-size:24px;font-weight:400;margin-top:10px;margin-bottom:20px}ul{list-style:none;padding:0;margin:20px 0}.button{cursor:pointer;padding:10px 25px;box-shadow:none;border:none;margin-bottom:10px;min-width:100px}.button.default{color:#737373;background-color:#f5f5f5}.button.success{color:#fff;background-color:#8bc34a}.button.error{color:#fff;background-color:#f44336}.button.warning{color:#fff;background-color:#ff9800}.button.info{color:#fff;background-color:#2196f3}.button.success.ligh{color:#8bc34a;background-color:#f5f5f5!important}.button.error.ligh{color:#f44336;background-color:#f5f5f5!important}.button.warning.ligh{color:#ff9800;background-color:#f5f5f5!important}.button.info.ligh{color:#2196f3;background-color:#f5f5f5!important}pre{ white-space: pre-wrap; text-align:left;max-width:400px;margin:20px auto;padding:10px;border-radius:3px;border:1px solid #ddd}.options{text-align:left;max-width:400px;margin:20px auto}.options>li{margin-bottom:10px}.options span{color:#737373;font-weight:600}.demos{color:#737373;max-width:400px;margin:15px auto;position:relative}.demos .list{float:left;width:50%}.clearfix{clear:both}@media(max-width:767px){.demos .list{float:unset;width:100%}}
+        body{color:#333;text-align:center;font-family:Roboto,sans-serif}h1{margin-top:50px;margin-bottom:5px;font-size:30px;font-weight:400}h3{color:#737373;font-size:24px;font-weight:400;margin-top:10px;margin-bottom:20px}ul{list-style:none;padding:0;margin:20px 0}.button{cursor:pointer;padding:10px 25px;box-shadow:none;border:none;margin-bottom:10px;min-width:100px}.button.default{color:#737373;background-color:#f5f5f5}.button.success{color:#fff;background-color:#8bc34a}.button.error{color:#fff;background-color:#f44336}.button.warning{color:#fff;background-color:#ff9800}.button.info{color:#fff;background-color:#2196f3}.button.success.ligh{color:#8bc34a;background-color:#f5f5f5!important}.button.error.ligh{color:#f44336;background-color:#f5f5f5!important}.button.warning.ligh{color:#ff9800;background-color:#f5f5f5!important}.button.info.ligh{color:#2196f3;background-color:#f5f5f5!important}pre{max-width:400px;margin:20px auto;text-align: left;}.options{text-align:left;max-width:400px;margin:20px auto}.options>li{margin-bottom:10px}.options span{color:#737373;font-weight:600}.demos{color:#737373;max-width:400px;margin:15px auto;position:relative}.demos .list{float:left;width:50%}.clearfix{clear:both}@media(max-width:767px){.demos .list{float:unset;width:100%}}
     </style>
 
 </head>
@@ -55,6 +58,7 @@
     </ol>
     <p>
 <pre>
+<code class="javascript">
 const config = {
     timeout: 5000,
     positionY: "bottom", // top or bottom
@@ -64,8 +68,67 @@ const config = {
     zIndex: 100, // Integer value
     ligh: true // 'true' or 'false to set ligh theme
 };
+</code>
 </pre></p>
 
+
+<h1>Toastme Dialogs</h1>
+<p>Click some buttons to get some dialogs!</p>
+
+<div class="demos">
+        <div class="list">
+                <ul>
+                    <p>Dialog default</p>
+                    <li><button type="button" class="button ligh" onclick="fullDialog()"> Title and text </button></li>
+                    <li><button type="button" class="button ligh" onclick="titleDialog()"> Title only </button></li>
+                    <li><button type="button" class="button ligh" onclick="textDialog()"> Text only </button></li>
+                    <li><button type="button" class="button ligh" onclick="emptyDialog()"> Without title and text </button></li>
+                </ul>
+            </div>
+        <div class="list">
+            <ul>
+                <p>Dialog types</p>
+                <li><button type="button" class="button success ligh" onclick="successDialog()"> Success </button></li>
+                <li><button type="button" class="button error ligh" onclick="dangerDialog()"> Danger </button></li>
+                <li><button type="button" class="button warning ligh" onclick="warningDialog()"> Warning </button></li>
+                <li><button type="button" class="button info ligh" onclick="infoDialog()"> Info </button></li>
+                <li><button type="button" class="button info ligh" onclick="questionDialog()"> Question </button></li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+</div>
+
+
+<h3>Customize your dialogs</h3>
+<p>You can customize your toastme dialog</p>
+<ol class="options">
+    <li><span>title:</span> dialog title</li>
+    <li><span>text:</span> dialog text</li>
+    <li><span>textConfirm:</span> confirm button caption</li>
+    <li><span>textCancel:</span> cancel button caption</li>
+    <li><span>showCancel:</span> Show cancel button? 'true' or 'false'</li>
+    <li><span>type:</span> select 'success', 'danger', 'warning', 'info' or 'question'</li>
+</ol>
+<p>
+<pre>
+<code class="javascript">
+    //Example
+    toastme.yesNoDialog({
+        title: "You are the Winner!",
+        text: "Do you want to pick your price?",
+        textConfirm: "Confirm",
+        textCancel: "Cancel", 
+        showCancel: true, // true or false
+        type: "success" // 'success', 'danger', 'warning', 'info' or 'question'
+    }).then(function(value) {
+        if (value) {
+            console.log('You clicked Confirm')
+        } else {
+            console.log('You clicked Cancel')
+        }
+    });
+</code>
+</pre></p>
 
 
 </body>
@@ -74,6 +137,8 @@ const config = {
 <script src="./dist/js/toastme.js" ></script>
 
 <script>
+
+    //TOASTME
     function success () {
         toastme.success("This is a 'success' <a href='#'>Go to google</a> notification")
     }
@@ -115,5 +180,109 @@ const config = {
     function infoL () {
         myToast.info("This is an 'info' notification")
     }
+
+
+    //TOASTME DIALOG
+
+    function fullDialog () {
+        toastme.yesNoDialog({
+            title: "This is the title",
+            text: "This is the text area",
+            textConfirm: "Confirm button",
+            textCancel: "Cancel button",
+            showCancel: true
+        })
+    }
+
+    function emptyDialog () {
+        toastme.yesNoDialog({
+            textConfirm: "Confirm button",
+            textCancel: "Cancel button",
+            showCancel: true
+        })
+    }
+
+    function titleDialog () {
+        toastme.yesNoDialog({
+            title: "Just the title",
+            textConfirm: "OK"
+        })
+    }
+
+    function textDialog () {
+        toastme.yesNoDialog({
+            title: "You can show text area only",
+            textConfirm: "Right",
+            textCancel: "Nah",
+            showCancel: true
+        })
+    }
+
+    function successDialog () {
+        toastme.yesNoDialog({
+            title: "You are the Winner!",
+            text: "Do you want to pick your price?",
+            textConfirm: "Yes, pick price.",
+            textCancel: "Maybe later",
+            showCancel: true,
+            type: "success"
+        }).then(function(value) {
+            if (value) {
+                myToast.success("You have picked your price")
+            } else {
+                myToast.warning("You can pick your price later")
+            }
+        });
+    }
+
+    function dangerDialog () {
+        toastme.yesNoDialog({
+            title: "Do you want to delete?",
+            text: "You can't undone this",
+            textConfirm: "Confirm delete",
+            textCancel: "Cancel",
+            showCancel: true,
+            type: "danger"
+        }).then(function(value) {
+            if (value) {
+                toastme.error("You have deleted")
+            }
+        });
+    }
+    function warningDialog () {
+        toastme.yesNoDialog({
+            text: "This is a warning Dialog",
+            textConfirm: "I like it",
+            showCancel: false,
+            type: "warning"
+        })
+    }
+    function infoDialog () {
+        toastme.yesNoDialog({
+            text: "You can fork this repository!",
+            textConfirm: "Awesome!",
+            showCancel: false,
+            type: "info"
+        })
+    }
+    function questionDialog () {
+        toastme.yesNoDialog({
+            text: "Will you share this with your friends?",
+            textConfirm: "I will share it!",
+            showCancel: true,
+            type: "question"
+        })
+    }
+
+
+
+
+
+
+
+
+
+    //Demo
+    hljs.initHighlightingOnLoad();
 </script>
 </html>
