@@ -109,6 +109,8 @@ class Toastme {
         return `<div class="toastme-dialog-ico info"></div>`;
       case "warning":
         return `<div class="toastme-dialog-ico warning"></div>`;
+      case "warning":
+        return `<div class="toastme-dialog-ico question"></div>`;
       default:
         return false;
     }
