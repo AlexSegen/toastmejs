@@ -1,7 +1,7 @@
 {
 	"name": "toastmejs",
-	"version": "0.1.0",
-	"description": "Notifications with pure javascript",
+	"version": "0.1.1",
+	"description": "Web notifications and dialogs with pure javascript",
 	"main": "./index.js",
 	"author": {
 		"name": "alexsegen",
@@ -17,7 +17,7 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/AlexSegen/toastmejs.git"
+		"url": "git+https://github.com/alexsegen/toastmejs.git"
 	},
 	"devDependencies": {
 		"gulp": "4.0.0",
