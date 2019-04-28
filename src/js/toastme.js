@@ -84,7 +84,7 @@ class Toastme {
     var showText = text ? `<p class="toastme-dialog-text">${text}</p>` : "";
     var showType = this.selectType(type) ? this.selectType(type) : "";
     var btnCancel = showCancel ?
-      `<button id="toastmeCancel" class="--toastme-dialog-action --toastme-cancel">${textCancel || "Cancel"}</button>` :
+      `<button id="toastmeCancel" class="btn-toastme --toastme-dialog-action --toastme-cancel">${textCancel || "Cancel"}</button>` :
       "";
     var dialog = document.createElement("div");
     dialog.setAttribute("id", "toastme-dialog-bg");
@@ -94,7 +94,7 @@ class Toastme {
         <div class="toastme-dialog-content">
             ${showType} ${showTitle} ${showText}
 			<div class="toastme-diag-actions">
-				<button id="toastmeConfirm" class="--toastme-dialog-action --toastme-confirm">${textConfirm || "Confirm"}</button>
+				<button id="toastmeConfirm" class="btn-toastme --toastme-dialog-action --toastme-confirm">${textConfirm || "Confirm"}</button>
                 ${btnCancel}
 			</div>
         </div>
@@ -146,12 +146,12 @@ class Toastme {
         .addEventListener("click", function () {
           resolve(true);
         });
-        var btnCancel = document.getElementById("toastmeCancel");
-        if(btnCancel) {
-          btnCancel.addEventListener("click", function () {
-            resolve(false);
-          });
-        }
+      var btnCancel = document.getElementById("toastmeCancel");
+      if (btnCancel) {
+        btnCancel.addEventListener("click", function () {
+          resolve(false);
+        });
+      }
     });
     return yesNoDialog;
   }
@@ -172,6 +172,9 @@ class Toastme {
   }
 }
 
-const toastme = new Toastme();
 
-module.exports = toastme
+//const toastme = new Toastme();
+
+//module.exports = ;
+
+export { Toastme }

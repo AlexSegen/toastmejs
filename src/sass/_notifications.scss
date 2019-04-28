@@ -1,0 +1,124 @@
+.toastme {
+  font-size: $font-size;
+  font-family: $font-family;
+  color: $font-color-default;
+  display: flex;
+  align-items: center;
+  max-width: $max-width;
+  text-align: left;
+  padding: 10px 10px 10px 45px;
+  border-radius: 2px;
+  background-color: $bg-default;
+  position: fixed;
+  opacity: 0.7;
+  cursor: pointer;
+  z-index: 100;
+  transform: translateY(20px);
+  transition: all 0.2s ease-in-out;
+  animation: toastIn 0.2s forwards 0s ease-in-out;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+
+  &.success {
+    color: $font-color;
+    background-color: $success;
+    .toastme-ico {
+      color: $success;
+      &:before {
+        content: $ico-success;
+      }
+    }
+  }
+
+  &.error {
+    color: $font-color;
+    background-color: $danger;
+    .toastme-ico {
+      color: $danger;
+      &:before {
+        content: $ico-danger;
+      }
+    }
+  }
+
+  &.warning {
+    color: $font-color;
+    background-color: $warning;
+    .toastme-ico {
+      color: $warning;
+      &:before {
+        content: $ico-warning;
+      }
+    }
+  }
+
+  &.info {
+    color: $font-color;
+    background-color: $info;
+    .toastme-ico {
+      color: $info;
+      &:before {
+        content: $ico-info;
+      }
+    }
+  }
+
+  .toastme-close {
+    color: #333;
+    opacity: 0.7;
+    float: right;
+    right: -2px;
+    top: -2px;
+    position: absolute;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:after {
+      content: $ico-close;
+      color: #ddd;
+    }
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+  }
+
+  .toastme-ico {
+    font-size: 1.5rem;
+    color: #333;
+    @include iconbody;
+    float: left;
+    width: 30px;
+    height: 30px;
+    border-radius: 2px;
+    position: absolute;
+    left: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #fff;
+    &:before {
+      content: $ico-notification;
+    }
+  }
+  .toastme-content {
+    white-space: nowrap;
+    min-width: 150px;
+  }
+}
+
+@keyframes toastIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

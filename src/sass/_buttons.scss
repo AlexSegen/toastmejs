@@ -1,0 +1,41 @@
+.toastme-dialog {
+  .btn-toastme {
+    font-family: "Open Sans", Helvetica, sans-serif;
+    font-size: 14px;
+    white-space: nowrap;
+    cursor: pointer;
+    padding: 6px 15px;
+    margin: 3px;
+    border-radius: 3px;
+    border: 1px solid;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    &:disabled {
+      background-color: transparent;
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+    &:active {
+      opacity: 1;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+
+    &.--toastme-confirm {
+      color: #fff;
+      background: #3f51b5;
+      border: 1px solid #3f51b5;
+    }
+
+    &.--toastme-cancel {
+      color: #4c4c4c;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+    }
+  }
+}
