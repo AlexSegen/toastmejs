@@ -1,3 +1,11 @@
+/*!
+ * toastmejs v0.1.1
+ * Web notifications and dialogs with pure javascript
+ * (c) 2019 alexsegen
+ * MIT License
+ * git+https://github.com/alexsegen/toastmejs.git
+ */
+
 class Toastme {
   constructor(
     config = {
@@ -20,11 +28,11 @@ class Toastme {
   }
   initToast() {
 
-    document.addEventListener("click", function (e) {
+    document.addEventListener("click", (function (e) {
       if (e.target.classList.contains("toastme-close")) {
         e.target.parentNode.remove();
       }
-    });
+    }));
   }
   getMessage(type, str) {
 
@@ -62,21 +70,21 @@ class Toastme {
   //Toastme Dialog 
 
   initDialog() {
-    document.addEventListener("click", function (e) {
+    document.addEventListener("click", (function (e) {
       if (e.target.classList.contains("--toastme-dialog-action")) {
         let array = document.querySelectorAll(".toastme-dialog-bg");
-        array.forEach(function (item) {
+        array.forEach((function (item) {
           item.childNodes[1].classList.add("toastme-dialog-closing");
-        });
+        }));
         setTimeout(() => {
           let array = document.querySelectorAll(".toastme-dialog-bg");
-          array.forEach(function (item) {
+          array.forEach((function (item) {
             item.style.display = "none";
             item.parentNode.removeChild(item);
-          });
+          }));
         }, 500);
       }
-    });
+    }));
   }
 
   buildDialog(title, text, textConfirm, textCancel, showCancel, type) {
@@ -143,14 +151,14 @@ class Toastme {
     var yesNoDialog = new Promise(function (resolve, reject) {
       document
         .getElementById("toastmeConfirm")
-        .addEventListener("click", function () {
+        .addEventListener("click", (function () {
           resolve(true);
-        });
+        }));
       var btnCancel = document.getElementById("toastmeCancel");
       if (btnCancel) {
-        btnCancel.addEventListener("click", function () {
+        btnCancel.addEventListener("click", (function () {
           resolve(false);
-        });
+        }));
       }
     });
     return yesNoDialog;
@@ -158,17 +166,17 @@ class Toastme {
 
   closeAllToasts() {
     let array = document.querySelectorAll(".toastme");
-    array.forEach(function (item) {
+    array.forEach((function (item) {
       item.parentNode.removeChild(item);
-    });
+    }));
   }
 
   closeAllDialogs() {
     let array = document.querySelectorAll(".toastme-dialog-bg");
-    array.forEach(function (item) {
+    array.forEach((function (item) {
       item.style.display = "none";
       item.parentNode.removeChild(item);
-    });
+    }));
   }
 }
 
