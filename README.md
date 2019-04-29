@@ -65,12 +65,13 @@ Then import toastme
   
 
 ```sh
-import toastme from 'toastmejs'
+import {toastme} from 'toastmejs'
 
 or
 
-cont toastme = require('toastmejs')
+cont {toastme} = require('toastmejs')
 ```
+
 
   
 
@@ -156,9 +157,20 @@ You can customize duration, position, distance, z-index and a ligh theme
 
   
 
+First, import the Toastme Class
   
 
-You need to declare a new Object with new settings, finally, create a new **Toastme Class** instance.
+```sh
+import {Toastme} from 'toastmejs'
+
+or
+
+cont {Toastme} = require('toastmejs')
+```
+
+  
+
+Then, you need to declare a new Object with your new custom settings and create a new **Toastme Class** instance.
 
   
 
@@ -166,20 +178,20 @@ You need to declare a new Object with new settings, finally, create a new **Toas
 
 ```sh
 const config = {
-timeout: 5000,
-positionY: "bottom", // top or bottom
-positionX: "center", // right left, center
-distanceY: 20, // Integer value
-distanceX: 20, // Integer value
-zIndex: 100, // Integer value
-ligh: true // Ligh theme
+	timeout: 5000,
+	positionY: "bottom", // top or bottom
+	positionX: "center", // right left, center
+	distanceY: 20, // Integer value
+	distanceX: 20, // Integer value
+	zIndex: 100, // Integer value
+	ligh: true // Ligh theme
 };
 
 const myToast = new Toastme(config); 
 ```
 
  
-Next, you can call the function with new configurations:
+Finally, you can call your new Toastme with new configurations:
 
 ```sh
 myToast.success('This is a new success notification')
@@ -206,9 +218,9 @@ toastme.yesNoDialog({
 	type: "success"  // 'success', 'danger', 'warning', 'info' or 'question' 
 }).then((value) =>  { 
 	if (value) {
-	console.log('You clicked Confirm')
+		console.log('You clicked Confirm')
 	} else {
-	console.log('You clicked Cancel')
+		console.log('You clicked Cancel')
 	} 
 });
 ```
@@ -238,10 +250,7 @@ Run this command if you need to recompile source files:
 $ gulp
 
 ```
-
-  
-
-  
+ 
 
 ### Todos
 
