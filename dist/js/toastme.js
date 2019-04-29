@@ -6,35 +6,36 @@
  * git+https://github.com/alexsegen/toastmejs.git
  */
 
-class Toastme {
-  constructor(
-    config = {
-      timeout: null,
-      distanceX: null,
-      distanceY: null,
-      positionY: null,
-      positionX: null,
-      zIndex: null,
-      ligh: false
-    }
-  ) {
-    this.timeout = config.timeout || 5000;
-    this.distanceX = config.distanceX || 15;
-    this.distanceY = config.distanceY || 15;
-    this.positionY = config.positionY || "bottom";
-    this.positionX = config.positionX || "right"; //right, left, center
-    this.zIndex = config.zIndex || 100;
-    this.ligh = config.ligh || false;
+(function() {
+function Toastme(
+  config = {
+    timeout: null,
+    distanceX: null,
+    distanceY: null,
+    positionY: null,
+    positionX: null,
+    zIndex: null,
+    ligh: false
   }
-  initToast() {
+) {
 
+  this.timeout = config.timeout || 5000;
+  this.distanceX = config.distanceX || 15;
+  this.distanceY = config.distanceY || 15;
+  this.positionY = config.positionY || "bottom";
+  this.positionX = config.positionX || "right"; //right, left, center
+  this.zIndex = config.zIndex || 100;
+  this.ligh = config.ligh || false;
+
+  this.initToast = function () {
     document.addEventListener("click", (function (e) {
       if (e.target.classList.contains("toastme-close")) {
         e.target.parentNode.remove();
       }
     }));
-  }
-  getMessage(type, str) {
+  };
+
+  this.getMessage = function (type, str) {
 
     this.closeAllToasts();
 
@@ -54,22 +55,24 @@ class Toastme {
     }, this.timeout);
     return toastme;
   }
-  success(str) {
+
+  this.success = function (str) {
     document.body.appendChild(this.getMessage("success", str));
   }
-  error(str) {
+  this.error = function (str) {
     document.body.appendChild(this.getMessage("error", str));
   }
-  warning(str) {
+  this.warning = function (str) {
     document.body.appendChild(this.getMessage("warning", str));
   }
-  info(str) {
+  this.info = function (str) {
     document.body.appendChild(this.getMessage("info", str));
   }
 
+
   //Toastme Dialog 
 
-  initDialog() {
+  this.initDialog = function () {
     document.addEventListener("click", (function (e) {
       if (e.target.classList.contains("--toastme-dialog-action")) {
         let array = document.querySelectorAll(".toastme-dialog-bg");
@@ -87,7 +90,7 @@ class Toastme {
     }));
   }
 
-  buildDialog(title, text, textConfirm, textCancel, showCancel, type) {
+  this.buildDialog = function (title, text, textConfirm, textCancel, showCancel, type) {
     var showTitle = title ? `<p class="toastme-dialog-title">${title}</p>` : "";
     var showText = text ? `<p class="toastme-dialog-text">${text}</p>` : "";
     var showType = this.selectType(type) ? this.selectType(type) : "";
@@ -98,18 +101,19 @@ class Toastme {
     dialog.setAttribute("id", "toastme-dialog-bg");
     dialog.classList.add("toastme-dialog-bg", "--toastme-dialog-action");
     dialog.innerHTML = `
-    <div class="toastme-dialog">
-        <div class="toastme-dialog-content">
-            ${showType} ${showTitle} ${showText}
-			<div class="toastme-diag-actions">
-				<button id="toastmeConfirm" class="btn-toastme --toastme-dialog-action --toastme-confirm">${textConfirm || "Confirm"}</button>
-                ${btnCancel}
-			</div>
+      <div class="toastme-dialog">
+          <div class="toastme-dialog-content">
+              ${showType} ${showTitle} ${showText}
+        <div class="toastme-diag-actions">
+          <button id="toastmeConfirm" class="btn-toastme --toastme-dialog-action --toastme-confirm">${textConfirm || "Confirm"}</button>
+                  ${btnCancel}
         </div>
-    </div>`;
+          </div>
+      </div>`;
     return dialog;
   }
-  selectType(str) {
+
+  this.selectType = function (str) {
     switch (str) {
       case "danger":
         return `<div class="toastme-dialog-ico danger"></div>`;
@@ -125,7 +129,9 @@ class Toastme {
         return false;
     }
   }
-  yesNoDialog(
+
+
+  this.yesNoDialog = function (
     config = {
       title: null,
       text: null,
@@ -148,7 +154,7 @@ class Toastme {
       )
     );
 
-    var yesNoDialog = new Promise(function (resolve, reject) {
+    return new Promise(function (resolve, reject) {
       document
         .getElementById("toastmeConfirm")
         .addEventListener("click", (function () {
@@ -161,26 +167,33 @@ class Toastme {
         }));
       }
     });
-    return yesNoDialog;
   }
 
-  closeAllToasts() {
+  this.closeAllToasts = function () {
     let array = document.querySelectorAll(".toastme");
     array.forEach((function (item) {
       item.parentNode.removeChild(item);
     }));
   }
 
-  closeAllDialogs() {
+  this.closeAllDialogs = function () {
     let array = document.querySelectorAll(".toastme-dialog-bg");
     array.forEach((function (item) {
       item.style.display = "none";
       item.parentNode.removeChild(item);
     }));
   }
+
+}
+
+var toastme = new Toastme();
+
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined'){ 
+  module.exports = {Toastme, toastme};
+} else {
+  window.toastme = toastme;
+  window.Toastme = Toastme;
 }
 
 
-const toastme = new Toastme();
-
-module.exports = toastme;
+})();
