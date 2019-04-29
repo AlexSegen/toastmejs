@@ -8,7 +8,6 @@ var settings = {
 	scripts: true,
 	polyfills: true,
 	styles: true,
-	svgs: false,
 	copy: true,
 	reload: true
 };
@@ -30,13 +29,9 @@ var paths = {
 		input: 'src/sass/**/*.{scss,sass}',
 		output: 'dist/css/'
 	},
-	svgs: {
-		input: 'src/svg/*.svg',
-		output: 'dist/svg/'
-	},
-	copy: {
-		input: 'src/copy/**/*',
-		output: 'dist/'
+	copyIcons: {
+		input: 'src/icons/**/*',
+		output: 'dist/icons/'
 	},
 	reload: './dist/'
 };
@@ -89,9 +84,6 @@ var optimizejs = require('gulp-optimize-js');
 var sass = require('gulp-sass');
 var prefix = require('gulp-autoprefixer');
 var minify = require('gulp-cssnano');
-
-// SVGs
-var svgmin = require('gulp-svgmin');
 
 // BrowserSync
 var browserSync = require('browser-sync');
@@ -226,22 +218,6 @@ var buildStyles = function (done) {
 
 };
 
-// Optimize SVG files
-var buildSVGs = function (done) {
-
-	// Make sure this feature is activated before running
-	if (!settings.svgs) return done();
-
-	// Optimize SVG files
-	src(paths.svgs.input)
-		.pipe(svgmin())
-		.pipe(dest(paths.svgs.output));
-
-	// Signal completion
-	done();
-
-};
-
 // Copy static files into output folder
 var copyFiles = function (done) {
 
@@ -249,8 +225,8 @@ var copyFiles = function (done) {
 	if (!settings.copy) return done();
 
 	// Copy static files
-	src(paths.copy.input)
-		.pipe(dest(paths.copy.output));
+	src(paths.copyIcons.input)
+		.pipe(dest(paths.copyIcons.output));
 
 	// Signal completion
 	done();
@@ -301,7 +277,6 @@ exports.default = series(
 		buildScripts,
 		lintScripts,
 		buildStyles,
-		buildSVGs,
 		copyFiles
 	)
 );

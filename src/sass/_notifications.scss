@@ -6,7 +6,7 @@
   align-items: center;
   max-width: $max-width;
   text-align: left;
-  padding: 10px 10px 10px 45px;
+  padding: 10px 15px 10px 45px;
   border-radius: 2px;
   background-color: $bg-default;
   position: fixed;
@@ -15,6 +15,7 @@
   z-index: 100;
   transform: translateY(20px);
   transition: all 0.2s ease-in-out;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
   animation: toastIn 0.2s forwards 0s ease-in-out;
 
   &:hover,

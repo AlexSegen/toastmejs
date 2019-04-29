@@ -1,5 +1,5 @@
 /*!
- * toastmejs v0.1.1
+ * toastmejs v0.1.3
  * Web notifications and dialogs with pure javascript
  * (c) 2019 alexsegen
  * MIT License
