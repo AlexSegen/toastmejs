@@ -2,7 +2,7 @@
 	"name": "toastmejs",
 	"version": "0.1.1",
 	"description": "Web notifications and dialogs with pure javascript",
-	"main": "./index.js",
+	"main": "./js/toastme.js",
 	"author": {
 		"name": "alexsegen",
 		"url": "https://pixelagil.com"
