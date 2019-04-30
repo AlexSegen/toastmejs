@@ -107,6 +107,8 @@ Call one of these functions to show the **notification** you need
   
 
 ```sh 
+toastme.default("This is a 'default' notification")
+
 toastme.success("This is a 'success' notification")
 
 toastme.error("This is an 'error' notification")
