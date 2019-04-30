@@ -216,8 +216,8 @@ toastme.yesNoDialog({
 	text: "Do you want to pick your price?",
 	textConfirm: "Confirm",
 	textCancel: "Cancel",
-	showCancel: true, // true or false
-	type: "success"  // 'success', 'danger', 'warning', 'info' or 'question' 
+	showCancel: true, // true or false 
+	type: "success"  // 'success', 'danger', 'warning', 'info' or 'question' (optional)
 }).then((value) =>  { 
 	if (value) {
 		console.log('You clicked Confirm')
