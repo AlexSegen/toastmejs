@@ -69,7 +69,7 @@ import {toastme} from 'toastmejs'
 
 or
 
-cont {toastme} = require('toastmejs')
+const {toastme} = require('toastmejs')
 ```
 
 
@@ -167,7 +167,7 @@ import {Toastme} from 'toastmejs'
 
 or
 
-cont {Toastme} = require('toastmejs')
+const {Toastme} = require('toastmejs')
 ```
 
   
