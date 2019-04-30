@@ -26,6 +26,7 @@
         <div class="list">
             <p>Default theme</p>
             <ul>
+                <li><button type="button" class="button" onclick="defaultToast()"> Default </button></li>
                 <li><button type="button" class="button success" onclick="success()"> Success </button></li>
                 <li><button type="button" class="button error" onclick="error()"> Error </button></li>
                 <li><button type="button" class="button warning" onclick="warning()"> Warning </button></li>
@@ -139,8 +140,11 @@ const config = {
 <script>
 
     //TOASTME
+    function defaultToast () {
+        toastme.default("This is a 'default' notification")
+    }
     function success () {
-        toastme.success("This is a 'success' <a href='#'>Go to google</a> notification")
+        toastme.success("This is a 'success' notification")
     }
 
     function error () {
