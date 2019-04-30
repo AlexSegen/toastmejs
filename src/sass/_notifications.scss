@@ -26,9 +26,18 @@
     opacity: 1;
   }
 
+  a {
+    color: $font-color-default;
+    text-decoration: underline;
+  }
+
   &.success {
     color: $font-color;
     background-color: $success;
+    a {
+      color: $font-color;
+      text-decoration: underline;
+    }
     .toastme-ico {
       color: $success;
       &:before {
@@ -40,6 +49,10 @@
   &.error {
     color: $font-color;
     background-color: $danger;
+    a {
+      color: $font-color;
+      text-decoration: underline;
+    }
     .toastme-ico {
       color: $danger;
       &:before {
@@ -51,6 +64,10 @@
   &.warning {
     color: $font-color;
     background-color: $warning;
+    a {
+      color: $font-color;
+      text-decoration: underline;
+    }
     .toastme-ico {
       color: $warning;
       &:before {
@@ -62,6 +79,10 @@
   &.info {
     color: $font-color;
     background-color: $info;
+    a {
+      color: $font-color;
+      text-decoration: underline;
+    }
     .toastme-ico {
       color: $info;
       &:before {
