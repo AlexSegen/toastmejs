@@ -16,7 +16,10 @@
   transform: translateY(20px);
   transition: all 0.2s ease-in-out;
   box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-  animation: toastIn 0.2s forwards 0s ease-in-out;
+  //animation: toastIn 0.2s forwards 0s ease-in-out;
+  -webkit-animation: flip-in-hor-bottom 0.5s
+    cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: flip-in-hor-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 
   &:hover,
   &:focus {

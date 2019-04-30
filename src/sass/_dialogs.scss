@@ -24,7 +24,10 @@ $question: #3f51b5;
   font-size: 3rem;
   @include iconbody;
   position: relative;
-  animation: toastIconIn 0.4s ease-in-out 0s forwards;
+  //animation: toastIconIn 0.4s ease-in-out 0s forwards;
+  -webkit-animation: flip-in-hor-bottom 0.5s
+    cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s  both;
+  animation: flip-in-hor-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
   &.success {
     color: $success;
     &:before {
@@ -33,24 +36,32 @@ $question: #3f51b5;
   }
   &.danger {
     color: $danger;
+    -webkit-animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) 0.5s both;
+    animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) 0.5s both;
     &:before {
       content: $ico-danger;
     }
   }
   &.info {
     color: $info;
+    -webkit-animation: bounce-top 0.9s both;
+    animation: bounce-top 0.9s both;
     &:before {
       content: $ico-info;
     }
   }
   &.warning {
     color: $warning;
+    -webkit-animation: wobble-hor-bottom 0.8s 0.5s both;
+    animation: wobble-hor-bottom 0.8s 0.5s both;
     &:before {
       content: $ico-warning;
     }
   }
   &.question {
     color: $question;
+    -webkit-animation: jello-horizontal 0.9s 0.5s  both;
+    animation: jello-horizontal 0.9s 0.5s both;
     &:before {
       content: $ico-question;
     }

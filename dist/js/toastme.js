@@ -1,5 +1,5 @@
 /*!
- * toastmejs v0.1.3
+ * toastmejs v1.0.0
  * Web notifications and dialogs with pure javascript
  * (c) 2019 alexsegen
  * MIT License
@@ -186,14 +186,13 @@ function Toastme(
 
 }
 
-var toastme = new Toastme();
-
-if (typeof module !== 'undefined' && typeof module.exports !== 'undefined'){ 
-  module.exports = {Toastme, toastme};
-} else {
-  window.toastme = toastme;
-  window.Toastme = Toastme;
-}
-
+  var toastme = new Toastme();
+    
+  if (typeof module !== 'undefined' && typeof module.exports !== 'undefined'){ 
+    module.exports = {Toastme, toastme};
+  } else {
+    window.toastme = toastme;
+    window.Toastme = Toastme;
+  }
 
 })();
