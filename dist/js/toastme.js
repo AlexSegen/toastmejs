@@ -119,7 +119,7 @@
       }));
     }
 
-    this.buildDialog = function (title, text, textConfirm, textCancel, showCancel, type) {
+    this.buildDialog = function (title, text, textConfirm, textCancel, showCancel, type, dark) {
       var showTitle = title ? `<p class="toastme-dialog-title">${title}</p>` : "";
       var showText = text ? `<p class="toastme-dialog-text">${text}</p>` : "";
       var showType = this.selectType(type) ? this.selectType(type) : "";
@@ -130,7 +130,7 @@
       dialog.setAttribute("id", "toastme-dialog-bg");
       dialog.classList.add("toastme-dialog-bg", "--toastme-dialog-action");
       dialog.innerHTML = `
-      <div class="toastme-dialog">
+      <div class="toastme-dialog ${dark ? "dark": ""}">
           <div class="toastme-dialog-content">
               ${showType} ${showTitle} ${showText}
         <div class="toastme-diag-actions">
@@ -167,7 +167,8 @@
         textConfirm: "Confirmar" || "Confirm",
         textCancel: "" || "Cancel",
         showCancel: true,
-        type: null || null
+        type: null || null,
+        dark: false
       }
     ) {
       this.closeAllDialogs();
@@ -179,7 +180,8 @@
           config.textConfirm,
           config.textCancel,
           config.showCancel,
-          config.type
+          config.type,
+          config.dark
         )
       );
 

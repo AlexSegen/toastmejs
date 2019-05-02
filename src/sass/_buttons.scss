@@ -38,4 +38,14 @@
       border: 1px solid #ddd;
     }
   }
+
+  &.dark {
+    .btn-toastme {
+      &.--toastme-cancel {
+        color: $font-color-dark;
+        background: lighten($bg-dark, 15%);
+        border: 1px solid lighten($border-dark, 15%);
+      }
+    }
+  }
 }
