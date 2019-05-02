@@ -9,7 +9,7 @@
                 color: $success;
 
                 &:before {
-                    content: "\ea10";
+                    content: $ico-success;
                 }
             }
         }
@@ -24,7 +24,7 @@
                 color: $danger;
 
                 &:before {
-                    content: "\ea0d";
+                    content: $ico-danger;
                 }
             }
         }
@@ -38,7 +38,7 @@
                 color: $warning;
 
                 &:before {
-                    content: "\ea07";
+                    content: $ico-warning;
                 }
             }
         }
@@ -52,7 +52,7 @@
                 color: $info;
 
                 &:before {
-                    content: "\ea0c";
+                    content: $ico-info;
                 }
             }
         }

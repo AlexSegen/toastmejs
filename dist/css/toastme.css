@@ -1,5 +1,5 @@
 /*!
- * toastmejs v1.0.2
+ * toastmejs v1.1.0
  * Web notifications and dialogs with pure javascript
  * (c) 2019 alexsegen
  * MIT License
@@ -697,7 +697,7 @@
 
 /* line 11, src/sass/_theme-ligh.scss */
 .toastme.ligh.success .toastme-ico:before {
-  content: "\ea10";
+  content: "";
 }
 
 /* line 18, src/sass/_theme-ligh.scss */
@@ -714,7 +714,7 @@
 
 /* line 26, src/sass/_theme-ligh.scss */
 .toastme.ligh.error .toastme-ico:before {
-  content: "\ea0d";
+  content: "";
 }
 
 /* line 32, src/sass/_theme-ligh.scss */
@@ -731,7 +731,7 @@
 
 /* line 40, src/sass/_theme-ligh.scss */
 .toastme.ligh.warning .toastme-ico:before {
-  content: "\ea07";
+  content: "";
 }
 
 /* line 46, src/sass/_theme-ligh.scss */
@@ -748,7 +748,7 @@
 
 /* line 54, src/sass/_theme-ligh.scss */
 .toastme.ligh.info .toastme-ico:before {
-  content: "\ea0c";
+  content: "";
 }
 
 /* line 7, src/sass/_dialogs.scss */
