@@ -262,10 +262,6 @@ $ gulp
 
   
 
-- Stacked notifications
-
-  
-
 - Custom HTML templates
 
   
