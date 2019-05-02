@@ -1,5 +1,5 @@
 /*!
- * toastmejs v1.0.0
+ * toastmejs v1.0.2
  * Web notifications and dialogs with pure javascript
  * (c) 2019 alexsegen
  * MIT License
@@ -442,10 +442,19 @@
 }
 
 /* line 1, src/sass/_notifications.scss */
+.toastme-list {
+  position: fixed;
+  max-width: 250px;
+  padding: 0;
+  margin: 0;
+}
+
+/* line 8, src/sass/_notifications.scss */
 .toastme {
   font-size: 13px;
   font-family: Helvetica, "san-serif";
   color: #737373;
+  margin-bottom: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -457,7 +466,6 @@
   padding: 10px 15px 10px 45px;
   border-radius: 2px;
   background-color: #f5f5f5;
-  position: fixed;
   opacity: 0.7;
   cursor: pointer;
   z-index: 100;
@@ -471,106 +479,106 @@
   animation: flip-in-hor-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
-/* line 24, src/sass/_notifications.scss */
+/* line 32, src/sass/_notifications.scss */
 .toastme:hover, .toastme:focus {
   opacity: 1;
 }
 
-/* line 29, src/sass/_notifications.scss */
+/* line 37, src/sass/_notifications.scss */
 .toastme a {
   color: #737373;
   text-decoration: underline;
 }
 
-/* line 34, src/sass/_notifications.scss */
+/* line 42, src/sass/_notifications.scss */
 .toastme.success {
   color: #fff;
   background-color: #8bc34a;
 }
 
-/* line 37, src/sass/_notifications.scss */
+/* line 45, src/sass/_notifications.scss */
 .toastme.success a {
   color: #fff;
   text-decoration: underline;
 }
 
-/* line 41, src/sass/_notifications.scss */
+/* line 49, src/sass/_notifications.scss */
 .toastme.success .toastme-ico {
   color: #8bc34a;
 }
 
-/* line 43, src/sass/_notifications.scss */
+/* line 51, src/sass/_notifications.scss */
 .toastme.success .toastme-ico:before {
   content: "";
 }
 
-/* line 49, src/sass/_notifications.scss */
+/* line 57, src/sass/_notifications.scss */
 .toastme.error {
   color: #fff;
   background-color: #f44336;
 }
 
-/* line 52, src/sass/_notifications.scss */
+/* line 60, src/sass/_notifications.scss */
 .toastme.error a {
   color: #fff;
   text-decoration: underline;
 }
 
-/* line 56, src/sass/_notifications.scss */
+/* line 64, src/sass/_notifications.scss */
 .toastme.error .toastme-ico {
   color: #f44336;
 }
 
-/* line 58, src/sass/_notifications.scss */
+/* line 66, src/sass/_notifications.scss */
 .toastme.error .toastme-ico:before {
   content: "";
 }
 
-/* line 64, src/sass/_notifications.scss */
+/* line 72, src/sass/_notifications.scss */
 .toastme.warning {
   color: #fff;
   background-color: #ff9800;
 }
 
-/* line 67, src/sass/_notifications.scss */
+/* line 75, src/sass/_notifications.scss */
 .toastme.warning a {
   color: #fff;
   text-decoration: underline;
 }
 
-/* line 71, src/sass/_notifications.scss */
+/* line 79, src/sass/_notifications.scss */
 .toastme.warning .toastme-ico {
   color: #ff9800;
 }
 
-/* line 73, src/sass/_notifications.scss */
+/* line 81, src/sass/_notifications.scss */
 .toastme.warning .toastme-ico:before {
   content: "";
 }
 
-/* line 79, src/sass/_notifications.scss */
+/* line 87, src/sass/_notifications.scss */
 .toastme.info {
   color: #fff;
   background-color: #2196f3;
 }
 
-/* line 82, src/sass/_notifications.scss */
+/* line 90, src/sass/_notifications.scss */
 .toastme.info a {
   color: #fff;
   text-decoration: underline;
 }
 
-/* line 86, src/sass/_notifications.scss */
+/* line 94, src/sass/_notifications.scss */
 .toastme.info .toastme-ico {
   color: #2196f3;
 }
 
-/* line 88, src/sass/_notifications.scss */
+/* line 96, src/sass/_notifications.scss */
 .toastme.info .toastme-ico:before {
   content: "";
 }
 
-/* line 94, src/sass/_notifications.scss */
+/* line 102, src/sass/_notifications.scss */
 .toastme .toastme-close {
   color: #333;
   opacity: 0.7;
@@ -598,18 +606,18 @@
   transition: all 0.2s ease-in-out;
 }
 
-/* line 108, src/sass/_notifications.scss */
+/* line 116, src/sass/_notifications.scss */
 .toastme .toastme-close:after {
   content: "";
   color: #ddd;
 }
 
-/* line 112, src/sass/_notifications.scss */
+/* line 120, src/sass/_notifications.scss */
 .toastme .toastme-close:hover, .toastme .toastme-close:focus {
   opacity: 1;
 }
 
-/* line 118, src/sass/_notifications.scss */
+/* line 126, src/sass/_notifications.scss */
 .toastme .toastme-ico {
   font-size: 1.5rem;
   color: #333;
@@ -642,12 +650,12 @@
   background: #fff;
 }
 
-/* line 133, src/sass/_notifications.scss */
+/* line 141, src/sass/_notifications.scss */
 .toastme .toastme-ico:before {
   content: "";
 }
 
-/* line 137, src/sass/_notifications.scss */
+/* line 145, src/sass/_notifications.scss */
 .toastme .toastme-content {
   white-space: nowrap;
   min-width: 150px;

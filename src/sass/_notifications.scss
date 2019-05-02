@@ -1,7 +1,15 @@
+.toastme-list {
+  position: fixed;
+  max-width: $max-width;
+  padding: 0;
+  margin: 0;
+}
+
 .toastme {
   font-size: $font-size;
   font-family: $font-family;
   color: $font-color-default;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
   max-width: $max-width;
@@ -9,7 +17,7 @@
   padding: 10px 15px 10px 45px;
   border-radius: 2px;
   background-color: $bg-default;
-  position: fixed;
+  //position: fixed;
   opacity: 0.7;
   cursor: pointer;
   z-index: 100;

@@ -1,5 +1,5 @@
 /*!
- * toastmejs v1.0.0
+ * toastmejs v1.0.2
  * Web notifications and dialogs with pure javascript
  * (c) 2019 alexsegen
  * MIT License
@@ -22,10 +22,11 @@
     this.timeout = config.timeout || 5000;
     this.distanceX = config.distanceX || 15;
     this.distanceY = config.distanceY || 15;
-    this.positionY = config.positionY || "bottom";
+    this.positionY = config.positionY || "bottom"; //bottom, top
     this.positionX = config.positionX || "right"; //right, left, center
     this.zIndex = config.zIndex || 100;
     this.ligh = config.ligh || false;
+    this.instanceId = "-" + Math.floor((Math.random() * 1000000) + 1);
 
     this.initToast = function () {
       document.addEventListener("click", (function (e) {
@@ -35,13 +36,30 @@
       }));
     };
 
-    this.getMessage = function (type, str) {
+    this.createToastList = function (instanceId) {
+      var toastmeList = document.createElement("ul");
+      toastmeList.classList.add("toastme-list");
+      toastmeList.setAttribute("id", "toastmeList" + instanceId);
+      this.positionX == 'center' ? (toastmeList.style.right = '50%', toastmeList.style.marginRight = '-125px') : (toastmeList.style[this.positionX] = this.distanceX + "px");
+      toastmeList.style[this.positionY] = this.distanceY + "px";
+      toastmeList.style.zIndex = this.zIndex;
+      if (!document.getElementById('toastmeList' + instanceId)) {
+        document.body.appendChild(toastmeList);
+      }
+      return toastmeList
+    }
 
-      this.closeAllToasts();
+    this.destroyList = function (instanceId) {
+      if (document.getElementById('toastmeList' + instanceId) && document.getElementById('toastmeList' + instanceId).querySelectorAll('li').length == 0) {
+        document.getElementById('toastmeList' + instanceId).remove();
+      }
+    }
+
+    this.buildToast = function (type, str, instanceId) {
 
       this.initToast();
 
-      var toastme = document.createElement("div");
+      var toastme = document.createElement("li");
       toastme.classList.add("toastme", type, this.ligh ? 'ligh' : false);
       this.positionX == 'center' ? (toastme.style.right = '50%', toastme.style.marginRight = '-125px') : (toastme.style[this.positionX] = this.distanceX + "px");
       toastme.style[this.positionY] = this.distanceY + "px";
@@ -50,31 +68,36 @@
           <button class="toastme-close"></button>
           <i class="toastme-ico"></i>
           <div class="toastme-content">${str}</div>`;
+
       setTimeout(() => {
         toastme.remove();
+        this.destroyList(instanceId);
       }, this.timeout);
+
       return toastme;
     }
 
-    this.default = function (str) {
-      document.body.appendChild(this.getMessage("default", str));
+    this.showToast = function (type, str) {
+      this.createToastList(this.instanceId);
+      document.getElementById('toastmeList' + this.instanceId).appendChild(this.buildToast(type, str, this.instanceId));
     }
-
+    this.default = function (str) {
+      this.showToast('default', str);
+    }
     this.success = function (str) {
-      document.body.appendChild(this.getMessage("success", str));
+      this.showToast('success', str);
     }
     this.error = function (str) {
-      document.body.appendChild(this.getMessage("error", str));
+      this.showToast('error', str);
     }
     this.warning = function (str) {
-      document.body.appendChild(this.getMessage("warning", str));
+      this.showToast('warning', str);
     }
     this.info = function (str) {
-      document.body.appendChild(this.getMessage("info", str));
+      this.showToast('info', str);
     }
 
-
-    //Toastme Dialog 
+    //Toastme Dialogs
 
     this.initDialog = function () {
       document.addEventListener("click", (function (e) {
@@ -174,7 +197,7 @@
     }
 
     this.closeAllToasts = function () {
-      let array = document.querySelectorAll(".toastme");
+      let array = document.querySelectorAll(".toastme-list");
       array.forEach((function (item) {
         item.parentNode.removeChild(item);
       }));
