@@ -504,7 +504,7 @@
 
 /* line 49, src/sass/_notifications.scss */
 .toastme.success .toastme-ico {
-  color: #8bc34a;
+  color: #71a436;
 }
 
 /* line 51, src/sass/_notifications.scss */
@@ -526,7 +526,7 @@
 
 /* line 64, src/sass/_notifications.scss */
 .toastme.error .toastme-ico {
-  color: #f44336;
+  color: #ea1c0d;
 }
 
 /* line 66, src/sass/_notifications.scss */
@@ -548,7 +548,7 @@
 
 /* line 79, src/sass/_notifications.scss */
 .toastme.warning .toastme-ico {
-  color: #ff9800;
+  color: #cc7a00;
 }
 
 /* line 81, src/sass/_notifications.scss */
@@ -570,7 +570,7 @@
 
 /* line 94, src/sass/_notifications.scss */
 .toastme.info .toastme-ico {
-  color: #2196f3;
+  color: #0c7cd5;
 }
 
 /* line 96, src/sass/_notifications.scss */
@@ -620,7 +620,7 @@
 /* line 126, src/sass/_notifications.scss */
 .toastme .toastme-ico {
   font-size: 1.5rem;
-  color: #333;
+  color: #666666;
   font-family: "toastme" !important;
   speak: none;
   font-style: normal;
@@ -647,7 +647,6 @@
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-  background: #fff;
 }
 
 /* line 141, src/sass/_notifications.scss */
@@ -683,70 +682,172 @@
   }
 }
 
-/* line 3, src/sass/_theme-ligh.scss */
+/* line 4, src/sass/_theme-dark.scss */
+.toastme.dark.default {
+  color: #fff;
+  background-color: #252839;
+  border: 1px solid #252839;
+}
+
+/* line 9, src/sass/_theme-dark.scss */
+.toastme.dark.default .toastme-ico {
+  color: white;
+}
+
+/* line 11, src/sass/_theme-dark.scss */
+.toastme.dark.default .toastme-ico:before {
+  content: "";
+}
+
+/* line 17, src/sass/_theme-dark.scss */
+.toastme.dark.success {
+  color: #fff;
+  background-color: #252839;
+  border: 1px solid #252839;
+}
+
+/* line 22, src/sass/_theme-dark.scss */
+.toastme.dark.success .toastme-ico {
+  color: #8bc34a;
+}
+
+/* line 25, src/sass/_theme-dark.scss */
+.toastme.dark.success .toastme-ico:before {
+  content: "";
+}
+
+/* line 32, src/sass/_theme-dark.scss */
+.toastme.dark.error {
+  color: #fff;
+  background-color: #252839;
+  border: 1px solid #252839;
+}
+
+/* line 37, src/sass/_theme-dark.scss */
+.toastme.dark.error .toastme-ico {
+  color: #f44336;
+}
+
+/* line 40, src/sass/_theme-dark.scss */
+.toastme.dark.error .toastme-ico:before {
+  content: "";
+}
+
+/* line 46, src/sass/_theme-dark.scss */
+.toastme.dark.warning {
+  color: #fff;
+  background-color: #252839;
+  border: 1px solid #252839;
+}
+
+/* line 51, src/sass/_theme-dark.scss */
+.toastme.dark.warning .toastme-ico {
+  color: #ff9800;
+}
+
+/* line 54, src/sass/_theme-dark.scss */
+.toastme.dark.warning .toastme-ico:before {
+  content: "";
+}
+
+/* line 60, src/sass/_theme-dark.scss */
+.toastme.dark.info {
+  color: #fff;
+  background-color: #252839;
+  border: 1px solid #252839;
+}
+
+/* line 65, src/sass/_theme-dark.scss */
+.toastme.dark.info .toastme-ico {
+  color: #2196f3;
+}
+
+/* line 68, src/sass/_theme-dark.scss */
+.toastme.dark.info .toastme-ico:before {
+  content: "";
+}
+
+/* line 4, src/sass/_theme-ligh.scss */
+.toastme.ligh.default {
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+/* line 9, src/sass/_theme-ligh.scss */
+.toastme.ligh.default .toastme-ico {
+  color: #4d4d4d;
+}
+
+/* line 11, src/sass/_theme-ligh.scss */
+.toastme.ligh.default .toastme-ico:before {
+  content: "";
+}
+
+/* line 17, src/sass/_theme-ligh.scss */
 .toastme.ligh.success {
   color: #333;
   background-color: #fff;
   border: 1px solid #ddd;
 }
 
-/* line 8, src/sass/_theme-ligh.scss */
+/* line 22, src/sass/_theme-ligh.scss */
 .toastme.ligh.success .toastme-ico {
   color: #8bc34a;
 }
 
-/* line 11, src/sass/_theme-ligh.scss */
+/* line 25, src/sass/_theme-ligh.scss */
 .toastme.ligh.success .toastme-ico:before {
   content: "";
 }
 
-/* line 18, src/sass/_theme-ligh.scss */
+/* line 32, src/sass/_theme-ligh.scss */
 .toastme.ligh.error {
   color: #333;
   background-color: #fff;
   border: 1px solid #ddd;
 }
 
-/* line 23, src/sass/_theme-ligh.scss */
+/* line 37, src/sass/_theme-ligh.scss */
 .toastme.ligh.error .toastme-ico {
   color: #f44336;
 }
 
-/* line 26, src/sass/_theme-ligh.scss */
+/* line 40, src/sass/_theme-ligh.scss */
 .toastme.ligh.error .toastme-ico:before {
   content: "";
 }
 
-/* line 32, src/sass/_theme-ligh.scss */
+/* line 46, src/sass/_theme-ligh.scss */
 .toastme.ligh.warning {
   color: #333;
   background-color: #fff;
   border: 1px solid #ddd;
 }
 
-/* line 37, src/sass/_theme-ligh.scss */
+/* line 51, src/sass/_theme-ligh.scss */
 .toastme.ligh.warning .toastme-ico {
   color: #ff9800;
 }
 
-/* line 40, src/sass/_theme-ligh.scss */
+/* line 54, src/sass/_theme-ligh.scss */
 .toastme.ligh.warning .toastme-ico:before {
   content: "";
 }
 
-/* line 46, src/sass/_theme-ligh.scss */
+/* line 60, src/sass/_theme-ligh.scss */
 .toastme.ligh.info {
   color: #333;
   background-color: #fff;
   border: 1px solid #ddd;
 }
 
-/* line 51, src/sass/_theme-ligh.scss */
+/* line 65, src/sass/_theme-ligh.scss */
 .toastme.ligh.info .toastme-ico {
   color: #2196f3;
 }
 
-/* line 54, src/sass/_theme-ligh.scss */
+/* line 68, src/sass/_theme-ligh.scss */
 .toastme.ligh.info .toastme-ico:before {
   content: "";
 }

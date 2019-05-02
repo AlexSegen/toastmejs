@@ -47,7 +47,7 @@
       text-decoration: underline;
     }
     .toastme-ico {
-      color: $success;
+      color: darken($success, 10%);
       &:before {
         content: $ico-success;
       }
@@ -62,7 +62,7 @@
       text-decoration: underline;
     }
     .toastme-ico {
-      color: $danger;
+      color: darken($danger, 10%);
       &:before {
         content: $ico-danger;
       }
@@ -77,7 +77,7 @@
       text-decoration: underline;
     }
     .toastme-ico {
-      color: $warning;
+      color: darken($warning, 10%);
       &:before {
         content: $ico-warning;
       }
@@ -92,7 +92,7 @@
       text-decoration: underline;
     }
     .toastme-ico {
-      color: $info;
+      color: darken($info, 10%);
       &:before {
         content: $ico-info;
       }
@@ -125,7 +125,7 @@
 
   .toastme-ico {
     font-size: 1.5rem;
-    color: #333;
+    color: lighten(#333, 20%);
     @include iconbody;
     float: left;
     width: 30px;
@@ -137,7 +137,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: #fff;
+    //background: #fff;
     &:before {
       content: $ico-notification;
     }

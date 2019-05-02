@@ -7,7 +7,8 @@
       positionY: null,
       positionX: null,
       zIndex: null,
-      ligh: false
+      ligh: false,
+      theme: ""
     }
   ) {
 
@@ -18,6 +19,7 @@
     this.positionX = config.positionX || "right"; //right, left, center
     this.zIndex = config.zIndex || 100;
     this.ligh = config.ligh || false;
+    this.theme = config.theme || "";
     this.instanceId = "-" + Math.floor((Math.random() * 1000000) + 1);
 
     this.initToast = function () {
@@ -32,7 +34,7 @@
       var toastmeList = document.createElement("ul");
       toastmeList.classList.add("toastme-list");
       toastmeList.setAttribute("id", "toastmeList" + instanceId);
-      this.positionX == 'center' ? (toastmeList.style.right = '50%', toastmeList.style.marginRight = '-125px') : (toastmeList.style[this.positionX] = this.distanceX + "px");
+      this.positionX == 'center' ? (toastmeList.style.right = '50%') : (toastmeList.style[this.positionX] = this.distanceX + "px");
       toastmeList.style[this.positionY] = this.distanceY + "px";
       toastmeList.style.zIndex = this.zIndex;
       if (!document.getElementById('toastmeList' + instanceId)) {
@@ -52,7 +54,7 @@
       this.initToast();
 
       var toastme = document.createElement("li");
-      toastme.classList.add("toastme", type, this.ligh ? 'ligh' : false);
+      toastme.classList.add("toastme", type, this.theme ? this.theme : false, this.ligh ? 'ligh' : false);
       this.positionX == 'center' ? (toastme.style.right = '50%', toastme.style.marginRight = '-125px') : (toastme.style[this.positionX] = this.distanceX + "px");
       toastme.style[this.positionY] = this.distanceY + "px";
       toastme.style.zIndex = this.zIndex;

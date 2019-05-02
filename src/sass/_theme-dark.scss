@@ -1,13 +1,13 @@
 .toastme {
-    &.ligh {
+    &.dark {
 
         &.default {
-            color: $font-color-light;
-            background-color: $bg-light;
-            border: 1px solid $border-light;
+            color: $font-color-dark;
+            background-color: $bg-dark;
+            border: 1px solid $border-dark;
 
             .toastme-ico {
-                color: lighten($font-color-light, 10%);
+                color: lighten($font-color-dark, 10%);
                 &:before {
                     content: $ico-notification;
                 }
@@ -15,9 +15,9 @@
         }
 
         &.success {
-            color: $font-color-light;
-            background-color: $bg-light;
-            border: 1px solid $border-light;
+            color: $font-color-dark;
+            background-color: $bg-dark;
+            border: 1px solid $border-dark;
 
             .toastme-ico {
                 color: $success;
@@ -30,9 +30,9 @@
 
 
         &.error {
-            color: $font-color-light;
-            background-color: $bg-light;
-            border: 1px solid $border-light;
+            color: $font-color-dark;
+            background-color: $bg-dark;
+            border: 1px solid $border-dark;
 
             .toastme-ico {
                 color: $danger;
@@ -44,9 +44,9 @@
         }
 
         &.warning {
-            color: $font-color-light;
-            background-color: $bg-light;
-            border: 1px solid $border-light;
+            color: $font-color-dark;
+            background-color: $bg-dark;
+            border: 1px solid $border-dark;
 
             .toastme-ico {
                 color: $warning;
@@ -58,9 +58,9 @@
         }
 
         &.info {
-            color: $font-color-light;
-            background-color: $bg-light;
-            border: 1px solid $border-light;
+            color: $font-color-dark;
+            background-color: $bg-dark;
+            border: 1px solid $border-dark;
 
             .toastme-ico {
                 color: $info;
