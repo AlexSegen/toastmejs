@@ -10,6 +10,7 @@ ToastmeJS is a very simple, flexible and light weigth plugin that shows **Notifi
 - Customize position
 - Default and light theme!
 
+
 ## Demo
 
 Want to see a quick demo? Click [here](https://alexsegen.github.io/toastmejs/)
@@ -32,6 +33,7 @@ Want to see a quick demo? Click [here](https://alexsegen.github.io/toastmejs/)
 
 - Light weight < 12kb
 
+- Full color, ligh and dark themes
   
 
   
@@ -265,22 +267,35 @@ $ gulp
 - Custom HTML templates
 
   
-
+----
   
+#### Changelog
 
-  
+Version 1.2.0
+- Added notifications and dialog dark themes
+- Improved CSS positioning
+- Replace icons SCSS variables on ligh theme
+- Stacked notifications!
+- Fixed Package JSON entry
+- Removed unnecesary dependencies
+- Added missing default notifications
+- New animations and icons
+- Validate Module Exports when Client or Server
 
-License
+**IMPORTANT**: now you need to use brackets when importing toastmejs. Ex: 
 
-  
+ ```sh
+import { toastme } from 'toastmejs';
 
-  
+```
+
+
+**Note:** "ligh" boolean option whitin notifications will be deprecated (and posibly removed) on next versions. Now you can select a specific theme.
+
 
 ----
-
-  
-
-  
+License
+    
 
   
 
