@@ -1,8 +1,11 @@
 .toastme-list {
   position: fixed;
-  max-width: $max-width;
+  width: 250px;
   padding: 0;
   margin: 0;
+  padding-inline-start: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 .toastme {

@@ -451,12 +451,18 @@
 /* line 1, src/sass/_notifications.scss */
 .toastme-list {
   position: fixed;
-  max-width: 250px;
+  width: 250px;
   padding: 0;
   margin: 0;
+  -webkit-padding-start: 0;
+          padding-inline-start: 0;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
 }
 
-/* line 8, src/sass/_notifications.scss */
+/* line 11, src/sass/_notifications.scss */
 .toastme {
   font-size: 13px;
   font-family: Helvetica, "san-serif";
@@ -486,106 +492,106 @@
   animation: flip-in-hor-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
-/* line 32, src/sass/_notifications.scss */
+/* line 35, src/sass/_notifications.scss */
 .toastme:hover, .toastme:focus {
   opacity: 1;
 }
 
-/* line 37, src/sass/_notifications.scss */
+/* line 40, src/sass/_notifications.scss */
 .toastme a {
   color: #333;
   text-decoration: underline;
 }
 
-/* line 42, src/sass/_notifications.scss */
+/* line 45, src/sass/_notifications.scss */
 .toastme.success {
   color: #fff;
   background-color: #8bc34a;
 }
 
-/* line 45, src/sass/_notifications.scss */
+/* line 48, src/sass/_notifications.scss */
 .toastme.success a {
   color: #fff;
   text-decoration: underline;
 }
 
-/* line 49, src/sass/_notifications.scss */
+/* line 52, src/sass/_notifications.scss */
 .toastme.success .toastme-ico {
   color: #71a436;
 }
 
-/* line 51, src/sass/_notifications.scss */
+/* line 54, src/sass/_notifications.scss */
 .toastme.success .toastme-ico:before {
   content: "";
 }
 
-/* line 57, src/sass/_notifications.scss */
+/* line 60, src/sass/_notifications.scss */
 .toastme.error {
   color: #fff;
   background-color: #f44336;
 }
 
-/* line 60, src/sass/_notifications.scss */
+/* line 63, src/sass/_notifications.scss */
 .toastme.error a {
   color: #fff;
   text-decoration: underline;
 }
 
-/* line 64, src/sass/_notifications.scss */
+/* line 67, src/sass/_notifications.scss */
 .toastme.error .toastme-ico {
   color: #ea1c0d;
 }
 
-/* line 66, src/sass/_notifications.scss */
+/* line 69, src/sass/_notifications.scss */
 .toastme.error .toastme-ico:before {
   content: "";
 }
 
-/* line 72, src/sass/_notifications.scss */
+/* line 75, src/sass/_notifications.scss */
 .toastme.warning {
   color: #fff;
   background-color: #ff9800;
 }
 
-/* line 75, src/sass/_notifications.scss */
+/* line 78, src/sass/_notifications.scss */
 .toastme.warning a {
   color: #fff;
   text-decoration: underline;
 }
 
-/* line 79, src/sass/_notifications.scss */
+/* line 82, src/sass/_notifications.scss */
 .toastme.warning .toastme-ico {
   color: #cc7a00;
 }
 
-/* line 81, src/sass/_notifications.scss */
+/* line 84, src/sass/_notifications.scss */
 .toastme.warning .toastme-ico:before {
   content: "";
 }
 
-/* line 87, src/sass/_notifications.scss */
+/* line 90, src/sass/_notifications.scss */
 .toastme.info {
   color: #fff;
   background-color: #2196f3;
 }
 
-/* line 90, src/sass/_notifications.scss */
+/* line 93, src/sass/_notifications.scss */
 .toastme.info a {
   color: #fff;
   text-decoration: underline;
 }
 
-/* line 94, src/sass/_notifications.scss */
+/* line 97, src/sass/_notifications.scss */
 .toastme.info .toastme-ico {
   color: #0c7cd5;
 }
 
-/* line 96, src/sass/_notifications.scss */
+/* line 99, src/sass/_notifications.scss */
 .toastme.info .toastme-ico:before {
   content: "";
 }
 
-/* line 102, src/sass/_notifications.scss */
+/* line 105, src/sass/_notifications.scss */
 .toastme .toastme-close {
   color: #333;
   opacity: 0.7;
@@ -613,18 +619,18 @@
   transition: all 0.2s ease-in-out;
 }
 
-/* line 116, src/sass/_notifications.scss */
+/* line 119, src/sass/_notifications.scss */
 .toastme .toastme-close:after {
   content: "";
   color: #ddd;
 }
 
-/* line 120, src/sass/_notifications.scss */
+/* line 123, src/sass/_notifications.scss */
 .toastme .toastme-close:hover, .toastme .toastme-close:focus {
   opacity: 1;
 }
 
-/* line 126, src/sass/_notifications.scss */
+/* line 129, src/sass/_notifications.scss */
 .toastme .toastme-ico {
   font-size: 1.5rem;
   color: #666666;
@@ -656,12 +662,12 @@
   text-align: center;
 }
 
-/* line 141, src/sass/_notifications.scss */
+/* line 144, src/sass/_notifications.scss */
 .toastme .toastme-ico:before {
   content: "";
 }
 
-/* line 145, src/sass/_notifications.scss */
+/* line 148, src/sass/_notifications.scss */
 .toastme .toastme-content {
   white-space: nowrap;
   min-width: 150px;
@@ -870,9 +876,15 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.65);
   z-index: 999;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-/* line 19, src/sass/_dialogs.scss */
+/* line 21, src/sass/_dialogs.scss */
 .toastme-dialog-ico {
   width: 50px;
   height: 50px;
@@ -894,79 +906,78 @@
   animation: flip-in-hor-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
 }
 
-/* line 31, src/sass/_dialogs.scss */
+/* line 33, src/sass/_dialogs.scss */
 .toastme-dialog-ico.success {
   color: #8bc34a;
 }
 
-/* line 33, src/sass/_dialogs.scss */
+/* line 35, src/sass/_dialogs.scss */
 .toastme-dialog-ico.success:before {
   content: "";
 }
 
-/* line 37, src/sass/_dialogs.scss */
+/* line 39, src/sass/_dialogs.scss */
 .toastme-dialog-ico.danger {
   color: #f44336;
   -webkit-animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.5s both;
   animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.5s both;
 }
 
-/* line 41, src/sass/_dialogs.scss */
+/* line 43, src/sass/_dialogs.scss */
 .toastme-dialog-ico.danger:before {
   content: "";
 }
 
-/* line 45, src/sass/_dialogs.scss */
+/* line 47, src/sass/_dialogs.scss */
 .toastme-dialog-ico.info {
   color: #03a9f4;
   -webkit-animation: bounce-top 0.9s both;
   animation: bounce-top 0.9s both;
 }
 
-/* line 49, src/sass/_dialogs.scss */
+/* line 51, src/sass/_dialogs.scss */
 .toastme-dialog-ico.info:before {
   content: "";
 }
 
-/* line 53, src/sass/_dialogs.scss */
+/* line 55, src/sass/_dialogs.scss */
 .toastme-dialog-ico.warning {
   color: #ffc107;
   -webkit-animation: wobble-hor-bottom 0.8s 0.5s both;
   animation: wobble-hor-bottom 0.8s 0.5s both;
 }
 
-/* line 57, src/sass/_dialogs.scss */
+/* line 59, src/sass/_dialogs.scss */
 .toastme-dialog-ico.warning:before {
   content: "";
 }
 
-/* line 61, src/sass/_dialogs.scss */
+/* line 63, src/sass/_dialogs.scss */
 .toastme-dialog-ico.question {
   color: #3f51b5;
   -webkit-animation: jello-horizontal 0.9s 0.5s  both;
   animation: jello-horizontal 0.9s 0.5s both;
 }
 
-/* line 65, src/sass/_dialogs.scss */
+/* line 67, src/sass/_dialogs.scss */
 .toastme-dialog-ico.question:before {
   content: "";
 }
 
-/* line 71, src/sass/_dialogs.scss */
+/* line 73, src/sass/_dialogs.scss */
 .toastme-dialog {
   padding: 10px;
   font-size: 14px;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
-  display: inline-block;
+  display: table;
   color: #737373;
   background: #f9f9f9;
   border-radius: 3px;
   border: 1px solid #ddd;
   width: 280px;
-  position: absolute;
+  position: relative;
   top: calc(50% - 200px);
-  left: calc(50% - 190px);
   z-index: 1000;
   -webkit-transition: all ease-in-out 0.2s;
   transition: all ease-in-out 0.2s;
@@ -976,20 +987,20 @@
           animation: toastDialogIn 0.2s ease-in-out 0s forwards;
 }
 
-/* line 90, src/sass/_dialogs.scss */
+/* line 92, src/sass/_dialogs.scss */
 .toastme-dialog.dark {
   color: #fff;
   background: #252839;
   border: 1px solid #252839;
 }
 
-/* line 96, src/sass/_dialogs.scss */
+/* line 98, src/sass/_dialogs.scss */
 .toastme-dialog.toastme-dialog-closing {
   -webkit-animation: toastDialogOut 0.1s ease-in-out 0s forwards;
           animation: toastDialogOut 0.1s ease-in-out 0s forwards;
 }
 
-/* line 100, src/sass/_dialogs.scss */
+/* line 102, src/sass/_dialogs.scss */
 .toastme-dialog .toastme-dialog-title {
   font-size: 15px;
   font-weight: 600;
@@ -998,7 +1009,7 @@
   line-height: 16px;
 }
 
-/* line 108, src/sass/_dialogs.scss */
+/* line 110, src/sass/_dialogs.scss */
 .toastme-dialog .toastme-dialog-text {
   font-size: 14px;
   font-family: Helvetica, sans-serif;

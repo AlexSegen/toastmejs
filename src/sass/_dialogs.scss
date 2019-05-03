@@ -14,6 +14,8 @@ $question: #3f51b5;
   bottom: 0;
   background: rgba(0, 0, 0, 0.65);
   z-index: 999;
+  display: flex;
+  justify-content: center;
 }
 
 .toastme-dialog-ico {
@@ -73,15 +75,15 @@ $question: #3f51b5;
   font-size: 14px;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
-  display: inline-block;
+  display: table;
   color: #737373;
   background: #f9f9f9;
   border-radius: 3px;
   border: 1px solid #ddd;
   width: 280px;
-  position: absolute;
+  position: relative;
   top: calc(50% - 200px);
-  left: calc(50% - 190px);
+  //left: calc(50% - 190px);
   z-index: 1000;
   transition: all ease-in-out 0.2s;
   box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.05);
