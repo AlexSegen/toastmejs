@@ -6,9 +6,8 @@
   
 ToastmeJS is a very simple, flexible and light weigth plugin that shows **Notifications** and modal **Dialogs** on your website.
 
-- Customize colors
-- Customize position
-- Default and light theme!
+- Customize position, text, colors.
+- Colorfull, dark and ligh themes.
 
 
 ## Demo
