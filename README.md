@@ -86,8 +86,8 @@ Or you can download it and include necesary files on your project
   
 
 ```sh 
-<link rel="stylesheet" href="./dist/css/toastme.css">
-<script src="./dist/js/toastme.js" ></script>
+<link rel="stylesheet" href="https://unpkg.com/toastmejs@1.2.0/dist/css/toastme.css">
+<script src="https://unpkg.com/toastmejs@1.2.0/dist/js/toastme.min.js" ></script>
 ```
 
   
@@ -157,7 +157,7 @@ You can customize duration, position, distance, z-index and a ligh theme
 
   
 
--  **ligh:** change to 'true' if you want ligh themed notifications.
+-  **theme:** select 'default', 'ligh' or 'dark' theme. Leave empty for default.
 
   
 
@@ -182,13 +182,13 @@ Then, you need to declare a new Object with your new custom settings and create 
 
 ```sh
 const config = {
-	timeout: 5000,
-	positionY: "bottom", // top or bottom
-	positionX: "center", // right left, center
-	distanceY: 20, // Integer value
-	distanceX: 20, // Integer value
-	zIndex: 100, // Integer value
-	ligh: true // Ligh theme
+    timeout: 5000,
+    positionY: "bottom", // top or bottom
+    positionX: "center", // right left, center
+    distanceY: 20, // Integer value
+    distanceX: 20, // Integer value
+    zIndex: 100, // Integer value
+    theme: "default" // default, ligh or  dark (leave empty for "default" theme)
 };
 
 const myToast = new Toastme(config); 
@@ -213,19 +213,21 @@ This works with a javascript Promise that returns True or False, depending on ho
 To use **Dialogs**, you just need declare the instance and set some default parameters:
 
 ```sh 
-toastme.yesNoDialog({ 
-	title: "You are the Winner!",
-	text: "Do you want to pick your price?",
-	textConfirm: "Confirm",
-	textCancel: "Cancel",
-	showCancel: true, // true or false 
-	type: "success"  // 'success', 'danger', 'warning', 'info' or 'question' (optional)
-}).then((value) =>  { 
-	if (value) {
-		console.log('You clicked Confirm')
-	} else {
-		console.log('You clicked Cancel')
-	} 
+//Example
+toastme.yesNoDialog({
+    title: "You are the Winner!",
+    text: "Do you want to pick your price?",
+    textConfirm: "Confirm",
+    textCancel: "Cancel", 
+    showCancel: true, // true or false
+    type: "success", // 'success', 'danger', 'warning', 'info' or 'question'
+	dark: false // set 'true' if you want dark theme
+}).then(function(value) {
+    if (value) {
+        console.log('You clicked Confirm')
+    } else {
+        console.log('You clicked Cancel')
+    }
 });
 ```
 
@@ -237,7 +239,8 @@ You can customize text, title, buttons text and optionally, you can select 'type
 -  **textConfirm:** Confirm button caption
 -  **textCancel:** Cancel button caption
 -  **showCancel:** show cancel button? 'true' or 'false'
- -  **type:** select 'success', 'danger', 'warning', 'info' or 'question'
+-  **type:** select 'success', 'danger', 'warning', 'info' or 'question'
+-  **dark:** set 'true' if you want dark theme (optional) - empty for ligh theme.
 
  
 
