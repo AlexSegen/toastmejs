@@ -331,7 +331,8 @@ toastme.yesNoDialog({
     textConfirm: "Confirm",
     textCancel: "Cancel", 
     showCancel: true, // true or false
-    type: "success" // 'success', 'danger', 'warning', 'info' or 'question'
+    type: "success", // 'success', 'danger', 'warning', 'info' or 'question'
+    dark: false, // Show dark theme? 'true' or 'false'
 }).then(function(value) {
     if (value) {
         console.log('You clicked Confirm')
