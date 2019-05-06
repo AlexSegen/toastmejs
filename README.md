@@ -51,7 +51,7 @@ Toastme does not have any dependencies. Just run next command:
 
   
 
-  
+#### Via NPM
 
 ```sh 
 $ npm install toastmejs --save
@@ -77,11 +77,9 @@ const {toastme} = require('toastmejs')
   
 
   
+#### Via CDN
 
-Or you can download it and include necesary files on your project
-
-  
-
+Import the CSS via a ```<link />``` and  ```<scripts />``` elements:
   
 
 ```sh 
@@ -89,7 +87,11 @@ Or you can download it and include necesary files on your project
 <script src="https://unpkg.com/toastmejs@1.2.0/dist/js/toastme.min.js" ></script>
 ```
 
-  
+#### Download
+
+Or simply download the files and include necesary CSS/JS files to your project.
+
+  [Download here]([https://github.com/AlexSegen/toastmejs/releases](https://github.com/AlexSegen/toastmejs/releases))
 
   
 
