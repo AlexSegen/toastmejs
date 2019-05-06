@@ -6,8 +6,16 @@
   
 ToastmeJS is a very simple, flexible and light weigth plugin that shows **Notifications** and modal **Dialogs** on your website.
 
+<<<<<<< HEAD
 - Customize position, text, colors.
 - Colorfull, dark and ligh themes.
+=======
+![](https://s3.us-east-2.amazonaws.com/toastmejs/images/toastme-notifications-capture-compressor.gif)
+
+- Customize colors
+- Customize position
+- Default and light theme!
+>>>>>>> 1af3086b60e9f871afdbb49b3ddb3dade8dc7260
 
 
 ## Demo
@@ -210,6 +218,8 @@ myToast.success('This is a new success notification')
   
 
 This works with a javascript Promise that returns True or False, depending on how you interact with it. 
+
+![](https://s3.us-east-2.amazonaws.com/toastmejs/images/toastme-dialogs-capture-compressor.gif)
 
 To use **Dialogs**, you just need declare the instance and set some default parameters:
 
