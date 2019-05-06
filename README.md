@@ -271,6 +271,10 @@ $ gulp
   
 #### Changelog
 
+Version 1.2.1
+- Added: babel transpiler.
+- Fix: change notification box size according to the text -  [#1](https://github.com/AlexSegen/toastmejs/issues/1)
+
 Version 1.2.0
 - Added notifications and dialog dark themes
 - Improved CSS positioning
