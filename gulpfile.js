@@ -80,6 +80,8 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-terser');
 var optimizejs = require('gulp-optimize-js');
 
+var babel = require('gulp-babel');
+
 // Styles
 var sass = require('gulp-sass');
 var prefix = require('gulp-autoprefixer');
@@ -112,6 +114,8 @@ var cleanDist = function (done) {
 // Repeated JavaScript tasks
 var jsTasks = lazypipe()
 	.pipe(header, banner.full, {package: package})
+	.pipe(babel, { presets: ['env'] })
+	.pipe(dest, paths.scripts.output)
 	.pipe(optimizejs)
 	.pipe(dest, paths.scripts.output)
 	.pipe(rename, {suffix: '.min'})
@@ -165,6 +169,20 @@ var buildScripts = function (done) {
 		}));
 
 	// Signal completion
+	done();
+
+};
+
+var buildScripts2 = function (done) {
+
+	if (!settings.scripts) return done();
+
+	src(paths.scripts.input)
+	.pipe(babel({
+		presets: ['env']
+	}))
+	.pipe(dest(paths.scripts.output))
+
 	done();
 
 };

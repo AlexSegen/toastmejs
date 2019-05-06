@@ -40,14 +40,14 @@
       if (!document.getElementById('toastmeList' + instanceId)) {
         document.body.appendChild(toastmeList);
       }
-      return toastmeList
-    }
+      return toastmeList;
+    };
 
     this.destroyList = function (instanceId) {
       if (document.getElementById('toastmeList' + instanceId) && document.getElementById('toastmeList' + instanceId).querySelectorAll('li').length == 0) {
         document.getElementById('toastmeList' + instanceId).remove();
       }
-    }
+    };
 
     this.buildToast = function (type, str, instanceId) {
 
@@ -66,27 +66,27 @@
       }, this.timeout);
 
       return toastme;
-    }
+    };
 
     this.showToast = function (type, str) {
       this.createToastList(this.instanceId);
       document.getElementById('toastmeList' + this.instanceId).appendChild(this.buildToast(type, str, this.instanceId));
-    }
+    };
     this.default = function (str) {
       this.showToast('default', str);
-    }
+    };
     this.success = function (str) {
       this.showToast('success', str);
-    }
+    };
     this.error = function (str) {
       this.showToast('error', str);
-    }
+    };
     this.warning = function (str) {
       this.showToast('warning', str);
-    }
+    };
     this.info = function (str) {
       this.showToast('info', str);
-    }
+    };
 
     //Toastme Dialogs
 
@@ -106,7 +106,7 @@
           }, 500);
         }
       });
-    }
+    };
 
     this.buildDialog = function (title, text, textConfirm, textCancel, showCancel, type, dark) {
       var showTitle = title ? `<p class="toastme-dialog-title">${title}</p>` : "";
@@ -129,7 +129,7 @@
           </div>
       </div>`;
       return dialog;
-    }
+    };
 
     this.selectType = function (str) {
       switch (str) {
@@ -146,7 +146,7 @@
         default:
           return false;
       }
-    }
+    };
 
 
     this.yesNoDialog = function (
@@ -187,14 +187,14 @@
           });
         }
       });
-    }
+    };
 
     this.closeAllToasts = function () {
       let array = document.querySelectorAll(".toastme-list");
       array.forEach(function (item) {
         item.parentNode.removeChild(item);
       });
-    }
+    };
 
     this.closeAllDialogs = function () {
       let array = document.querySelectorAll(".toastme-dialog-bg");
@@ -202,7 +202,7 @@
         item.style.display = "none";
         item.parentNode.removeChild(item);
       });
-    }
+    };
 
   }
 
