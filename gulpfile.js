@@ -46,7 +46,7 @@ var banner = {
 		'/*!\n' +
 		' * <%= package.name %> v<%= package.version %>\n' +
 		' * <%= package.description %>\n' +
-		' * (c) ' + new Date().getFullYear() + ' <%= package.author.name %>\n' +
+		' * (c) ' + new Date().getFullYear() + ' <%= package.author.name %> | Twitter <%= package.author.twitter %> \n' +
 		' * <%= package.license %> License\n' +
 		' * <%= package.repository.url %>\n' +
 		' */\n\n',

@@ -5,7 +5,8 @@
 	"main": "./dist/js/toastme.js",
 	"author": {
 		"name": "alexsegen",
-		"url": "https://pixelagil.com"
+		"url": "https://pixelagil.com",
+		"twitter": "https://twitter.com/pixelagil"
 	},
 	"keywords": [
 		"toast",

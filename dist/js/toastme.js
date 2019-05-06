@@ -1,9 +1,9 @@
 "use strict";
 
 /*!
- * toastmejs v1.2.0
+ * toastmejs v1.2.1
  * Web notifications and dialogs with pure javascript
- * (c) 2019 alexsegen
+ * (c) 2019 alexsegen | Twitter https://twitter.com/pixelagil 
  * MIT License
  * git+https://github.com/alexsegen/toastmejs.git
  */
