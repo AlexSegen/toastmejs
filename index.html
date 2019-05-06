@@ -408,7 +408,7 @@ toastme.yesNoDialog({
 
 
     const configDark = {
-        timeout: 300000,
+        timeout: 3000,
         positionY: "top", // top or bottom
         positionX: "center", // right left, center
         theme: "dark" //default, ligh or  dark (optional)
@@ -417,8 +417,7 @@ toastme.yesNoDialog({
     const myToastDark = new Toastme(configDark);
 
     function defaultD() {
-        myToastDark.default("78794545612316794513211035659987")
-        //myToastDark.default("This is a 'default' notification")
+        myToastDark.default("This is a 'default' notification")
     }
 
 
