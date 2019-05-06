@@ -670,6 +670,7 @@
 /* line 148, src/sass/_notifications.scss */
 .toastme .toastme-content {
   min-width: 150px;
+  overflow-wrap: break-word;
 }
 
 @-webkit-keyframes toastIn {
