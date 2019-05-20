@@ -83,8 +83,8 @@ Import the CSS via a ```<link />``` and  ```<scripts />``` elements:
   
 
 ```sh 
-<link rel="stylesheet" href="https://unpkg.com/toastmejs@1.2.0/dist/css/toastme.css">
-<script src="https://unpkg.com/toastmejs@1.2.0/dist/js/toastme.min.js" ></script>
+<link rel="stylesheet" href="https://unpkg.com/toastmejs@1.2.1/dist/css/toastme.css">
+<script src="https://unpkg.com/toastmejs@1.2.1/dist/js/toastme.min.js" ></script>
 ```
 
 #### Download
