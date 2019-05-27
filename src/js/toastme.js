@@ -61,13 +61,16 @@
           <div class="toastme-content">${str}</div>`;
 
       setTimeout(() => {
-        toastme.classList.add("toastOut")
+        //toastme.classList.add("fade-out")
+        toastme.remove();
+        this.destroyList(instanceId);
       }, this.timeout);
-
+      /*
       setTimeout(() => {
         toastme.remove();
         this.destroyList(instanceId);
-      }, 50000);
+      }, this.timeout + 600);
+      */
 
       return toastme;
     };

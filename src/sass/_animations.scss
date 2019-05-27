@@ -376,12 +376,16 @@
   }
 }
 
-.toastOut {
-  animation: toastOut 0.2s forwards 0s ease-in-out;
-}
-@keyframes toastOut {
+ @-webkit-keyframes fade-out {
   0% {
-    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fade-out {
+  0% {
     opacity: 1;
   }
   100% {
@@ -389,3 +393,7 @@
   }
 }
 
+.toastme.fade-out {
+	-webkit-animation: fade-out .5s forwards ease-in-out 0s;
+	        animation: fade-out .5s forwards ease-in-out 0s;
+}
