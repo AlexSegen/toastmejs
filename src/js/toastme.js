@@ -67,7 +67,7 @@
       setTimeout(() => {
         toastme.remove();
         this.destroyList(instanceId);
-      }, this.timeout + 1000);
+      }, 50000);
 
       return toastme;
     };
