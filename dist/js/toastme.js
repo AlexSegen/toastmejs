@@ -69,13 +69,16 @@
       toastme.innerHTML = "\n          <button class=\"toastme-close\"></button>\n          <i class=\"toastme-ico\"></i>\n          <div class=\"toastme-content\">" + str + "</div>";
 
       setTimeout((function () {
-        toastme.classList.add("toastOut");
-      }), this.timeout);
-
-      setTimeout((function () {
+        //toastme.classList.add("fade-out")
         toastme.remove();
         _this.destroyList(instanceId);
-      }), 50000);
+      }), this.timeout);
+      /*
+      setTimeout(() => {
+        toastme.remove();
+        this.destroyList(instanceId);
+      }, this.timeout + 600);
+      */
 
       return toastme;
     };
