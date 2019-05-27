@@ -8,3 +8,7 @@ test/coverage
 ._*
 .Spotlight-V100
 .Trashes
+
+.env
+
+dist_dev

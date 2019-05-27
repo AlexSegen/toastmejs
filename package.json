@@ -8,6 +8,10 @@
 		"url": "https://pixelagil.com",
 		"twitter": "https://twitter.com/pixelagil"
 	},
+	"scripts": {
+		"dev": "cross-env NODE_ENV=development gulp",
+		"prod": "cross-env NODE_ENV=production gulp"
+	},
 	"keywords": [
 		"toast",
 		"notifications",
@@ -23,7 +27,7 @@
 	"devDependencies": {
 		"babel-core": "^6.26.3",
 		"babel-preset-env": "^1.7.0",
-		"browser-sync": "2.26.3",
+		"browser-sync": "^2.26.5",
 		"del": "3.0.0",
 		"gulp": "4.0.0",
 		"gulp-autoprefixer": "6.0.0",
@@ -41,5 +45,9 @@
 		"jshint": "2.9.6",
 		"jshint-stylish": "2.2.1",
 		"lazypipe": "1.0.1"
+	},
+	"dependencies": {
+		"cross-env": "^5.2.0",
+		"dotenv": "8.0.0"
 	}
 }

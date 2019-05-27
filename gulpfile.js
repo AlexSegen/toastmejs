@@ -1,7 +1,10 @@
+require('dotenv').config()
 /**
  * Settings
  * Turn on/off build features
  */
+
+var output = process.env.NODE_ENV == "development"  ? "dist_dev" : "dist"
 
 var settings = {
 	clean: true,
@@ -19,21 +22,21 @@ var settings = {
 
 var paths = {
 	input: 'src/',
-	output: 'dist/',
+	output: output,
 	scripts: {
 		input: 'src/js/*',
 		polyfills: '.polyfill.js',
-		output: 'dist/js/'
+		output: output + "/js/"
 	},
 	styles: {
 		input: 'src/sass/**/*.{scss,sass}',
-		output: 'dist/css/'
+		output: output + '/css/'
 	},
 	copyIcons: {
 		input: 'src/icons/**/*',
-		output: 'dist/icons/'
+		output: output + '/icons/'
 	},
-	reload: './dist/'
+	reload: './'  + output + '/'
 };
 
 

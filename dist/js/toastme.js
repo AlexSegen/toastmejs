@@ -1,7 +1,7 @@
 "use strict";
 
 /*!
- * toastmejs v1.2.1
+ * toastmejs v1.2.2
  * Web notifications and dialogs with pure javascript
  * (c) 2019 alexsegen | Twitter https://twitter.com/pixelagil 
  * MIT License
@@ -75,7 +75,7 @@
       setTimeout((function () {
         toastme.remove();
         _this.destroyList(instanceId);
-      }), this.timeout + 1000);
+      }), 50000);
 
       return toastme;
     };
