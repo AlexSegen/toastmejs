@@ -448,6 +448,56 @@
   }
 }
 
+@-webkit-keyframes toastIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes toastIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+/* line 379, src/sass/_animations.scss */
+.toastOut {
+  -webkit-animation: toastOut 0.2s forwards 0s ease-in-out;
+          animation: toastOut 0.2s forwards 0s ease-in-out;
+}
+
+@-webkit-keyframes toastOut {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes toastOut {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 /* line 1, src/sass/_notifications.scss */
 .toastme-list {
   position: fixed;
@@ -671,28 +721,6 @@
 .toastme .toastme-content {
   min-width: 150px;
   overflow-wrap: break-word;
-}
-
-@-webkit-keyframes toastIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-
-@keyframes toastIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
 }
 
 /* line 4, src/sass/_theme-dark.scss */

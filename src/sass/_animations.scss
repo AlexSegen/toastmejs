@@ -364,3 +364,28 @@
     transform: translateX(-6px) rotate(-1.2deg);
   }
 }
+
+
+@keyframes toastIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.toastOut {
+  animation: toastOut 0.2s forwards 0s ease-in-out;
+}
+@keyframes toastOut {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+

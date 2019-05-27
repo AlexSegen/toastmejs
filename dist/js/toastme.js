@@ -27,7 +27,7 @@
     this.distanceY = config.distanceY || 15;
     this.positionY = config.positionY || "bottom"; //bottom, top
     this.positionX = config.positionX || "right"; //right, left, center
-    this.zIndex = config.zIndex || 100;
+    this.zIndex = config.zIndex || 1000;
     this.ligh = config.ligh || false;
     this.theme = config.theme || "";
     this.instanceId = "-" + Math.floor(Math.random() * 1000000 + 1);
@@ -69,9 +69,13 @@
       toastme.innerHTML = "\n          <button class=\"toastme-close\"></button>\n          <i class=\"toastme-ico\"></i>\n          <div class=\"toastme-content\">" + str + "</div>";
 
       setTimeout((function () {
+        toastme.classList.add("toastOut");
+      }), this.timeout);
+
+      setTimeout((function () {
         toastme.remove();
         _this.destroyList(instanceId);
-      }), this.timeout);
+      }), this.timeout + 1000);
 
       return toastme;
     };
@@ -108,10 +112,17 @@
           setTimeout((function () {
             var array = document.querySelectorAll(".toastme-dialog-bg");
             array.forEach((function (item) {
-              item.style.display = "none";
+              //item.style.display = "none";
+              item.classList.add("toastOut");
+            }));
+          }), 400);
+
+          setTimeout((function () {
+            var array = document.querySelectorAll(".toastme-dialog-bg");
+            array.forEach((function (item) {
               item.parentNode.removeChild(item);
             }));
-          }), 500);
+          }), 600);
         }
       }));
     };
