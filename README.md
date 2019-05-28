@@ -12,7 +12,7 @@ ToastmeJS is a very simple, flexible and light weigth plugin that shows **Notifi
 
 ## Demo
 
-Want to see a quick demo? Click [here](https://alexsegen.github.io/toastmejs/)
+Want to see a quick demo? Click [here](https://toastmejs.netlify.com/)
 
   
 
