@@ -1,265 +1,173 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ToastmeJS Demo</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atelier-cave-dark.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" type="image/png" sizes="32x32" href="./demo/favicon-32x32.aa6877fc.png">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atelier-cave-dark.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
 
-    <!--Toastme CSS-->
-    <link rel="stylesheet" href="./dist_dev/css/toastme.css">
+  <link rel="stylesheet" href="./dist/css/toastme.css">
+  <script src="./dist/js/toastme.min.js"></script>
 
-    <!--Demo CSS-->
-    <style>
-        body {
-            color: #333;
-            text-align: center;
-            font-family: Roboto, sans-serif
-        }
-
-        h1 {
-            margin-top: 50px;
-            margin-bottom: 5px;
-            font-size: 30px;
-            font-weight: 600;
-        }
-
-        h3 {
-            color: #333;
-            font-size: 24px;
-            font-weight: 400;
-            margin-top: 10px;
-            margin-bottom: 20px
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 20px 0
-        }
-
-        .button {
-            cursor: pointer;
-            padding: 10px 25px;
-            box-shadow: none;
-            border: none;
-            margin-bottom: 10px;
-            min-width: 100px;
-            border-radius: 2px;
-            background-color: #f9f9f9;
-            box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, .1);
-        }
-
-        .button.default {
-            color: #737373;
-            background-color: #f9f9f9
-        }
-
-        .button.success {
-            color: #fff;
-            background-color: #8bc34a
-        }
-
-        .button.error {
-            color: #fff;
-            background-color: #f44336
-        }
-
-        .button.warning {
-            color: #fff;
-            background-color: #ff9800
-        }
-
-        .button.info {
-            color: #fff;
-            background-color: #2196f3
-        }
-
-        .button.ligh {
-            color: #666;
-            background-color: #f9f9f9 !important
-        }
-
-        .button.success.ligh {
-            color: #8bc34a;
-            background-color: #f9f9f9 !important
-        }
-
-        .button.error.ligh {
-            color: #f44336;
-            background-color: #f9f9f9 !important
-        }
-
-        .button.warning.ligh {
-            color: #ff9800;
-            background-color: #f9f9f9 !important
-        }
-
-        .button.info.ligh {
-            color: #2196f3;
-            background-color: #f9f9f9 !important
-        }
-
-        .button.dark {
-            color: #fff;
-            background-color: #252839 !important
-        }
-
-        .button.success.dark {
-            color: #8bc34a;
-            background-color: #252839 !important
-        }
-
-        .button.error.dark {
-            color: #f44336;
-            background-color: #252839 !important
-        }
-
-        .button.warning.dark {
-            color: #ff9800;
-            background-color: #252839 !important
-        }
-
-        .button.info.dark {
-            color: #2196f3;
-            background-color: #252839 !important
-        }
-
-        pre {
-            max-width: 400px;
-            margin: 20px auto;
-            text-align: left
-        }
-
-        .options {
-            text-align: left;
-            max-width: 400px;
-            margin: 20px auto
-        }
-
-        .options>li {
-            margin-bottom: 10px
-        }
-
-        .options span {
-            color: #737373;
-            font-weight: 600
-        }
-
-        .demos {
-            color: #737373;
-            max-width: 400px;
-            margin: 15px auto;
-            position: relative
-        }
-
-        .demos .list {
-            float: left;
-            width: 33.33%
-        }
-
-        .demos.dialog .list {
-            float: left;
-            width: 50%
-        }
-
-        .clearfix {
-            clear: both
-        }
-
-        .section {
-            padding: 25px 0;
-        }
-
-        .section.bg {
-            background: #eff2ff;
-        }
-
-        @media(max-width:767px) {
-
-            .demos .list,
-            .demos.dialog .list {
-                float: unset;
-                width: 100%
-            }
-        }
-
-        .download {
-            padding: 10px 35px;
-            background: #388E3C;
-            color: #fff;
-            border: 1px solid #388E3C;
-            text-decoration: none;
-            border-radius: 2px;
-            box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, .1);
-        }
-
-    </style>
-
-</head>
+  <title>ToastmeJS - Notifications and Dialogs for your website.</title>
+<link rel="stylesheet" href="./demo/js.5c615dc2.css"></head>
 
 <body>
 
-    <section class="section">
-        <h1>⚡️ ToastmeJS</h1>
-        <p>ToastmeJS is a very simple, flexible and light weigth plugin that shows Notifications and modal Dialogs on your website.</p>
-        <br>
-        <p><a class="download" href="https://github.com/AlexSegen/toastmejs/releases">Download Here</a></p>
-        <br>
-        <h3>📣 Notifications</h3>
-        <div class="demos">
-            <div class="list">
-                <p>Default theme</p>
-                <ul>
-                    <li><button type="button" class="button" onclick="defaultToast()"> Default </button></li>
-                    <li><button type="button" class="button success" onclick="success()"> Success </button></li>
-                    <li><button type="button" class="button error" onclick="error()"> Error </button></li>
-                    <li><button type="button" class="button warning" onclick="warning()"> Warning </button></li>
-                    <li><button type="button" class="button info" onclick="info()"> Info </button></li>
-                </ul>
-            </div>
-            <div class="list">
-                <p>Ligh theme</p>
-                <ul>
-                    <li><button type="button" class="button ligh" onclick="defaultL()"> Default </button></li>
-                    <li><button type="button" class="button success ligh" onclick="successL()"> Success </button></li>
-                    <li><button type="button" class="button error ligh" onclick="errorL()"> Error </button></li>
-                    <li><button type="button" class="button warning ligh" onclick="warningL()"> Warning </button></li>
-                    <li><button type="button" class="button info ligh" onclick="infoL()"> Info </button></li>
-                </ul>
-            </div>
-            <div class="list">
-                <p>Dark theme</p>
-                <ul>
-                    <li><button type="button" class="button dark" onclick="defaultD()"> Default </button></li>
-                    <li><button type="button" class="button success dark" onclick="successD()"> Success </button></li>
-                    <li><button type="button" class="button error dark" onclick="errorD()"> Error </button></li>
-                    <li><button type="button" class="button warning dark" onclick="warningD()"> Warning </button></li>
-                    <li><button type="button" class="button info dark" onclick="infoD()"> Info </button></li>
-                </ul>
-            </div>
-            <div class="clearfix"></div>
-        </div>
+    <a href="https://github.com/AlexSegen/toastmejs" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
+  <div class="hero">
+    <div class="hero-padding">
+      <div class="hero-content">
+        <img src="./demo/icon.ffc05a48.png" class="toastme-icon">
+        <h2>Notifications and Dialogs <br> on your Website</h2>
+        <p><strong>ToastmeJS</strong> is a very simple, flexible and light weigth plugin that shows <strong>Notifications</strong> and modal <strong>Dialogs</strong> on your website with vanilla javascript!</p>
+        <a href="https://github.com/AlexSegen/toastmejs/releases" class="btn btn-primary btn-lg">DOWNLOAD</a>
+      </div>
+    </div>
+  </div>
 
-        <h4>🎨 Customize</h4>
-        <p>You can customize duration, position, distance, z-overlapping  and a theme</p>
-        <ol class="options">
-            <li><span>timeout:</span> miliseconds</li>
-            <li><span>positionY:</span> 'top' or 'bottom'</li>
-            <li><span>positionX:</span> 'left', 'right' or 'center' position</li>
-            <li><span>distanceY:</span> distance from the Y axis</li>
-            <li><span>distanceX:</span> distance from the X axis</li>
-            <li><span>zIndex:</span> overlapping order</li>
-            <li><span>theme:</span> default, ligh or  dark (leave empty for "default" theme)</li>
-        </ol>
-        <p>
+  <section class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="section-content">
+            <h2 class="section-title bold">Installation</h2>
+            <p>Toastme does not have any dependencies. Just run next command via NPM</p>
+            <p><pre><code class="ssh">$ npm install toastmejs</code></pre></p>
+
+            <p>Then import toastme</p>
+            <p>
 <pre>
-<code class="javascript">
+<code class="javascript">import {toastme} from 'toastmejs'
+
+or
+  
+const toastme = require('toastmejs')</code>
+</pre>
+            </p>
+
+            <p class="font-weight-bold">Via CDN</p>
+            <p>Import the CSS via a &lt;link /&gt; and &lt;scripts /&gt; elements:</p>
+<pre>
+<code class="html">&lt;link rel="stylesheet" href="https://unpkg.com/toastmejs@latest/dist/css/toastme.css"&gt;
+&lt;script src="https://unpkg.com/toastmejs@latest/dist/js/toastme.min.js"&gt;&lt;/script&gt;</code>
+</pre>
+
+            <p class="font-weight-bold">Download</p>
+            <p>Or simply <a href="https://github.com/AlexSegen/toastmejs/releases">download</a> it and include necesary CSS/JS files to your project.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="section-content">
+              <h2 class="section-title bold">Notifications</h2>
+              <p>With <strong>toastme</strong> you can mantain your users informed about any actions they or your webapp is doing. It's really easy to use.</p>
+              <p>You can show all common <strong>web notification</strong> types:</p>
+              <ul>
+                <li>Success</li>
+                <li>Danger</li>
+                <li>Warning</li>
+                <li>Info</li>
+                <li>Default</li>
+              </ul>
+
+              <p class="font-weight-bold">How to use it?</p>
+              <p>Once you have imported toastmejs, you can call its methods like this:</p>
+
+<pre>
+<code class="javascript">toastme.default("This is a 'default' notification")
+
+toastme.success("This is a 'success' notification")
+
+toastme.error("This is an 'error' notification")
+
+toastme.warning("This is a 'warning' notification")
+
+toastme.info("This is an 'info' notification")</code>
+</pre>
+
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="section-content">
+            <img src="./demo/pic-notifications.png" class="img-fluid center-block shadow" alt="Dialogs">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="section-content">
+            <h2 class="section-title">Notification demos</h2>
+            <p>Want to see some examples? Click next buttons to make it work!</p>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-sm-3">
+          <div class="section-content">
+            <h4>Default theme</h4>
+            <ul class="list-unstyled notification-list">
+              <li><button class="btn btn-light notisimple" data-action="default">Default</button></li>
+              <li><button class="btn btn-success notisimple" data-action="success">Success</button></li>
+              <li><button class="btn btn-danger notisimple" data-action="error">Error</button></li>
+              <li><button class="btn btn-warning notisimple" data-action="warning">Warning</button></li>
+              <li><button class="btn btn-info notisimple" data-action="info">Info</button></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="section-content">
+              <h4>Ligh theme</h4>
+              <ul class="list-unstyled notification-list">
+                  <li><button class="btn btn-light notiligh" data-action="default">Default</button></li>
+                  <li><button class="btn btn-outline-success notiligh" data-action="success">Success</button></li>
+                  <li><button class="btn btn-outline-danger notiligh" data-action="error">Error</button></li>
+                  <li><button class="btn btn-outline-warning notiligh" data-action="warning">Warning</button></li>
+                  <li><button class="btn btn-outline-info notiligh" data-action="info">Info</button></li>
+              </ul>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="section-content">
+              <h4>Dark theme</h4>
+              <ul class="list-unstyled notification-list">
+                  <li><button class="btn btn-dark notidark" data-action="default">Default</button></li>
+                  <li><button class="btn btn-dark notidark text-success" data-action="success">Success</button></li>
+                  <li><button class="btn btn-dark notidark text-danger" data-action="error">Error</button></li>
+                  <li><button class="btn btn-dark notidark text-warning" data-action="warning">Warning</button></li>
+                  <li><button class="btn btn-dark notidark text-info" data-action="info">Info</button></li>
+              </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg">
+    <div class="container">
+      <div class="row">
+          <div class="col-sm-6">
+            <div class="section-content">
+              <div class="card shadow">
+                <div class="card-header">Notification Example</div>
+                <div class="card-body">
+<pre>
+<code class="javascript">//Customize your Notification  
 const config = {
     timeout: 5000,
     positionY: "bottom", // top or bottom
@@ -269,62 +177,112 @@ const config = {
     zIndex: 100, // Integer value
     theme: "default" // default, ligh or  dark (leave empty for "default" theme)
 };
+
+//Create a new Toastmejs class instance
+const mytoast = new Toastme(config);
+
+//Call it whenever you want!
+mytoast.success("Hello, this is my custom notification!");
 </code>
 </pre>
-        </p>
-    </section>
-
-
-    <section class="section bg">
-
-        <h1>💬 Toastme Dialogs</h1>
-        <p>Click some buttons to get some dialogs!</p>
-
-        <div class="demos dialog">
-            <div class="list">
-                <ul>
-                    <p>Dialog default</p>
-                    <li><button type="button" class="button ligh" onclick="fullDialog()"> Title and text </button></li>
-                    <li><button type="button" class="button ligh" onclick="titleDialog()"> Title only </button></li>
-                    <li><button type="button" class="button ligh" onclick="textDialog()"> Text only </button></li>
-                    <li><button type="button" class="button ligh" onclick="emptyDialog()"> Without title and text
-                        </button></li>
-                    <li><button type="button" class="button dark" onclick="successDialogD()"> Dark theme dialog
-                            :O</button></li>
-                </ul>
+                  </div>
+              </div>
             </div>
-            <div class="list">
-                <ul>
-                    <p>Dialog types</p>
-                    <li><button type="button" class="button success ligh" onclick="successDialog()"> Success </button>
-                    </li>
-                    <li><button type="button" class="button error ligh" onclick="dangerDialog()"> Danger </button></li>
-                    <li><button type="button" class="button warning ligh" onclick="warningDialog()"> Warning </button>
-                    </li>
-                    <li><button type="button" class="button info ligh" onclick="infoDialog()"> Info </button></li>
-                    <li><button type="button" class="button info ligh" onclick="questionDialog()"> Question </button>
-                    </li>
-                </ul>
+          </div>
+          <div class="col-sm-6">
+            <div class="section-content">
+              <h2 class="section-title">Customizable!</h2>
+              <p>You can customize duration, position, distance, z-overlapping and a <strong>theme</strong></p>
+              <ol class="options">
+                  <li><strong>timeout:</strong> miliseconds</li>
+                  <li><strong>positionY:</strong> 'top' or 'bottom'</li>
+                  <li><strong>positionX:</strong> 'left', 'right' or 'center' position</li>
+                  <li><strong>distanceY:</strong> distance from the Y axis</li>
+                  <li><strong>distanceX:</strong> distance from the X axis</li>
+                  <li><strong>zIndex:</strong> overlapping order</li>
+                  <li><strong>theme:</strong> default, ligh or dark (leave empty for "default" theme)</li>
+              </ol>
             </div>
-            <div class="clearfix"></div>
+          </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="section-content">
+              <h2 class="section-title bold">Dialogs</h2>
+              <p>Notifications are not enough so I added some modal <strong>Dialogs</strong> to <strong>toastme</strong>. Now you can show custom <u>confirmation boxes</u>, messages, alerts, etc.</p>
+              <p>Also, you can show modal types and themes!</p>
+              <ul>
+                <li>Success</li>
+                <li>Danger</li>
+                <li>Warning</li>
+                <li>Info</li>
+                <li>Question</li>
+              </ul>
+          </div>
         </div>
+        <div class="col-sm-4">
+          <div class="section-content">
+            <img src="./demo/pic-dialogs.png" class="img-fluid center-block shadow" alt="Dialogs">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="section-content">
+            <h2 class="section-title">Dialog demos</h2>
+            <p>Want to see some examples? Click next buttons to make it work!</p>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-sm-3">
+          <div class="section-content">
+            <ul class="list-unstyled notification-list">
+              <li><button class="btn btn-light dialog" data-action="titletext">Title and text</button></li>
+              <li><button class="btn btn-light dialog" data-action="title">Title only</button></li>
+              <li><button class="btn btn-light dialog" data-action="text">Text only</button></li>
+              <li><button class="btn btn-light dialog" data-action="buttons">Buttons only</button></li>
+              <li><button class="btn btn-dark dialog" data-action="dark">Dark theme :O</button></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="section-content">
+              <ul class="list-unstyled notification-list">
+                <li><button class="btn btn-light dialog" data-action="question">Question</button></li>
+                <li><button class="btn btn-success dialog" data-action="success">Success</button></li>
+                <li><button class="btn btn-danger dialog" data-action="danger">Danger</button></li>
+                <li><button class="btn btn-warning dialog" data-action="warning">Warning</button></li>
+                <li><button class="btn btn-info dialog" data-action="info">Info</button></li>
+              </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
-        <h4>🎨 Customize your dialogs</h4>
-        <p>You can customize your toastme dialog</p>
-        <ol class="options">
-            <li><span>title:</span> dialog title</li>
-            <li><span>text:</span> dialog text</li>
-            <li><span>textConfirm:</span> confirm button caption</li>
-            <li><span>textCancel:</span> cancel button caption</li>
-            <li><span>showCancel:</span> Show cancel button? 'true' or 'false'</li>
-            <li><span>type:</span> select 'success', 'danger', 'warning', 'info' or 'question'</li>
-            <li><span>dark:</span> Show dark theme? 'true' or 'false'</li>
-        </ol>
-        <p>
+  <section class="section bg">
+      <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+              <div class="section-content">
+                <div class="card shadow">
+                  <div class="card-header">Dialog Example</div>
+                  <div class="card-body">
 <pre>
-<code class="javascript">
-    //Example
+<code class="javascript">//Example
 toastme.yesNoDialog({
     title: "You are the Winner!",
     text: "Do you want to pick your price?",
@@ -342,219 +300,267 @@ toastme.yesNoDialog({
 });
 </code>
 </pre>
-        </p>
-
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="section-content">
+                <h2 class="section-title">Customizable!</h2>
+                <p>You can customize your toastme dialog too!</p>
+                <ol class="options">
+                    <li><strong>title:</strong> dialog title</li>
+                    <li><strong>text:</strong> dialog text</li>
+                    <li><strong>textConfirm:</strong> confirm button caption</li>
+                    <li><strong>textCancel:</strong> cancel button caption</li>
+                    <li><strong>showCancel:</strong> Show cancel button? 'true' or 'false'</li>
+                    <li><strong>type:</strong> select 'success', 'danger', 'warning', 'info' or 'question'</li>
+                    <li><strong>dark:</strong> Show dark theme? 'true' or 'false'</li>
+                </ol>
+              </div>
+            </div>
+        </div>
+      </div>
     </section>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script>function simpleNotifications(param) {
+  switch (param) {
+    case 'default':
+      toastme.default("This is a 'default' notification");
+      break;
 
+    case 'success':
+      toastme.success("This is a 'success' notification");
+      break;
+
+    case 'warning':
+      toastme.warning("This is a 'warning' notification");
+      break;
+
+    case 'error':
+      toastme.error("This is a 'error' notification");
+      break;
+
+    case 'info':
+      toastme.info("This is a 'info' notification");
+      break;
+
+    default:
+      break;
+  }
+}
+
+var lighNotificationsConfig = {
+  positionY: "top",
+  // top or bottom
+  positionX: "center",
+  // right left, center
+  theme: "ligh" // default, ligh or  dark (leave empty for "default" theme)
+
+};
+var lighToast = new Toastme(lighNotificationsConfig);
+
+function lighNotifications(param) {
+  switch (param) {
+    case 'default':
+      lighToast.default("This is a 'default' notification");
+      break;
+
+    case 'success':
+      lighToast.success("This is a 'success' notification");
+      break;
+
+    case 'warning':
+      lighToast.warning("This is a 'warning' notification");
+      break;
+
+    case 'error':
+      lighToast.error("This is a 'error' notification");
+      break;
+
+    case 'info':
+      lighToast.info("This is a 'info' notification");
+      break;
+
+    default:
+      break;
+  }
+}
+
+var darkNotificationsConfig = {
+  positionY: "top",
+  // top or bottom
+  positionX: "right",
+  // right left, center
+  theme: "dark" // default, ligh or  dark (leave empty for "default" theme)
+
+};
+var darkToast = new Toastme(darkNotificationsConfig);
+
+function darkNotifications(param) {
+  switch (param) {
+    case 'default':
+      darkToast.default("This is a 'default' notification");
+      break;
+
+    case 'success':
+      darkToast.success("This is a 'success' notification");
+      break;
+
+    case 'warning':
+      darkToast.warning("This is a 'warning' notification");
+      break;
+
+    case 'error':
+      darkToast.error("This is a 'error' notification");
+      break;
+
+    case 'info':
+      darkToast.info("This is a 'info' notification");
+      break;
+
+    default:
+      break;
+  }
+}
+/*Dialog Demos*/
+
+
+function defaultDialogs(param) {
+  switch (param) {
+    case 'titletext':
+      toastme.yesNoDialog({
+        title: "This is the title",
+        text: "This is the text area",
+        textConfirm: "Confirm button",
+        textCancel: "Cancel button",
+        showCancel: true
+      });
+      break;
+
+    case 'title':
+      toastme.yesNoDialog({
+        title: "Just the title",
+        textConfirm: "OK"
+      });
+      break;
+
+    case 'text':
+      toastme.yesNoDialog({
+        title: "You can show text area only",
+        textConfirm: "Right",
+        textCancel: "Nah",
+        showCancel: true
+      });
+      break;
+
+    case 'buttons':
+      toastme.yesNoDialog({
+        textConfirm: "Confirm button",
+        textCancel: "Cancel button",
+        showCancel: true
+      });
+      break;
+
+    case 'dark':
+      toastme.yesNoDialog({
+        title: "This is the dark theme",
+        text: "Do you like it?",
+        textConfirm: "Yes, I love it!",
+        textCancel: "I'm scared :(",
+        showCancel: true,
+        dark: true
+      }).then(function (value) {
+        if (value) {
+          darkToast.success("You are so dark :O");
+        }
+      });
+      break;
+
+    case 'question':
+      toastme.yesNoDialog({
+        text: "Will you share this with your friends?",
+        textConfirm: "I will share it!",
+        showCancel: true,
+        type: "question"
+      });
+      break;
+
+    case 'success':
+      toastme.yesNoDialog({
+        title: "You are the Winner!",
+        text: "Do you want to pick your price?",
+        textConfirm: "Yes, pick price.",
+        textCancel: "Maybe later",
+        showCancel: true,
+        type: "success"
+      }).then(function (value) {
+        if (value) {
+          lighToast.success("You have picked your price");
+        } else {
+          lighToast.warning("You can pick your price later");
+        }
+      });
+      break;
+
+    case 'warning':
+      toastme.yesNoDialog({
+        text: "This is a warning Dialog",
+        textConfirm: "I like it",
+        showCancel: false,
+        type: "warning"
+      });
+      break;
+
+    case 'danger':
+      toastme.yesNoDialog({
+        title: "Do you want to delete?",
+        text: "You can't undone this",
+        textConfirm: "Confirm delete",
+        textCancel: "Cancel",
+        showCancel: true,
+        type: "danger"
+      }).then(function (value) {
+        if (value) {
+          toastme.error("You have deleted");
+        }
+      });
+      break;
+
+    case 'info':
+      toastme.yesNoDialog({
+        text: "You can fork this repository!",
+        textConfirm: "Awesome!",
+        showCancel: false,
+        type: "info"
+      });
+      break;
+
+    default:
+      break;
+  }
+}
+/*Actions*/
+
+
+document.addEventListener('click', function (event) {
+  if (event.target.classList.contains('notisimple')) {
+    simpleNotifications(event.target.dataset.action);
+  }
+
+  if (event.target.classList.contains('notiligh')) {
+    lighNotifications(event.target.dataset.action);
+  }
+
+  if (event.target.classList.contains('notidark')) {
+    darkNotifications(event.target.dataset.action);
+  }
+
+  if (event.target.classList.contains('dialog')) {
+    defaultDialogs(event.target.dataset.action);
+  }
+});</script>
 </body>
-
-<!--toastme JS-->
-<script src="./dist_dev/js/toastme.js"></script>
-
-<script>
-    //TOASTME
-    function defaultToast() {
-        toastme.default("This is a 'default' notification")
-    }
-
-    function success() {
-        toastme.success("This is a 'success' notification")
-    }
-
-    function error() {
-        toastme.error("This is an 'error' notification")
-    }
-
-    function warning() {
-        toastme.warning("This is a 'warning' notification")
-    }
-
-    function info() {
-        toastme.info("This is an 'info' notification")
-    }
-
-    //CUSTOMIZATION
-
-    const config = {
-        timeout: 5000,
-        positionY: "top", // top or bottom
-        positionX: "right", // right left, center
-        distanceY: 20, // Integer value
-        distanceX: 20, // Integer value
-        zIndex: 9999, // Integer value
-        theme: "ligh" //default, ligh or  dark (optional)
-    };
-
-    const myToast = new Toastme(config);
-
-    function defaultL() {
-        myToast.default("This is a 'default' notification")
-    }
-
-    function successL() {
-        myToast.success("This is a 'success' notification")
-    }
-
-    function errorL() {
-        myToast.error("This is an 'error' notification")
-    }
-
-    function warningL() {
-        myToast.warning("This is a 'warning' notification")
-    }
-
-    function infoL() {
-        myToast.info("This is an 'info' notification")
-    }
-
-
-    const configDark = {
-        timeout: 3000,
-        positionY: "top", // top or bottom
-        positionX: "center", // right left, center
-        theme: "dark" //default, ligh or  dark (optional)
-    };
-
-    const myToastDark = new Toastme(configDark);
-
-    function defaultD() {
-        myToastDark.default("This is a 'default' notification")
-    }
-
-
-    function successD() {
-        myToastDark.success("This is a 'success' notification")
-    }
-
-    function errorD() {
-        myToastDark.error("This is an 'error' notification")
-    }
-
-    function warningD() {
-        myToastDark.warning("This is a 'warning' notification")
-    }
-
-    function infoD() {
-        myToastDark.info("This is an 'info' notification")
-    }
-
-
-    //TOASTME DIALOG
-
-    function fullDialog() {
-        toastme.yesNoDialog({
-            title: "This is the title",
-            text: "This is the text area",
-            textConfirm: "Confirm button",
-            textCancel: "Cancel button",
-            showCancel: true
-        })
-    }
-
-    function emptyDialog() {
-        toastme.yesNoDialog({
-            textConfirm: "Confirm button",
-            textCancel: "Cancel button",
-            showCancel: true
-        })
-    }
-
-    function titleDialog() {
-        toastme.yesNoDialog({
-            title: "Just the title",
-            textConfirm: "OK"
-        })
-    }
-
-    function textDialog() {
-        toastme.yesNoDialog({
-            title: "You can show text area only",
-            textConfirm: "Right",
-            textCancel: "Nah",
-            showCancel: true
-        })
-    }
-
-    function successDialog() {
-        toastme.yesNoDialog({
-            title: "You are the Winner!",
-            text: "Do you want to pick your price?",
-            textConfirm: "Yes, pick price.",
-            textCancel: "Maybe later",
-            showCancel: true,
-            type: "success"
-        }).then(function (value) {
-            if (value) {
-                myToast.success("You have picked your price")
-            } else {
-                myToast.warning("You can pick your price later")
-            }
-        });
-    }
-
-    function dangerDialog() {
-        toastme.yesNoDialog({
-            title: "Do you want to delete?",
-            text: "You can't undone this",
-            textConfirm: "Confirm delete",
-            textCancel: "Cancel",
-            showCancel: true,
-            type: "danger"
-        }).then(function (value) {
-            if (value) {
-                toastme.error("You have deleted")
-            }
-        });
-    }
-
-    function warningDialog() {
-        toastme.yesNoDialog({
-            text: "This is a warning Dialog",
-            textConfirm: "I like it",
-            showCancel: false,
-            type: "warning"
-        })
-    }
-
-    function infoDialog() {
-        toastme.yesNoDialog({
-            text: "You can fork this repository!",
-            textConfirm: "Awesome!",
-            showCancel: false,
-            type: "info"
-        })
-    }
-
-    function questionDialog() {
-        toastme.yesNoDialog({
-            text: "Will you share this with your friends?",
-            textConfirm: "I will share it!",
-            showCancel: true,
-            type: "question"
-        })
-    }
-
-
-    function successDialogD() {
-        toastme.yesNoDialog({
-            title: "This is the dark theme",
-            text: "Do you like it?",
-            textConfirm: "Yes, I love it!",
-            textCancel: "I'm scared :(",
-            showCancel: true,
-            dark: true
-        }).then(function (value) {
-            if (value) {
-                myToastDark.success("You are so dark :O")
-            }
-        });
-    }
-
-
-
-
-    //Demo
-    hljs.initHighlightingOnLoad();
-</script>
 
 </html>
