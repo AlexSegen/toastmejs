@@ -1,4 +1,3 @@
-require('dotenv').config()
 /**
  * Settings
  * Turn on/off build features
