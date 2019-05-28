@@ -30,7 +30,7 @@ Want to see a quick demo? Click [here](https://alexsegen.github.io/toastmejs/)
 
   
 
-- Light weight < 12kb
+- Light weight < 6kb
 
 - Full color, ligh and dark themes
   
@@ -70,7 +70,7 @@ import {toastme} from 'toastmejs'
 
 or
 
-const {toastme} = require('toastmejs')
+const toastme = require('toastmejs')
 ```
 
 
@@ -83,8 +83,8 @@ Import the CSS via a ```<link />``` and  ```<scripts />``` elements:
   
 
 ```sh 
-<link rel="stylesheet" href="https://unpkg.com/toastmejs@1.2.1/dist/css/toastme.css">
-<script src="https://unpkg.com/toastmejs@1.2.1/dist/js/toastme.min.js" ></script>
+<link rel="stylesheet" href="https://unpkg.com/toastmejs@latest/dist/css/toastme.css">
+<script src="https://unpkg.com/toastmejs@latest/dist/js/toastme.min.js" ></script>
 ```
 
 #### Download
@@ -276,6 +276,13 @@ $ gulp
 ----
   
 #### Changelog
+
+Version 1.2.2
+- Updated: CSS notifications overlaping rules.
+- Updated: CSS dialogs overlaping rules.
+- Updated: Develop Environment 
+- Updated: Readme 
+- Updated: Demo page design
 
 Version 1.2.1
 - Added: babel transpiler.
