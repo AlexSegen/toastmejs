@@ -3,67 +3,34 @@
 ![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)
 ![Version](https://img.shields.io/npm/v/toastmejs.svg?branch=master)
 
-  
 ToastmeJS is a very simple, flexible and light weigth plugin that shows **Notifications** and modal **Dialogs** on your website.
 
 - Customize position, text, colors.
 - Colorfull, dark and ligh themes.
 
-
 ## Demo
 
 Want to see a quick demo? Click [here](https://alexsegen.github.io/toastmejs/)
 
-  
-
-  
-
 # Features!
-
-  
-
-  
-
-  
 
 - Customizable
 
-  
+* Light weight < 6kb
 
-- Light weight < 6kb
-
-- Full color, ligh and dark themes
-  
-
-  
-
-  
+* Full color, ligh and dark themes
 
 ### Installation
 
-  
-
-  
-
-  
-
 Toastme does not have any dependencies. Just run next command:
-
-  
 
 #### Via NPM
 
-```sh 
+```sh
 $ npm install toastmejs --save
 ```
 
-  
-
-Then import toastme 
-
-  
-
-  
+Then import toastme
 
 ```sh
 import {toastme} from 'toastmejs'
@@ -73,16 +40,11 @@ or
 const toastme = require('toastmejs')
 ```
 
-
-  
-
-  
 #### Via CDN
 
-Import the CSS via a ```<link />``` and  ```<scripts />``` elements:
-  
+Import the CSS via a `<link />` and `<scripts />` elements:
 
-```sh 
+```sh
 <link rel="stylesheet" href="https://unpkg.com/toastmejs@latest/dist/css/toastme.css">
 <script src="https://unpkg.com/toastmejs@latest/dist/js/toastme.min.js" ></script>
 ```
@@ -91,25 +53,15 @@ Import the CSS via a ```<link />``` and  ```<scripts />``` elements:
 
 Or simply download the files and include necesary CSS/JS files to your project.
 
-  [Download here]([https://github.com/AlexSegen/toastmejs/releases](https://github.com/AlexSegen/toastmejs/releases))
-
-  
+[Download here](<[https://github.com/AlexSegen/toastmejs/releases](https://github.com/AlexSegen/toastmejs/releases)>)
 
 # Usage
 
-
 ### 📣 Toastme Notifications
-  
-
-  
 
 Call one of these functions to show the **notification** you need
 
-  
-
-  
-
-```sh 
+```sh
 toastme.default("This is a 'default' notification")
 
 toastme.success("This is a 'success' notification")
@@ -121,49 +73,26 @@ toastme.warning("This is a 'warning' notification")
 toastme.info("This is an 'info' notification")
 ```
 
-  
-
-  
-
 #### Customization
+
 You can customize duration, position, distance, z-index and a ligh theme
 
-  
+- **timeout:** miliseconds
 
-  
+* **positionY:** 'top' or 'bottom'
 
-  
+- **positionX:** 'left', 'right' or 'center' position
 
--  **timeout:** miliseconds
+* **distanceY:** distance from the Y axis
 
-  
+- **distanceX:** distance from the X axis
 
--  **positionY:** 'top' or 'bottom'
+* **zIndex:** overlapping order
 
-  
-
--  **positionX:** 'left', 'right' or 'center' position
-
-  
-
--  **distanceY:** distance from the Y axis
-
-  
-
--  **distanceX:** distance from the X axis
-
-  
-
--  **zIndex:** overlapping order
-
-  
-
--  **theme:** select 'default', 'ligh' or 'dark' theme. Leave empty for default.
-
-  
+- **theme:** select 'default', 'ligh' or 'dark' theme. Leave empty for default.
+- **duplicates:** true or false - by default it's false
 
 First, import the Toastme Class
-  
 
 ```sh
 import {Toastme} from 'toastmejs'
@@ -173,13 +102,7 @@ or
 const {Toastme} = require('toastmejs')
 ```
 
-  
-
 Then, you need to declare a new Object with your new custom settings and create a new **Toastme Class** instance.
-
-  
-
-  
 
 ```sh
 const config = {
@@ -192,36 +115,30 @@ const config = {
     theme: "default" // default, ligh or  dark (leave empty for "default" theme)
 };
 
-const myToast = new Toastme(config); 
+const myToast = new Toastme(config);
 ```
 
- 
 Finally, you can call your new Toastme with new configurations:
 
 ```sh
 myToast.success('This is a new success notification')
 ```
 
-  
+### 💬 Toastme Dialogs
 
-  ### 💬 Toastme Dialogs
-  
-
-  
-
-This works with a javascript Promise that returns True or False, depending on how you interact with it. 
+This works with a javascript Promise that returns True or False, depending on how you interact with it.
 
 ![](https://s3.us-east-2.amazonaws.com/toastmejs/images/toastme-dialogs-capture-compressor.gif)
 
 To use **Dialogs**, you just need declare the instance and set some default parameters:
 
-```sh 
+```sh
 //Example
 toastme.yesNoDialog({
     title: "You are the Winner!",
     text: "Do you want to pick your price?",
     textConfirm: "Confirm",
-    textCancel: "Cancel", 
+    textCancel: "Cancel",
     showCancel: true, // true or false
     type: "success", // 'success', 'danger', 'warning', 'info' or 'question'
 	dark: false // set 'true' if you want dark theme
@@ -234,61 +151,57 @@ toastme.yesNoDialog({
 });
 ```
 
-  #### Customization
+#### Customization
+
 You can customize text, title, buttons text and optionally, you can select 'type' of dialog for more specific needs.
 
--  **title:** dialog title
--  **text:** dialog text
--  **textConfirm:** Confirm button caption
--  **textCancel:** Cancel button caption
--  **showCancel:** show cancel button? 'true' or 'false'
--  **type:** select 'success', 'danger', 'warning', 'info' or 'question'
--  **dark:** set 'true' if you want dark theme (optional) - empty for ligh theme.
-
- 
+- **title:** dialog title
+- **text:** dialog text
+- **textConfirm:** Confirm button caption
+- **textCancel:** Cancel button caption
+- **showCancel:** show cancel button? 'true' or 'false'
+- **type:** select 'success', 'danger', 'warning', 'info' or 'question'
+- **dark:** set 'true' if you want dark theme (optional) - empty for ligh theme.
 
 ## Building for source
 
-  
-
-  
-
 Run this command if you need to recompile source files:
 
- ```sh
+```sh
 
 $ gulp
 
 ```
- 
 
 ### Todos
 
-  
-
-  
-
-  
 - Custom button colors
 - Custom HTML templates
 
-  
-----
-  
+---
+
 #### Changelog
 
+Version 1.2.3
+
+- Updated: CSS notifications displaying rules.
+- Added: Handle duplicated notifications. New boolean parameter: duplicates.
+
 Version 1.2.2
+
 - Updated: CSS notifications overlaping rules.
 - Updated: CSS dialogs overlaping rules.
-- Updated: Develop Environment 
-- Updated: Readme 
+- Updated: Develop Environment
+- Updated: Readme
 - Updated: Demo page design
 
 Version 1.2.1
+
 - Added: babel transpiler.
-- Fix: change notification box size according to the text -  [#1](https://github.com/AlexSegen/toastmejs/issues/1)
+- Fix: change notification box size according to the text - [#1](https://github.com/AlexSegen/toastmejs/issues/1)
 
 Version 1.2.0
+
 - Added notifications and dialog dark themes
 - Improved CSS positioning
 - Replace icons SCSS variables on ligh theme
@@ -299,29 +212,19 @@ Version 1.2.0
 - New animations and icons
 - Validate Module Exports when Client or Server
 
-**IMPORTANT**: now you need to use brackets when importing toastmejs. Ex: 
+**IMPORTANT**: now you need to use brackets when importing toastmejs. Ex:
 
- ```sh
+```sh
 import { toastme } from 'toastmejs';
 
 ```
 
-
 **Note:** "ligh" boolean option whitin notifications will be deprecated (and posibly removed) on next versions. Now you can select a specific theme.
 
+---
 
-----
 License
-    
-
-  
 
 MIT
-
-  
-
-  
-
-  
 
 **Free Software, Hell Yeah!**
