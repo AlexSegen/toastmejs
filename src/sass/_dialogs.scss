@@ -18,6 +18,12 @@ $question: #3f51b5;
   justify-content: center;
 }
 
+.toastme-diag-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .toastme-dialog-ico {
   width: 50px;
   height: 50px;
@@ -28,8 +34,9 @@ $question: #3f51b5;
   position: relative;
   //animation: toastIconIn 0.4s ease-in-out 0s forwards;
   -webkit-animation: flip-in-hor-bottom 0.5s
-    cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s  both;
-  animation: flip-in-hor-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
+    cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
+  animation: flip-in-hor-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s
+    both;
   &.success {
     color: $success;
     &:before {
@@ -38,8 +45,10 @@ $question: #3f51b5;
   }
   &.danger {
     color: $danger;
-    -webkit-animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) 0.5s both;
-    animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) 0.5s both;
+    -webkit-animation: shake-horizontal 0.8s
+      cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.5s both;
+    animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+      0.5s both;
     &:before {
       content: $ico-danger;
     }
@@ -62,7 +71,7 @@ $question: #3f51b5;
   }
   &.question {
     color: $question;
-    -webkit-animation: jello-horizontal 0.9s 0.5s  both;
+    -webkit-animation: jello-horizontal 0.9s 0.5s both;
     animation: jello-horizontal 0.9s 0.5s both;
     &:before {
       content: $ico-question;
@@ -76,7 +85,7 @@ $question: #3f51b5;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   display: table;
-  color: #737373;
+  color: #010101;
   background: #f9f9f9;
   border-radius: 3px;
   border: 1px solid #ddd;
@@ -137,7 +146,6 @@ $question: #3f51b5;
   }
 }
 
-
 @keyframes toastIconIn {
   0% {
     transform: rotate(0) scale(1.01);
@@ -147,7 +155,7 @@ $question: #3f51b5;
     transform: rotate(0) scale(1.15);
   }
   100% {
-    transform: rotate(0) scale(1.0);
+    transform: rotate(0) scale(1);
     opacity: 1;
   }
 }
