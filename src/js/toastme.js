@@ -1,4 +1,4 @@
-(function () {
+(function() {
   function Toastme(
     config = {
       timeout: null,
@@ -8,10 +8,11 @@
       positionX: null,
       zIndex: null,
       ligh: false,
-      theme: ""
+      theme: "",
+      duplicates: false
     }
   ) {
-
+    this.toastArray = [];
     this.timeout = config.timeout || 5000;
     this.distanceX = config.distanceX || 15;
     this.distanceY = config.distanceY || 15;
@@ -20,41 +21,68 @@
     this.zIndex = config.zIndex || 1000;
     this.ligh = config.ligh || false;
     this.theme = config.theme || "";
-    this.instanceId = "-" + Math.floor((Math.random() * 1000000) + 1);
+    this.duplicates = config.duplicates || false;
+    this.instanceId = "-" + Math.floor(Math.random() * 1000000 + 1);
 
-    this.initToast = function () {
-      document.addEventListener("click", function (e) {
+    this.initToast = function() {
+      document.addEventListener("click", function(e) {
         if (e.target.classList.contains("toastme-close")) {
           e.target.parentNode.remove();
         }
       });
     };
 
-    this.createToastList = function (instanceId) {
+    this.createToastList = function(instanceId) {
       var toastmeList = document.createElement("ul");
       toastmeList.classList.add("toastme-list");
       toastmeList.setAttribute("id", "toastmeList" + instanceId);
-      this.positionX == 'center' ? (toastmeList.style.right = 'calc(50% - 125px)') : (toastmeList.style[this.positionX] = this.distanceX + "px");
+      this.positionX == "center"
+        ? (toastmeList.style.right = "calc(50% - 125px)")
+        : (toastmeList.style[this.positionX] = this.distanceX + "px");
       toastmeList.style[this.positionY] = this.distanceY + "px";
       toastmeList.style.zIndex = this.zIndex;
-      if (!document.getElementById('toastmeList' + instanceId)) {
+      if (!document.getElementById("toastmeList" + instanceId)) {
         document.body.appendChild(toastmeList);
       }
       return toastmeList;
     };
 
-    this.destroyList = function (instanceId) {
-      if (document.getElementById('toastmeList' + instanceId) && document.getElementById('toastmeList' + instanceId).querySelectorAll('li').length == 0) {
-        document.getElementById('toastmeList' + instanceId).remove();
+    this.checkDuplicate = function(instanceId, str, type) {
+      return this.duplicates
+        ? -1
+        : this.toastArray.findIndex(
+            toast =>
+              toast.type == type &&
+              toast.str == str &&
+              toast.instanceId == instanceId
+          );
+    };
+
+    this.destroyList = function(instanceId, str, type) {
+      if (
+        document.getElementById("toastmeList" + instanceId) &&
+        document
+          .getElementById("toastmeList" + instanceId)
+          .querySelectorAll("li").length == 0
+      ) {
+        document.getElementById("toastmeList" + instanceId).remove();
+      }
+
+      if (this.checkDuplicate(instanceId, str, type) != -1) {
+        this.toastArray.splice(this.checkDuplicate(instanceId, str, type), 1);
       }
     };
 
-    this.buildToast = function (type, str, instanceId) {
-
+    this.buildToast = function(type, str, instanceId) {
       this.initToast();
 
       var toastme = document.createElement("li");
-      toastme.classList.add("toastme", type, this.theme ? this.theme : false, this.ligh ? 'ligh' : false);
+      toastme.classList.add(
+        "toastme",
+        type,
+        this.theme ? this.theme : false,
+        this.ligh ? "ligh" : false
+      );
       toastme.innerHTML = `
           <button class="toastme-close"></button>
           <i class="toastme-ico"></i>
@@ -63,7 +91,7 @@
       setTimeout(() => {
         //toastme.classList.add("fade-out")
         toastme.remove();
-        this.destroyList(instanceId);
+        this.destroyList(instanceId, str, type);
       }, this.timeout);
       /*
       setTimeout(() => {
@@ -75,71 +103,91 @@
       return toastme;
     };
 
-    this.showToast = function (type, str) {
+    this.showToast = function(type, str) {
+      const instanceId = this.instanceId;
+
+      if (this.checkDuplicate(instanceId, str, type) != -1) {
+        return false;
+      }
+
+      this.toastArray.push({ type, str, instanceId });
+
       this.createToastList(this.instanceId);
-      document.getElementById('toastmeList' + this.instanceId).appendChild(this.buildToast(type, str, this.instanceId));
+      document
+        .getElementById("toastmeList" + this.instanceId)
+        .appendChild(this.buildToast(type, str, this.instanceId));
     };
-    this.default = function (str) {
-      this.showToast('default', str);
+    this.default = function(str) {
+      this.showToast("default", str);
     };
-    this.success = function (str) {
-      this.showToast('success', str);
+    this.success = function(str) {
+      this.showToast("success", str);
     };
-    this.error = function (str) {
-      this.showToast('error', str);
+    this.error = function(str) {
+      this.showToast("error", str);
     };
-    this.warning = function (str) {
-      this.showToast('warning', str);
+    this.warning = function(str) {
+      this.showToast("warning", str);
     };
-    this.info = function (str) {
-      this.showToast('info', str);
+    this.info = function(str) {
+      this.showToast("info", str);
     };
 
     //Toastme Dialogs
 
-    this.initDialog = function () {
-      document.addEventListener("click", function (e) {
+    this.initDialog = function() {
+      document.addEventListener("click", function(e) {
         if (e.target.classList.contains("--toastme-dialog-action")) {
           let array = document.querySelectorAll(".toastme-dialog-bg");
-          array.forEach(function (item) {
+          array.forEach(function(item) {
             item.childNodes[1].classList.add("toastme-dialog-closing");
           });
           setTimeout(() => {
             let array = document.querySelectorAll(".toastme-dialog-bg");
-            array.forEach(function (item) {
+            array.forEach(function(item) {
               //item.style.display = "none";
-              item.classList.add("toastOut"); 
-            
+              item.classList.add("toastOut");
             });
           }, 400);
 
           setTimeout(() => {
             let array = document.querySelectorAll(".toastme-dialog-bg");
-            array.forEach(function (item) {
-              item.parentNode.removeChild(item);  
+            array.forEach(function(item) {
+              item.parentNode.removeChild(item);
             });
           }, 600);
-
         }
       });
     };
 
-    this.buildDialog = function (title, text, textConfirm, textCancel, showCancel, type, dark) {
-      var showTitle = title ? `<p class="toastme-dialog-title">${title}</p>` : "";
+    this.buildDialog = function(
+      title,
+      text,
+      textConfirm,
+      textCancel,
+      showCancel,
+      type,
+      dark
+    ) {
+      var showTitle = title
+        ? `<p class="toastme-dialog-title">${title}</p>`
+        : "";
       var showText = text ? `<p class="toastme-dialog-text">${text}</p>` : "";
       var showType = this.selectType(type) ? this.selectType(type) : "";
-      var btnCancel = showCancel ?
-        `<button id="toastmeCancel" class="btn-toastme --toastme-dialog-action --toastme-cancel">${textCancel || "Cancel"}</button>` :
-        "";
+      var btnCancel = showCancel
+        ? `<button id="toastmeCancel" class="btn-toastme --toastme-dialog-action --toastme-cancel">${textCancel ||
+            "Cancel"}</button>`
+        : "";
       var dialog = document.createElement("div");
       dialog.setAttribute("id", "toastme-dialog-bg");
       dialog.classList.add("toastme-dialog-bg", "--toastme-dialog-action");
       dialog.innerHTML = `
-      <div class="toastme-dialog ${dark ? "dark": ""}">
+      <div class="toastme-dialog ${dark ? "dark" : ""}">
           <div class="toastme-dialog-content">
               ${showType} ${showTitle} ${showText}
         <div class="toastme-diag-actions">
-          <button id="toastmeConfirm" class="btn-toastme --toastme-dialog-action --toastme-confirm">${textConfirm || "Confirm"}</button>
+          <button id="toastmeConfirm" class="btn-toastme --toastme-dialog-action --toastme-confirm">${textConfirm ||
+            "Confirm"}</button>
                   ${btnCancel}
         </div>
           </div>
@@ -147,7 +195,7 @@
       return dialog;
     };
 
-    this.selectType = function (str) {
+    this.selectType = function(str) {
       switch (str) {
         case "danger":
           return `<div class="toastme-dialog-ico danger"></div>`;
@@ -164,8 +212,7 @@
       }
     };
 
-
-    this.yesNoDialog = function (
+    this.yesNoDialog = function(
       config = {
         title: null,
         text: null,
@@ -190,41 +237,40 @@
         )
       );
 
-      return new Promise(function (resolve, reject) {
+      return new Promise(function(resolve, reject) {
         document
           .getElementById("toastmeConfirm")
-          .addEventListener("click", function () {
+          .addEventListener("click", function() {
             resolve(true);
           });
         var btnCancel = document.getElementById("toastmeCancel");
         if (btnCancel) {
-          btnCancel.addEventListener("click", function () {
+          btnCancel.addEventListener("click", function() {
             resolve(false);
           });
         }
       });
     };
 
-    this.closeAllToasts = function () {
+    this.closeAllToasts = function() {
       let array = document.querySelectorAll(".toastme-list");
-      array.forEach(function (item) {
+      array.forEach(function(item) {
         item.parentNode.removeChild(item);
       });
     };
 
-    this.closeAllDialogs = function () {
+    this.closeAllDialogs = function() {
       let array = document.querySelectorAll(".toastme-dialog-bg");
-      array.forEach(function (item) {
+      array.forEach(function(item) {
         item.style.display = "none";
         item.parentNode.removeChild(item);
       });
     };
-
   }
 
   var toastme = new Toastme();
 
-  if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+  if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
     module.exports = {
       Toastme,
       toastme
@@ -233,5 +279,4 @@
     window.toastme = toastme;
     window.Toastme = Toastme;
   }
-
 })();
