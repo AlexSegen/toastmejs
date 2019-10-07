@@ -18,10 +18,11 @@
       positionX: null,
       zIndex: null,
       ligh: false,
-      theme: ""
+      theme: "",
+      duplicates: false
     };
 
-
+    this.toastArray = [];
     this.timeout = config.timeout || 5000;
     this.distanceX = config.distanceX || 15;
     this.distanceY = config.distanceY || 15;
@@ -30,6 +31,7 @@
     this.zIndex = config.zIndex || 1000;
     this.ligh = config.ligh || false;
     this.theme = config.theme || "";
+    this.duplicates = config.duplicates || false;
     this.instanceId = "-" + Math.floor(Math.random() * 1000000 + 1);
 
     this.initToast = function () {
@@ -44,18 +46,28 @@
       var toastmeList = document.createElement("ul");
       toastmeList.classList.add("toastme-list");
       toastmeList.setAttribute("id", "toastmeList" + instanceId);
-      this.positionX == 'center' ? toastmeList.style.right = 'calc(50% - 125px)' : toastmeList.style[this.positionX] = this.distanceX + "px";
+      this.positionX == "center" ? toastmeList.style.right = "calc(50% - 125px)" : toastmeList.style[this.positionX] = this.distanceX + "px";
       toastmeList.style[this.positionY] = this.distanceY + "px";
       toastmeList.style.zIndex = this.zIndex;
-      if (!document.getElementById('toastmeList' + instanceId)) {
+      if (!document.getElementById("toastmeList" + instanceId)) {
         document.body.appendChild(toastmeList);
       }
       return toastmeList;
     };
 
-    this.destroyList = function (instanceId) {
-      if (document.getElementById('toastmeList' + instanceId) && document.getElementById('toastmeList' + instanceId).querySelectorAll('li').length == 0) {
-        document.getElementById('toastmeList' + instanceId).remove();
+    this.checkDuplicate = function (instanceId, str, type) {
+      return this.duplicates ? -1 : this.toastArray.findIndex((function (toast) {
+        return toast.type == type && toast.str == str && toast.instanceId == instanceId;
+      }));
+    };
+
+    this.destroyList = function (instanceId, str, type) {
+      if (document.getElementById("toastmeList" + instanceId) && document.getElementById("toastmeList" + instanceId).querySelectorAll("li").length == 0) {
+        document.getElementById("toastmeList" + instanceId).remove();
+      }
+
+      if (this.checkDuplicate(instanceId, str, type) != -1) {
+        this.toastArray.splice(this.checkDuplicate(instanceId, str, type), 1);
       }
     };
 
@@ -65,13 +77,13 @@
       this.initToast();
 
       var toastme = document.createElement("li");
-      toastme.classList.add("toastme", type, this.theme ? this.theme : false, this.ligh ? 'ligh' : false);
+      toastme.classList.add("toastme", type, this.theme ? this.theme : false, this.ligh ? "ligh" : false);
       toastme.innerHTML = "\n          <button class=\"toastme-close\"></button>\n          <i class=\"toastme-ico\"></i>\n          <div class=\"toastme-content\">" + str + "</div>";
 
       setTimeout((function () {
         //toastme.classList.add("fade-out")
         toastme.remove();
-        _this.destroyList(instanceId);
+        _this.destroyList(instanceId, str, type);
       }), this.timeout);
       /*
       setTimeout(() => {
@@ -84,23 +96,31 @@
     };
 
     this.showToast = function (type, str) {
+      var instanceId = this.instanceId;
+
+      if (this.checkDuplicate(instanceId, str, type) != -1) {
+        return false;
+      }
+
+      this.toastArray.push({ type: type, str: str, instanceId: instanceId });
+
       this.createToastList(this.instanceId);
-      document.getElementById('toastmeList' + this.instanceId).appendChild(this.buildToast(type, str, this.instanceId));
+      document.getElementById("toastmeList" + this.instanceId).appendChild(this.buildToast(type, str, this.instanceId));
     };
     this.default = function (str) {
-      this.showToast('default', str);
+      this.showToast("default", str);
     };
     this.success = function (str) {
-      this.showToast('success', str);
+      this.showToast("success", str);
     };
     this.error = function (str) {
-      this.showToast('error', str);
+      this.showToast("error", str);
     };
     this.warning = function (str) {
-      this.showToast('warning', str);
+      this.showToast("warning", str);
     };
     this.info = function (str) {
-      this.showToast('info', str);
+      this.showToast("info", str);
     };
 
     //Toastme Dialogs
@@ -205,7 +225,7 @@
 
   var toastme = new Toastme();
 
-  if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+  if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
     module.exports = {
       Toastme: Toastme,
       toastme: toastme

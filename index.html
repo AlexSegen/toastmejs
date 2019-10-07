@@ -10309,7 +10309,8 @@ const config = {
     distanceY: 20, // Integer value
     distanceX: 20, // Integer value
     zIndex: 100, // Integer value
-    theme: "default" // default, ligh or  dark (leave empty for "default" theme)
+    theme: "default", // default, ligh or  dark (leave empty for "default" theme)
+    duplicates: false // true or false - by default it's false
 };
 
 //Create a new Toastmejs class instance
@@ -10335,6 +10336,7 @@ mytoast.success("Hello, this is my custom notification!");
                   <li><strong>distanceX:</strong> distance from the X axis</li>
                   <li><strong>zIndex:</strong> overlapping order</li>
                   <li><strong>theme:</strong> default, ligh or dark (leave empty for "default" theme)</li>
+                  <li><strong>duplicates:</strong> true or false - by default it's false</li>
               </ol>
             </div>
           </div>
@@ -10490,7 +10492,8 @@ var lighNotificationsConfig = {
   // top or bottom
   positionX: "center",
   // right left, center
-  theme: "ligh" // default, ligh or  dark (leave empty for "default" theme)
+  theme: "ligh", // default, ligh or  dark (leave empty for "default" theme)
+  duplicates: true
 
 };
 var lighToast = new Toastme(lighNotificationsConfig);
