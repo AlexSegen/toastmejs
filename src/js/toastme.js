@@ -165,11 +165,11 @@
     this.buildDialog = function(
       title,
       text,
-      textConfirm,
-      textCancel,
-      showCancel,
+      textConfirm = "Confirm",
+      textCancel = "Cancel",
+      showCancel = true,
       type,
-      dark,
+      dark = false,
       animations = true
     ) {
       var showTitle = title
