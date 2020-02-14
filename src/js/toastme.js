@@ -9,6 +9,7 @@
       zIndex: null,
       ligh: false,
       theme: "",
+      animations: true,
       duplicates: false
     }
   ) {
@@ -22,6 +23,7 @@
     this.ligh = config.ligh || false;
     this.theme = config.theme || "";
     this.duplicates = config.duplicates || false;
+    this.animations = config.animations || true;
     this.instanceId = "-" + Math.floor(Math.random() * 1000000 + 1);
 
     this.initToast = function() {
@@ -167,13 +169,14 @@
       textCancel,
       showCancel,
       type,
-      dark
+      dark,
+      animations = true
     ) {
       var showTitle = title
         ? `<p class="toastme-dialog-title">${title}</p>`
         : "";
       var showText = text ? `<p class="toastme-dialog-text">${text}</p>` : "";
-      var showType = this.selectType(type) ? this.selectType(type) : "";
+      var showType = this.selectType(type, animations) ? this.selectType(type, animations) : "";
       var btnCancel = showCancel
         ? `<button id="toastmeCancel" class="btn-toastme --toastme-dialog-action --toastme-cancel">${textCancel ||
             "Cancel"}</button>`
@@ -195,18 +198,18 @@
       return dialog;
     };
 
-    this.selectType = function(str) {
+    this.selectType = function(str, animations) {
       switch (str) {
         case "danger":
-          return `<div class="toastme-dialog-ico danger"></div>`;
+          return `<div class="toastme-dialog-ico danger ${animations ? '_anim': ''}"></div>`;
         case "success":
-          return `<div class="toastme-dialog-ico success"></div>`;
+          return `<div class="toastme-dialog-ico success ${animations ? '_anim': ''}"></div>`;
         case "info":
-          return `<div class="toastme-dialog-ico info"></div>`;
+          return `<div class="toastme-dialog-ico info ${animations ? '_anim': ''}"></div>`;
         case "warning":
-          return `<div class="toastme-dialog-ico warning"></div>`;
+          return `<div class="toastme-dialog-ico warning ${animations ? '_anim': ''}"></div>`;
         case "question":
-          return `<div class="toastme-dialog-ico question"></div>`;
+          return `<div class="toastme-dialog-ico question ${animations ? '_anim': ''}"></div>`;
         default:
           return false;
       }
@@ -220,7 +223,8 @@
         textCancel: "" || "Cancel",
         showCancel: true,
         type: null || null,
-        dark: false
+        dark: false,
+        animations: true
       }
     ) {
       this.closeAllDialogs();
@@ -233,7 +237,8 @@
           config.textCancel,
           config.showCancel,
           config.type,
-          config.dark
+          config.dark,
+          config.animations,
         )
       );
 

@@ -33,48 +33,56 @@ $question: #3f51b5;
   @include iconbody;
   position: relative;
   //animation: toastIconIn 0.4s ease-in-out 0s forwards;
-  -webkit-animation: flip-in-hor-bottom 0.5s
-    cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
-  animation: flip-in-hor-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s
-    both;
+  
   &.success {
     color: $success;
     &:before {
       content: $ico-success;
     }
+    &._anim {
+      -webkit-animation: flip-in-hor-bottom 0.5s
+      cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
+      animation: flip-in-hor-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
+    }
   }
   &.danger {
     color: $danger;
-    -webkit-animation: shake-horizontal 0.8s
-      cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.5s both;
-    animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955)
-      0.5s both;
     &:before {
       content: $ico-danger;
+    }
+    &._anim {
+      -webkit-animation: shake-horizontal 0.8s
+      cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.5s both;
+      animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955)0.5s both;
     }
   }
   &.info {
     color: $info;
-    -webkit-animation: bounce-top 0.9s both;
-    animation: bounce-top 0.9s both;
     &:before {
       content: $ico-info;
+    }
+    &._anim {
+
     }
   }
   &.warning {
     color: $warning;
-    -webkit-animation: wobble-hor-bottom 0.8s 0.5s both;
-    animation: wobble-hor-bottom 0.8s 0.5s both;
     &:before {
       content: $ico-warning;
+    }
+    &._anim {
+      -webkit-animation: wobble-hor-bottom 0.8s 0.5s both;
+      animation: wobble-hor-bottom 0.8s 0.5s both;
     }
   }
   &.question {
     color: $question;
-    -webkit-animation: jello-horizontal 0.9s 0.5s both;
-    animation: jello-horizontal 0.9s 0.5s both;
     &:before {
       content: $ico-question;
+    }
+    &._anim {
+      -webkit-animation: jello-horizontal 0.9s 0.5s both;
+      animation: jello-horizontal 0.9s 0.5s both;
     }
   }
 }
@@ -91,8 +99,8 @@ $question: #3f51b5;
   border: 1px solid #ddd;
   width: 280px;
   position: relative;
+  overflow: hidden;
   top: calc(50% - 200px);
-  //left: calc(50% - 190px);
   z-index: 1000;
   transition: all ease-in-out 0.2s;
   box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.05);
