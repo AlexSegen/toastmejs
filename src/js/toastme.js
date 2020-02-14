@@ -9,7 +9,6 @@
       zIndex: null,
       ligh: false,
       theme: "",
-      animations: true,
       duplicates: false
     }
   ) {
@@ -78,12 +77,16 @@
     this.buildToast = function(type, str, instanceId) {
       this.initToast();
 
+      console.log(this.animations)
+      console.log(config)
+
       var toastme = document.createElement("li");
       toastme.classList.add(
         "toastme",
         type,
         this.theme ? this.theme : false,
-        this.ligh ? "ligh" : false
+        this.ligh ? "ligh" : false,
+        this.animations ? "_anim" : false
       );
       toastme.innerHTML = `
           <button class="toastme-close"></button>
@@ -238,7 +241,7 @@
           config.showCancel,
           config.type,
           config.dark,
-          config.animations,
+          config.animations
         )
       );
 

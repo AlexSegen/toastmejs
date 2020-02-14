@@ -20,16 +20,17 @@
   padding: 10px 15px 10px 45px;
   border-radius: 2px;
   background-color: $bg-default;
-  //position: fixed;
   cursor: pointer;
   z-index: 100;
   transform: translateY(20px);
   transition: all 0.2s ease-in-out;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-  //animation: toastIn 0.2s forwards 0s ease-in-out;
-  -webkit-animation: flip-in-hor-bottom 0.5s
-    cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation: flip-in-hor-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+
+  &._anim {
+    -webkit-animation: flip-in-hor-bottom 0.5s
+      cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: flip-in-hor-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
 
   a {
     color: $font-color-default;

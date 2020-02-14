@@ -10526,12 +10526,10 @@ function lighNotifications(param) {
 }
 
 var darkNotificationsConfig = {
+  animations: false,
   positionY: "top",
-  // top or bottom
   positionX: "right",
-  // right left, center
-  theme: "dark" // default, ligh or  dark (leave empty for "default" theme)
-
+  theme: "dark"
 };
 var darkToast = new Toastme(darkNotificationsConfig);
 
@@ -10657,8 +10655,7 @@ function defaultDialogs(param) {
         textConfirm: "Confirm delete",
         textCancel: "Cancel",
         showCancel: true,
-        type: "danger",
-        animations: false
+        type: "danger"
       }).then(function (value) {
         if (value) {
           toastme.error("You have deleted");
