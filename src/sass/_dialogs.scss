@@ -62,7 +62,8 @@ $question: #3f51b5;
       content: $ico-info;
     }
     &._anim {
-
+      -webkit-animation: bounce-top 0.9s both;
+      animation: bounce-top 0.9s both;
     }
   }
   &.warning {
