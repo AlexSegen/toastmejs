@@ -9,7 +9,8 @@
       zIndex: null,
       ligh: false,
       theme: "",
-      duplicates: false
+      duplicates: false,
+      animations: true
     }
   ) {
     this.toastArray = [];
@@ -22,7 +23,7 @@
     this.ligh = config.ligh || false;
     this.theme = config.theme || "";
     this.duplicates = config.duplicates || false;
-    this.animations = config.animations || true;
+    //this.animations = config.animations || true;
     this.instanceId = "-" + Math.floor(Math.random() * 1000000 + 1);
 
     this.initToast = function() {
@@ -76,10 +77,7 @@
 
     this.buildToast = function(type, str, instanceId) {
       this.initToast();
-
-      console.log(this.animations)
-      console.log(config)
-
+      this.animations = config.animations;
       var toastme = document.createElement("li");
       toastme.classList.add(
         "toastme",
