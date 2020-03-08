@@ -9,10 +9,10 @@
       zIndex: null,
       ligh: false,
       theme: "",
-      duplicates: false,
-      animations: true
+      duplicates: false
     }
   ) {
+    debugger;
     this.toastArray = [];
     this.timeout = config.timeout || 5000;
     this.distanceX = config.distanceX || 15;
@@ -20,10 +20,10 @@
     this.positionY = config.positionY || "bottom"; //bottom, top
     this.positionX = config.positionX || "right"; //right, left, center
     this.zIndex = config.zIndex || 1000;
-    this.ligh = config.ligh || false;
+    this.ligh = config.ligh;
     this.theme = config.theme || "";
-    this.duplicates = config.duplicates || false;
-    this.animations = config.animations || true;
+    this.duplicates = config.duplicates;
+    this.animations = config.animations;
     this.instanceId = "-" + Math.floor(Math.random() * 1000000 + 1);
 
     this.initToast = function() {
@@ -78,12 +78,13 @@
     this.buildToast = function(type, str, instanceId) {
       this.initToast();
       var toastme = document.createElement("li");
+      console.log('animations', this.animations, 'config', config)
       toastme.classList.add(
         "toastme",
         type,
         this.theme ? this.theme : false,
         this.ligh ? "ligh" : false,
-        this.animations ? "_anim" : false
+        this.animations === false ? null : "_anim"
       );
       toastme.innerHTML = `
           <button class="toastme-close"></button>
@@ -280,6 +281,7 @@
       Toastme,
       toastme
     };
+    module.exports = toastme;
   } else {
     window.toastme = toastme;
     window.Toastme = Toastme;
