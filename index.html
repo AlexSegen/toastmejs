@@ -10310,7 +10310,8 @@ const config = {
     distanceX: 20, // Integer value
     zIndex: 100, // Integer value
     theme: "default", // default, ligh or  dark (leave empty for "default" theme)
-    duplicates: false // true or false - by default it's false
+    duplicates: false, // true or false - by default it's false
+    animations: true, // Show animations - by default it's true
 };
 
 //Create a new Toastmejs class instance
@@ -10337,6 +10338,7 @@ mytoast.success("Hello, this is my custom notification!");
                   <li><strong>zIndex:</strong> overlapping order</li>
                   <li><strong>theme:</strong> default, ligh or dark (leave empty for "default" theme)</li>
                   <li><strong>duplicates:</strong> true or false - by default it's false</li>
+                  <li><strong>animations:</strong> show animations - by default it's true</li>
               </ol>
             </div>
           </div>
@@ -10427,6 +10429,8 @@ toastme.yesNoDialog({
     showCancel: true, // true or false
     type: "success", // 'success', 'danger', 'warning', 'info' or 'question'
     dark: false, // Show dark theme? 'true' or 'false'
+    animations: true, // Show animations? by default it's true
+    
 }).then(function(value) {
     if (value) {
         console.log('You clicked Confirm')
