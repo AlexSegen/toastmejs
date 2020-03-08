@@ -78,7 +78,6 @@
     this.buildToast = function(type, str, instanceId) {
       this.initToast();
       var toastme = document.createElement("li");
-      console.log('animations', this.animations, 'config', config)
       toastme.classList.add(
         "toastme",
         type,
@@ -96,12 +95,6 @@
         toastme.remove();
         this.destroyList(instanceId, str, type);
       }, this.timeout);
-      /*
-      setTimeout(() => {
-        toastme.remove();
-        this.destroyList(instanceId);
-      }, this.timeout + 600);
-      */
 
       return toastme;
     };
