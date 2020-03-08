@@ -1,0 +1,8 @@
+{
+  "private": true,
+ "browserslist": [
+   "Edge 16"
+ ],
+  "scripts": {
+  }
+}
