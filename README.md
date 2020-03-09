@@ -186,6 +186,11 @@ $ gulp
 
 #### Changelog
 
+Version 1.3.0
+
+- Updated: CSS border styles.
+- Added: Set optional animations. New boolean parameter: animation.
+
 Version 1.2.3
 
 - Updated: CSS notifications displaying rules.
