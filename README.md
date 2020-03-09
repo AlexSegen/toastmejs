@@ -90,7 +90,10 @@ You can customize duration, position, distance, z-index and a ligh theme
 * **zIndex:** overlapping order
 
 - **theme:** select 'default', 'ligh' or 'dark' theme. Leave empty for default.
-- **duplicates:** true or false - by default it's false
+
+* **duplicates:** true or false - by default it's false
+
+- **animations:** true or false - by default it's true
 
 First, import the Toastme Class
 
@@ -141,7 +144,7 @@ toastme.yesNoDialog({
     textCancel: "Cancel",
     showCancel: true, // true or false
     type: "success", // 'success', 'danger', 'warning', 'info' or 'question'
-	dark: false // set 'true' if you want dark theme
+	dark: false, // set 'true' if you want dark theme
 }).then(function(value) {
     if (value) {
         console.log('You clicked Confirm')
@@ -162,6 +165,7 @@ You can customize text, title, buttons text and optionally, you can select 'type
 - **showCancel:** show cancel button? 'true' or 'false'
 - **type:** select 'success', 'danger', 'warning', 'info' or 'question'
 - **dark:** set 'true' if you want dark theme (optional) - empty for ligh theme.
+- **animations:** Show animations? It's true by default
 
 ## Building for source
 
