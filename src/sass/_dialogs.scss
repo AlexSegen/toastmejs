@@ -12,7 +12,7 @@ $question: #3f51b5;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, .3);
   z-index: 999;
   display: flex;
   justify-content: center;
@@ -22,6 +22,7 @@ $question: #3f51b5;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 }
 
 .toastme-dialog-ico {
@@ -91,10 +92,10 @@ $question: #3f51b5;
 .toastme-dialog {
   padding: 10px;
   font-size: 14px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   text-align: center;
   display: table;
-  color: #010101;
+  color: #5a5a5a;
   background: #f9f9f9;
   border-radius: 3px;
   border: 1px solid #ddd;
@@ -120,7 +121,7 @@ $question: #3f51b5;
   .toastme-dialog-title {
     font-size: 15px;
     font-weight: 600;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: inherit;
     margin: 0 0 10px;
     line-height: 16px;
   }
