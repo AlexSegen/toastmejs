@@ -1,7 +1,7 @@
 /*!
- * toastmejs v1.2.2
+ * toastmejs v1.2.3
  * Web notifications and dialogs with pure javascript
- * (c) 2019 alexsegen | Twitter https://twitter.com/pixelagil 
+ * (c) 2021 alexsegen | Twitter https://twitter.com/pixelagil 
  * MIT License
  * git+https://github.com/alexsegen/toastmejs.git
  */
@@ -900,9 +900,12 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
-/* line 21, src/sass/_dialogs.scss */
+/* line 22, src/sass/_dialogs.scss */
 .toastme-diag-actions {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -915,7 +918,7 @@
           align-items: center;
 }
 
-/* line 27, src/sass/_dialogs.scss */
+/* line 28, src/sass/_dialogs.scss */
 .toastme-dialog-ico {
   width: 50px;
   height: 50px;
@@ -937,65 +940,65 @@
   animation: flip-in-hor-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
 }
 
-/* line 40, src/sass/_dialogs.scss */
+/* line 41, src/sass/_dialogs.scss */
 .toastme-dialog-ico.success {
   color: #8bc34a;
 }
 
-/* line 42, src/sass/_dialogs.scss */
+/* line 43, src/sass/_dialogs.scss */
 .toastme-dialog-ico.success:before {
   content: "";
 }
 
-/* line 46, src/sass/_dialogs.scss */
+/* line 47, src/sass/_dialogs.scss */
 .toastme-dialog-ico.danger {
   color: #f44336;
   -webkit-animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.5s both;
   animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.5s both;
 }
 
-/* line 52, src/sass/_dialogs.scss */
+/* line 53, src/sass/_dialogs.scss */
 .toastme-dialog-ico.danger:before {
   content: "";
 }
 
-/* line 56, src/sass/_dialogs.scss */
+/* line 57, src/sass/_dialogs.scss */
 .toastme-dialog-ico.info {
   color: #03a9f4;
   -webkit-animation: bounce-top 0.9s both;
   animation: bounce-top 0.9s both;
 }
 
-/* line 60, src/sass/_dialogs.scss */
+/* line 61, src/sass/_dialogs.scss */
 .toastme-dialog-ico.info:before {
   content: "";
 }
 
-/* line 64, src/sass/_dialogs.scss */
+/* line 65, src/sass/_dialogs.scss */
 .toastme-dialog-ico.warning {
   color: #ffc107;
   -webkit-animation: wobble-hor-bottom 0.8s 0.5s both;
   animation: wobble-hor-bottom 0.8s 0.5s both;
 }
 
-/* line 68, src/sass/_dialogs.scss */
+/* line 69, src/sass/_dialogs.scss */
 .toastme-dialog-ico.warning:before {
   content: "";
 }
 
-/* line 72, src/sass/_dialogs.scss */
+/* line 73, src/sass/_dialogs.scss */
 .toastme-dialog-ico.question {
   color: #3f51b5;
   -webkit-animation: jello-horizontal 0.9s 0.5s both;
   animation: jello-horizontal 0.9s 0.5s both;
 }
 
-/* line 76, src/sass/_dialogs.scss */
+/* line 77, src/sass/_dialogs.scss */
 .toastme-dialog-ico.question:before {
   content: "";
 }
 
-/* line 82, src/sass/_dialogs.scss */
+/* line 83, src/sass/_dialogs.scss */
 .toastme-dialog {
   padding: 10px;
   font-size: 14px;
@@ -1018,20 +1021,20 @@
           animation: toastDialogIn 0.2s ease-in-out 0s forwards;
 }
 
-/* line 101, src/sass/_dialogs.scss */
+/* line 102, src/sass/_dialogs.scss */
 .toastme-dialog.dark {
   color: #fff;
   background: #252839;
   border: 1px solid #252839;
 }
 
-/* line 107, src/sass/_dialogs.scss */
+/* line 108, src/sass/_dialogs.scss */
 .toastme-dialog.toastme-dialog-closing {
   -webkit-animation: toastDialogOut 0.1s ease-in-out 0s forwards;
           animation: toastDialogOut 0.1s ease-in-out 0s forwards;
 }
 
-/* line 111, src/sass/_dialogs.scss */
+/* line 112, src/sass/_dialogs.scss */
 .toastme-dialog .toastme-dialog-title {
   font-size: 15px;
   font-weight: 600;
@@ -1040,7 +1043,7 @@
   line-height: 16px;
 }
 
-/* line 119, src/sass/_dialogs.scss */
+/* line 120, src/sass/_dialogs.scss */
 .toastme-dialog .toastme-dialog-text {
   font-size: 14px;
   font-family: Helvetica, sans-serif;
