@@ -186,10 +186,11 @@ $ gulp
 
 #### Changelog
 
-Version 1.3.0
+Version 1.2.4
 
-- Updated: CSS border styles.
-- Added: Set optional animations. New boolean parameter: animation.
+- Fix: [#12](https://github.com/AlexSegen/toastmejs/issues/12) Dialog height broken
+- Fix: Default list-style showing in some browsers
+- Updated: Notification and dialog styles
 
 Version 1.2.3
 
