@@ -1,12 +1,13 @@
 "use strict";
 
 /*!
- * toastmejs v1.2.3
+ * toastmejs v1.2.4
  * Web notifications and dialogs with pure javascript
- * (c) 2020 alexsegen | Twitter https://twitter.com/pixelagil 
+ * (c) 2021 alexsegen | Twitter https://twitter.com/pixelagil 
  * MIT License
  * git+https://github.com/alexsegen/toastmejs.git
  */
+
 (function () {
   function Toastme() {
     var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
@@ -20,15 +21,14 @@
       theme: "",
       duplicates: false
     };
+
     debugger;
     this.toastArray = [];
     this.timeout = config.timeout || 5000;
     this.distanceX = config.distanceX || 15;
     this.distanceY = config.distanceY || 15;
     this.positionY = config.positionY || "bottom"; //bottom, top
-
     this.positionX = config.positionX || "right"; //right, left, center
-
     this.zIndex = config.zIndex || 1000;
     this.ligh = config.ligh;
     this.theme = config.theme || "";
@@ -51,11 +51,9 @@
       this.positionX == "center" ? toastmeList.style.right = "calc(50% - 125px)" : toastmeList.style[this.positionX] = this.distanceX + "px";
       toastmeList.style[this.positionY] = this.distanceY + "px";
       toastmeList.style.zIndex = this.zIndex;
-
       if (!document.getElementById("toastmeList" + instanceId)) {
         document.body.appendChild(toastmeList);
       }
-
       return toastmeList;
     };
 
@@ -82,12 +80,13 @@
       var toastme = document.createElement("li");
       toastme.classList.add("toastme", type, this.theme ? this.theme : false, this.ligh ? "ligh" : false, this.animations === false ? null : "_anim");
       toastme.innerHTML = "\n          <button class=\"toastme-close\"></button>\n          <i class=\"toastme-ico\"></i>\n          <div class=\"toastme-content\">" + str + "</div>";
+
       setTimeout((function () {
         //toastme.classList.add("fade-out")
         toastme.remove();
-
         _this.destroyList(instanceId, str, type);
       }), this.timeout);
+
       return toastme;
     };
 
@@ -98,35 +97,28 @@
         return false;
       }
 
-      this.toastArray.push({
-        type: type,
-        str: str,
-        instanceId: instanceId
-      });
+      this.toastArray.push({ type: type, str: str, instanceId: instanceId });
+
       this.createToastList(this.instanceId);
       document.getElementById("toastmeList" + this.instanceId).appendChild(this.buildToast(type, str, this.instanceId));
     };
-
     this.default = function (str) {
       this.showToast("default", str);
     };
-
     this.success = function (str) {
       this.showToast("success", str);
     };
-
     this.error = function (str) {
       this.showToast("error", str);
     };
-
     this.warning = function (str) {
       this.showToast("warning", str);
     };
-
     this.info = function (str) {
       this.showToast("info", str);
-    }; //Toastme Dialogs
+    };
 
+    //Toastme Dialogs
 
     this.initDialog = function () {
       document.addEventListener("click", (function (e) {
@@ -142,6 +134,7 @@
               item.classList.add("toastOut");
             }));
           }), 400);
+
           setTimeout((function () {
             var array = document.querySelectorAll(".toastme-dialog-bg");
             array.forEach((function (item) {
@@ -159,6 +152,7 @@
       var type = arguments[5];
       var dark = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : false;
       var animations = arguments.length > 7 && arguments[7] !== undefined ? arguments[7] : true;
+
       var showTitle = title ? "<p class=\"toastme-dialog-title\">" + title + "</p>" : "";
       var showText = text ? "<p class=\"toastme-dialog-text\">" + text + "</p>" : "";
       var showType = this.selectType(type, animations) ? this.selectType(type, animations) : "";
@@ -174,19 +168,14 @@
       switch (str) {
         case "danger":
           return "<div class=\"toastme-dialog-ico danger " + (animations ? '_anim' : '') + "\"></div>";
-
         case "success":
           return "<div class=\"toastme-dialog-ico success " + (animations ? '_anim' : '') + "\"></div>";
-
         case "info":
           return "<div class=\"toastme-dialog-ico info " + (animations ? '_anim' : '') + "\"></div>";
-
         case "warning":
           return "<div class=\"toastme-dialog-ico warning " + (animations ? '_anim' : '') + "\"></div>";
-
         case "question":
           return "<div class=\"toastme-dialog-ico question " + (animations ? '_anim' : '') + "\"></div>";
-
         default:
           return false;
       }
@@ -203,15 +192,16 @@
         dark: false,
         animations: true
       };
+
       this.closeAllDialogs();
       this.initDialog();
       document.body.appendChild(this.buildDialog(config.title, config.text, config.textConfirm, config.textCancel, config.showCancel, config.type, config.dark, config.animations));
+
       return new Promise(function (resolve, reject) {
         document.getElementById("toastmeConfirm").addEventListener("click", (function () {
           resolve(true);
         }));
         var btnCancel = document.getElementById("toastmeCancel");
-
         if (btnCancel) {
           btnCancel.addEventListener("click", (function () {
             resolve(false);
