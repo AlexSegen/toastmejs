@@ -9,7 +9,7 @@
 		"twitter": "https://twitter.com/pixelagil"
 	},
 	"scripts": {
-		"dev": "cross-env NODE_ENV=development gulp",
+		"dev": "cross-env NODE_ENV=development gulp > output.log",
 		"prod": "cross-env NODE_ENV=production gulp"
 	},
 	"keywords": [

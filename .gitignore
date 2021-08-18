@@ -2,6 +2,7 @@
 node_modules
 test/results
 test/coverage
+output.log
 
 ## OS X
 .DS_Store
