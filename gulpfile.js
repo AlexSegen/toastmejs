@@ -32,7 +32,7 @@ var paths = {
 		output: output + '/css/'
 	},
 	typescript: {
-		input: 'src/typescript/index.ts',
+		input: 'src/typescript/toastme.ts',
 		output: output + "/js/"
 	},
 	copyIcons: {
