@@ -10565,10 +10565,17 @@ function darkNotifications(param) {
 /*Dialog Demos*/
 
 
+
+var darkDialogConfig = {
+  dark: true
+};
+
+var darkDialog = new Dialog(darkDialogConfig);
+
 function defaultDialogs(param) {
   switch (param) {
     case 'titletext':
-      toastme.yesNoDialog({
+      dialog.show({
         title: "This is the title",
         text: "This is the text area",
         textConfirm: "Confirm button",
@@ -10578,14 +10585,14 @@ function defaultDialogs(param) {
       break;
 
     case 'title':
-      toastme.yesNoDialog({
+      dialog.show({
         title: "Just the title",
         textConfirm: "OK"
       });
       break;
 
     case 'text':
-      toastme.yesNoDialog({
+      dialog.show({
         title: "You can show text area only",
         textConfirm: "Right",
         textCancel: "Nah",
@@ -10594,7 +10601,7 @@ function defaultDialogs(param) {
       break;
 
     case 'buttons':
-      toastme.yesNoDialog({
+      dialog.show({
         textConfirm: "Confirm button",
         textCancel: "Cancel button",
         showCancel: true
@@ -10602,13 +10609,12 @@ function defaultDialogs(param) {
       break;
 
     case 'dark':
-      toastme.yesNoDialog({
+      darkDialog.show({
         title: "This is the dark theme",
         text: "Do you like it?",
         textConfirm: "Yes, I love it!",
         textCancel: "I'm scared :(",
-        showCancel: true,
-        dark: true
+        showCancel: true
       }).then(function (value) {
         if (value) {
           darkToast.success("You are so dark :O");
@@ -10617,7 +10623,7 @@ function defaultDialogs(param) {
       break;
 
     case 'question':
-      toastme.yesNoDialog({
+      dialog.show({
         text: "Will you share this with your friends?",
         textConfirm: "I will share it!",
         showCancel: true,
@@ -10626,7 +10632,7 @@ function defaultDialogs(param) {
       break;
 
     case 'success':
-      toastme.yesNoDialog({
+      dialog.show({
         title: "You are the Winner!",
         text: "Do you want to pick your price?",
         textConfirm: "Yes, pick price.",
@@ -10643,7 +10649,7 @@ function defaultDialogs(param) {
       break;
 
     case 'warning':
-      toastme.yesNoDialog({
+      dialog.show({
         text: "This is a warning Dialog",
         textConfirm: "I like it",
         showCancel: false,
@@ -10652,7 +10658,7 @@ function defaultDialogs(param) {
       break;
 
     case 'danger':
-      toastme.yesNoDialog({
+      dialog.show({
         title: "Do you want to delete?",
         text: "You can't undone this",
         textConfirm: "Confirm delete",
@@ -10667,7 +10673,7 @@ function defaultDialogs(param) {
       break;
 
     case 'info':
-      toastme.yesNoDialog({
+      dialog.show({
         text: "You can fork this repository!",
         textConfirm: "Awesome!",
         showCancel: false,
