@@ -197,6 +197,7 @@
             Dialog: Dialog,
             dialog: dialog
         };
+        exports.toastme = toastme;
     } else {
         window['toastme'] = toastme;
         window['Toastme'] = Toastme;
