@@ -56,8 +56,11 @@
                     type = _a.type;
                 _this.initToast();
                 var toastme = document.createElement("li");
+                var contentArea = document.createElement("div");
                 toastme.classList.add("toastme", type, _this.theme ? _this.theme : null, _this.ligh ? "ligh" : null, _this.animations === false ? null : "_anim");
-                toastme.innerHTML = "<button class=\"toastme-close\"></button>\n      <i class=\"toastme-ico\"></i>\n      <div class=\"toastme-content\">" + str + "</div>";
+                contentArea.classList.add('toastme-content');
+                contentArea.innerHTML = str;
+                toastme.innerHTML = "<button class=\"toastme-close\"></button>\n      <i class=\"toastme-ico\"></i>\n      " + contentArea;
                 setTimeout((function () {
                     toastme.remove();
                     _this.destroyList({ instanceId: instanceId, str: str, type: type });
@@ -139,14 +142,18 @@
                     textCancel = _a.textCancel,
                     textConfirm = _a.textConfirm,
                     type = _a.type;
-                var showTitle = title ? "<p class=\"toastme-dialog-title\">" + title + "</p>" : "";
-                var showText = text ? "<p class=\"toastme-dialog-text\">" + text + "</p>" : "";
+                var titleArea = document.createElement("div");
+                titleArea.classList.add("toastme-dialog-title");
+                titleArea.innerHTML = "" + title;
+                var textArea = document.createElement("div");
+                textArea.classList.add("toastme-dialog-text");
+                textArea.innerHTML = "" + text;
                 var showType = _this.selectType(type);
                 var btnCancel = showCancel ? "<button id=\"toastmeCancel\" class=\"btn-toastme --toastme-dialog-action --toastme-cancel\">" + (textCancel || "Cancel") + "</button>" : "";
                 var dialog = document.createElement("div");
                 dialog.setAttribute("id", "toastme-dialog-bg");
                 dialog.classList.add("toastme-dialog-bg", "--toastme-dialog-action");
-                dialog.innerHTML = "\n      <div class=\"toastme-dialog " + (_this.dark ? "dark" : "") + "\">\n          <div class=\"toastme-dialog-content\">\n              " + showType + " " + showTitle + " " + showText + "\n        <div class=\"toastme-diag-actions\">\n          <button id=\"toastmeConfirm\" class=\"btn-toastme --toastme-dialog-action --toastme-confirm\">" + (textConfirm || "Confirm") + "</button>\n                  " + btnCancel + "\n        </div>\n          </div>\n      </div>";
+                dialog.innerHTML = "\n      <div class=\"toastme-dialog " + (_this.dark ? "dark" : "") + "\">\n          <div class=\"toastme-dialog-content\">\n              " + showType + " " + (title ? titleArea : "") + " " + (text ? textArea : "") + "\n        <div class=\"toastme-diag-actions\">\n          <button id=\"toastmeConfirm\" class=\"btn-toastme --toastme-dialog-action --toastme-confirm\">" + (textConfirm || "Confirm") + "</button>\n                  " + btnCancel + "\n        </div>\n          </div>\n      </div>";
                 return dialog;
             };
             this.selectType = function (type) {

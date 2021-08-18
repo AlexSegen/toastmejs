@@ -10532,7 +10532,7 @@ dialog.show({
   }
 }
 
-var lighNotificationsConfig = {
+const lighNotificationsConfig = {
   positionY: "top", // top or bottom
   positionX: "center", // right left, center
   theme: "ligh", // default, ligh or  dark (leave empty for "default" theme)
@@ -10540,28 +10540,28 @@ var lighNotificationsConfig = {
   timeout: 5000
 
 };
-var lighToast = new Toastme(lighNotificationsConfig);
+const lighToast = new Toastme(lighNotificationsConfig);
 
 function lighNotifications(param) {
   switch (param) {
     case 'default':
-      lighToast.default("This is a 'default' notification");
+      lighToast.default("This is a <strong>'default'</strong> notification");
       break;
 
     case 'success':
-      lighToast.success("This is a 'success' notification");
+      lighToast.success("Use some HTML tags such as <code>&lt;strong&gt;</code>");
       break;
 
     case 'warning':
-      lighToast.warning("This is a 'warning' notification");
+      lighToast.warning("This is a <strong>'warning'</strong> notification");
       break;
 
     case 'error':
-      lighToast.error("This is a 'error' notification");
+      lighToast.error("This is a <strong>'error'</strong> notification");
       break;
 
     case 'info':
-      lighToast.info("This is a 'info' notification");
+      lighToast.info("This is a <strong>'info'</strong> notification");
       break;
 
     default:
@@ -10569,12 +10569,12 @@ function lighNotifications(param) {
   }
 }
 
-var darkNotificationsConfig = {
+const darkNotificationsConfig = {
   positionY: "top",
   positionX: "right",
   theme: "dark"
 };
-var darkToast = new Toastme(darkNotificationsConfig);
+const darkToast = new Toastme(darkNotificationsConfig);
 
 function darkNotifications(param) {
   switch (param) {
@@ -10591,11 +10591,11 @@ function darkNotifications(param) {
       break;
 
     case 'error':
-      darkToast.error("This is a 'error' notification");
+      darkToast.error("Use some HTML tags such as <code>&lt;strong&gt;</code>");
       break;
 
     case 'info':
-      darkToast.info("This is a 'info' notification");
+      darkToast.info("This is a <span class='text-info font-bold'>'info'</span> notification");
       break;
 
     default:
@@ -10606,18 +10606,18 @@ function darkNotifications(param) {
 
 
 
-var darkDialogConfig = {
+const darkDialogConfig = {
   dark: true
 };
 
-var darkDialog = new Dialog(darkDialogConfig);
+const darkDialog = new Dialog(darkDialogConfig);
 
 function defaultDialogs(param) {
   switch (param) {
     case 'titletext':
       dialog.show({
         title: "This is the title",
-        text: "This is the text area",
+        text: "This is <u class='text-info'>the text</u> area",
         textConfirm: "Confirm button",
         textCancel: "Cancel button",
         showCancel: true
@@ -10633,7 +10633,7 @@ function defaultDialogs(param) {
 
     case 'text':
       dialog.show({
-        title: "You can show text area only",
+        text: "You can show text area only",
         textConfirm: "Right",
         textCancel: "Nah",
         showCancel: true
