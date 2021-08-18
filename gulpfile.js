@@ -21,7 +21,7 @@ var settings = {
 
 var paths = {
 	input: 'src/',
-	output: output,
+	output,
 	scripts: {
 		input: 'src/js/*',
 		polyfills: '.polyfill.js',
@@ -30,6 +30,10 @@ var paths = {
 	styles: {
 		input: 'src/sass/**/*.{scss,sass}',
 		output: output + '/css/'
+	},
+	typescript: {
+		input: 'src/typescript/index.ts',
+		output: output + "/js/"
 	},
 	copyIcons: {
 		input: 'src/icons/**/*',
@@ -75,7 +79,9 @@ var rename = require('gulp-rename');
 var header = require('gulp-header');
 var package = require('./package.json');
 
+
 // Scripts
+var ts = require('gulp-typescript');
 var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 var concat = require('gulp-concat');
@@ -125,6 +131,27 @@ var jsTasks = lazypipe()
 	.pipe(optimizejs)
 	.pipe(header, banner.min, {package: package})
 	.pipe(dest, paths.scripts.output);
+
+
+var buildTypescript = function (done) {
+	
+	// Make sure this feature is activated before running
+	if (!settings.scripts) return done();
+
+	src(paths.typescript.input)
+        .pipe(ts({
+            noImplicitAny: false,
+            //outFile: 'toastme.js',
+			//module: 'amd',
+			target: 'es5',
+			removeComments: true
+        }))
+        .pipe(dest(paths.typescript.output));
+
+	done();
+
+};	
+
 
 // Lint, minify, and concatenate scripts
 var buildScripts = function (done) {
@@ -294,8 +321,9 @@ var watchSource = function (done) {
 exports.default = series(
 	cleanDist,
 	parallel(
-		buildScripts,
-		lintScripts,
+		/* buildScripts,
+		lintScripts, */
+		buildTypescript,
 		buildStyles,
 		copyFiles
 	)
