@@ -3,9 +3,9 @@
  * Turn on/off build features
  */
 
-var output = process.env.NODE_ENV == "development"  ? "dist_dev" : "dist"
+const output = process.env.NODE_ENV == "development"  ? "dist_dev" : "dist"
 
-var settings = {
+const settings = {
 	clean: true,
 	scripts: true,
 	polyfills: true,
@@ -19,14 +19,9 @@ var settings = {
  * Paths to project folders
  */
 
-var paths = {
+const paths = {
 	input: 'src/',
 	output,
-	scripts: {
-		input: 'src/js/*',
-		polyfills: '.polyfill.js',
-		output: output + "/js/"
-	},
 	styles: {
 		input: 'src/sass/**/*.{scss,sass}',
 		output: output + '/css/'
@@ -47,7 +42,7 @@ var paths = {
  * Template for banner to add to file headers
  */
 
-var banner = {
+const banner = {
 	full:
 		'/*!\n' +
 		' * <%= package.name %> v<%= package.version %>\n' +
@@ -71,32 +66,32 @@ var banner = {
  */
 
 // General
-var {gulp, src, dest, watch, series, parallel} = require('gulp');
-var del = require('del');
-var flatmap = require('gulp-flatmap');
-var lazypipe = require('lazypipe');
-var rename = require('gulp-rename');
-var header = require('gulp-header');
-var package = require('./package.json');
+const {gulp, src, dest, watch, series, parallel} = require('gulp');
+const del = require('del');
+const flatmap = require('gulp-flatmap');
+const lazypipe = require('lazypipe');
+const rename = require('gulp-rename');
+const header = require('gulp-header');
+const package = require('./package.json');
 
 
 // Scripts
-var ts = require('gulp-typescript');
-var jshint = require('gulp-jshint');
-var stylish = require('jshint-stylish');
-var concat = require('gulp-concat');
-var uglify = require('gulp-terser');
-var optimizejs = require('gulp-optimize-js');
+const ts = require('gulp-typescript');
+const jshint = require('gulp-jshint');
+const stylish = require('jshint-stylish');
+const concat = require('gulp-concat');
+const uglify = require('gulp-terser');
+const optimizejs = require('gulp-optimize-js');
 
-var babel = require('gulp-babel');
+const babel = require('gulp-babel');
 
 // Styles
-var sass = require('gulp-sass');
-var prefix = require('gulp-autoprefixer');
-var minify = require('gulp-cssnano');
+const sass = require('gulp-sass');
+const prefix = require('gulp-autoprefixer');
+const minify = require('gulp-cssnano');
 
 // BrowserSync
-var browserSync = require('browser-sync');
+const browserSync = require('browser-sync');
 
 
 /**
@@ -104,7 +99,7 @@ var browserSync = require('browser-sync');
  */
 
 // Remove pre-existing content from output folders
-var cleanDist = function (done) {
+const cleanDist = function (done) {
 
 	// Make sure this feature is activated before running
 	if (!settings.clean) return done();
@@ -120,110 +115,81 @@ var cleanDist = function (done) {
 };
 
 // Repeated JavaScript tasks
-var jsTasks = lazypipe()
+const jsTasks = lazypipe()
 	.pipe(header, banner.full, {package: package})
 	.pipe(babel, { presets: ['env'] })
-	.pipe(dest, paths.scripts.output)
+	.pipe(dest, paths.typescript.output)
 	.pipe(optimizejs)
-	.pipe(dest, paths.scripts.output)
+	.pipe(dest, paths.typescript.output)
 	.pipe(rename, {suffix: '.min'})
 	.pipe(uglify)
 	.pipe(optimizejs)
 	.pipe(header, banner.min, {package: package})
-	.pipe(dest, paths.scripts.output);
+	.pipe(dest, paths.typescript.output);
 
 
-var buildTypescript = function (done) {
+const buildTypescript = function (done) {
 	
 	// Make sure this feature is activated before running
 	if (!settings.scripts) return done();
 
+	// Run tasks on script files
 	src(paths.typescript.input)
-        .pipe(ts({
-            noImplicitAny: false,
-            //outFile: 'toastme.js',
-			//module: 'amd',
-			target: 'es5',
-			removeComments: true
-        }))
-        .pipe(dest(paths.typescript.output));
+	.pipe(ts({
+		noImplicitAny: false,
+		//outFile: 'toastme.js',
+		//module: 'amd',
+		target: 'es5',
+		removeComments: true
+	}))
+	.pipe(flatmap(function(stream, file) {
+
+		// If the file is a directory
+		if (file.isDirectory()) {
+
+			// Setup a suffix variable
+			let suffix = '';
+
+			// If separate polyfill files enabled
+			if (settings.polyfills) {
+
+				// Update the suffix
+				suffix = '.polyfills';
+
+				// Grab files that aren't polyfills, concatenate them, and process them
+				src([file.path + '/*.js', '!' + file.path + '/*' + paths.scripts.polyfills])
+					.pipe(concat(file.relative + '.js'))
+					.pipe(jsTasks());
+
+			}
+
+			// Grab all files and concatenate them
+			// If separate polyfills enabled, this will have .polyfills in the filename
+			src(file.path + '/*.js')
+				.pipe(concat(file.relative + suffix + '.js'))
+				.pipe(jsTasks());
+
+			return stream;
+
+		}
+
+		// Otherwise, process the file
+		return stream.pipe(jsTasks());
+
+	}));
 
 	done();
 
 };	
 
-
-// Lint, minify, and concatenate scripts
-var buildScripts = function (done) {
-
-	// Make sure this feature is activated before running
-	if (!settings.scripts) return done();
-
-	// Run tasks on script files
-	src(paths.scripts.input)
-		.pipe(flatmap(function(stream, file) {
-
-			// If the file is a directory
-			if (file.isDirectory()) {
-
-				// Setup a suffix variable
-				var suffix = '';
-
-				// If separate polyfill files enabled
-				if (settings.polyfills) {
-
-					// Update the suffix
-					suffix = '.polyfills';
-
-					// Grab files that aren't polyfills, concatenate them, and process them
-					src([file.path + '/*.js', '!' + file.path + '/*' + paths.scripts.polyfills])
-						.pipe(concat(file.relative + '.js'))
-						.pipe(jsTasks());
-
-				}
-
-				// Grab all files and concatenate them
-				// If separate polyfills enabled, this will have .polyfills in the filename
-				src(file.path + '/*.js')
-					.pipe(concat(file.relative + suffix + '.js'))
-					.pipe(jsTasks());
-
-				return stream;
-
-			}
-
-			// Otherwise, process the file
-			return stream.pipe(jsTasks());
-
-		}));
-
-	// Signal completion
-	done();
-
-};
-
-var buildScripts2 = function (done) {
-
-	if (!settings.scripts) return done();
-
-	src(paths.scripts.input)
-	.pipe(babel({
-		presets: ['env']
-	}))
-	.pipe(dest(paths.scripts.output))
-
-	done();
-
-};
-
 // Lint scripts
-var lintScripts = function (done) {
+const lintScripts = function (done) {
 
 	// Make sure this feature is activated before running
 	if (!settings.scripts) return done();
 
 	// Lint scripts
-	src(paths.scripts.input)
+	src(paths.typescript.input)
 		.pipe(jshint())
 		.pipe(jshint.reporter('jshint-stylish'));
 
@@ -233,7 +199,7 @@ var lintScripts = function (done) {
 };
 
 // Process, lint, and minify Sass files
-var buildStyles = function (done) {
+const buildStyles = function (done) {
 
 	// Make sure this feature is activated before running
 	if (!settings.styles) return done();
@@ -266,7 +232,7 @@ var buildStyles = function (done) {
 };
 
 // Copy static files into output folder
-var copyFiles = function (done) {
+const copyFiles = function (done) {
 
 	// Make sure this feature is activated before running
 	if (!settings.copy) return done();
@@ -281,7 +247,7 @@ var copyFiles = function (done) {
 };
 
 // Watch for changes to the src directory
-var startServer = function (done) {
+const startServer = function (done) {
 
 	// Make sure this feature is activated before running
 	if (!settings.reload) return done();
@@ -299,14 +265,14 @@ var startServer = function (done) {
 };
 
 // Reload the browser when files change
-var reloadBrowser = function (done) {
+const reloadBrowser = function (done) {
 	if (!settings.reload) return done();
 	browserSync.reload();
 	done();
 };
 
 // Watch for changes
-var watchSource = function (done) {
+const watchSource = function (done) {
 	watch(paths.input, series(exports.default, reloadBrowser));
 	done();
 };
@@ -321,8 +287,7 @@ var watchSource = function (done) {
 exports.default = series(
 	cleanDist,
 	parallel(
-		/* buildScripts,
-		lintScripts, */
+		// lintScripts,
 		buildTypescript,
 		buildStyles,
 		copyFiles
