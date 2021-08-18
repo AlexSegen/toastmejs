@@ -10419,9 +10419,13 @@ mytoast.success("Hello, this is my custom notification!");
                 <div class="card shadow">
                   <div class="card-header">Dialog Example</div>
                   <div class="card-body">
+
 <pre>
 <code class="javascript">//Example
-toastme.yesNoDialog({
+
+import {dialog} from 'toastmejs'
+
+dialog.show({
     title: "You are the Winner!",
     text: "Do you want to pick your price?",
     textConfirm: "Confirm",
@@ -10458,6 +10462,42 @@ toastme.yesNoDialog({
                     <li><strong>dark:</strong> Show dark theme? 'true' or 'false'</li>
                     <li><strong>animations:</strong> Show animations? It's true by default</li>
                 </ol>
+
+
+                <div class="card shadow">
+                  <div class="card-header">Customization example</div>
+                  <div class="card-body">
+
+<pre>
+  <code class="javascript">//Example
+// You need to import Dialog class using capitalized D.
+  
+  import {Dialog} from 'toastmejs'
+
+  const myDialog = new Dialog({
+    dark: true, // this will set dark mode in all your dialogs
+    animations: false // this will remove icon animations
+  });
+  
+  myDialog.show({
+      title: "Serious question tho",
+      text: "Do you like dark mode?",
+      textConfirm: "Yes",
+      textCancel: "Nah", 
+      showCancel: true, // true or false
+      type: "question", // 'success', 'danger', 'warning', 'info' or 'question'
+      
+  }).then(function(value) {
+      if (value) {
+          console.log('You clicked Confirm')
+      }
+  });
+  </code>
+</pre>
+
+                  </div>
+                </div>
+
               </div>
             </div>
         </div>
