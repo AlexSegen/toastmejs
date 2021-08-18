@@ -137,12 +137,15 @@
     warning = (str: string): void => {
       this.showToast("warning", str);
     };
-    
+
     info = (str: string): void => {
       this.showToast("info", str);
     };
   }
 
+  class Dialog {
+
+  }
 
   interface IToastContent {
       type: ToastType;
@@ -167,14 +170,23 @@
 
   const toastme = new Toastme();
 
+  const dialog = new Dialog();
+
   if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
       module.exports = {
-      Toastme,
-      toastme
+        Toastme,
+        toastme,
+        Dialog,
+        dialog
       };
-      module.exports = toastme;
+      //module.exports = toastme;
+      //module.exports = dialog;
+      //exports.toastme = toastme;
+
   } else {
       window['toastme'] = toastme;
       window['Toastme'] = Toastme;
+      window['dialog'] = dialog;
+      window['Dialog'] = Dialog;
   }
 })();
