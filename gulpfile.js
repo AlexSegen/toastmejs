@@ -1,3 +1,28 @@
+const {src, dest, watch, series, parallel} = require('gulp');
+const del = require('del');
+const flatmap = require('gulp-flatmap');
+const lazypipe = require('lazypipe');
+const rename = require('gulp-rename');
+const header = require('gulp-header');
+const package = require('./package.json');
+
+
+// Scripts
+const ts = require('gulp-typescript');
+const jshint = require('gulp-jshint');
+const concat = require('gulp-concat');
+const uglify = require('gulp-terser');
+const optimizejs = require('gulp-optimize-js');
+
+const babel = require('gulp-babel');
+
+// Styles
+const sass = require('gulp-sass');
+const prefix = require('gulp-autoprefixer');
+const minify = require('gulp-cssnano');
+
+// BrowserSync
+const browserSync = require('browser-sync');
 /**
  * Settings
  * Turn on/off build features
@@ -59,39 +84,6 @@ const banner = {
 		' | <%= package.repository.url %>' +
 		' */\n'
 };
-
-
-/**
- * Gulp Packages
- */
-
-// General
-const {gulp, src, dest, watch, series, parallel} = require('gulp');
-const del = require('del');
-const flatmap = require('gulp-flatmap');
-const lazypipe = require('lazypipe');
-const rename = require('gulp-rename');
-const header = require('gulp-header');
-const package = require('./package.json');
-
-
-// Scripts
-const ts = require('gulp-typescript');
-const jshint = require('gulp-jshint');
-const stylish = require('jshint-stylish');
-const concat = require('gulp-concat');
-const uglify = require('gulp-terser');
-const optimizejs = require('gulp-optimize-js');
-
-const babel = require('gulp-babel');
-
-// Styles
-const sass = require('gulp-sass');
-const prefix = require('gulp-autoprefixer');
-const minify = require('gulp-cssnano');
-
-// BrowserSync
-const browserSync = require('browser-sync');
 
 
 /**

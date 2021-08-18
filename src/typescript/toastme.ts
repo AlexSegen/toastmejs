@@ -311,7 +311,7 @@
       };
       //module.exports = toastme;
       //module.exports = dialog;
-      //exports.toastme = toastme;
+      exports.toastme = toastme;
 
   } else {
       window['toastme'] = toastme;
