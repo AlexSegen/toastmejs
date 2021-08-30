@@ -516,12 +516,10 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   color: #42526E;
   margin-bottom: 10px;
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
   max-width: 250px;
   text-align: left;
   padding: 10px 15px 10px 45px;
@@ -531,10 +529,8 @@
   z-index: 100;
   -webkit-transform: translateY(20px);
           transform: translateY(20px);
-  -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-  -webkit-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* line 31, src/sass/_notifications.scss */
@@ -659,10 +655,8 @@
   position: absolute;
   background: transparent;
   border: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   cursor: pointer;
-  -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 
@@ -698,15 +692,12 @@
   border-radius: 2px;
   position: absolute;
   left: 5px;
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
   text-align: center;
 }
 
@@ -902,28 +893,22 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.3);
   z-index: 999;
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: start;
+      align-items: flex-start;
 }
 
 /* line 16, src/sass/_dialogs.scss */
 .toastme-diag-actions {
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
   margin-top: 20px;
 }
 
@@ -1044,10 +1029,8 @@
   top: calc(50% - 200px);
   overflow: hidden;
   z-index: 1000;
-  -webkit-transition: all ease-in-out 0.2s;
   transition: all ease-in-out 0.2s;
-  -webkit-box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.05);
-          box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.05);
   -webkit-animation: toastDialogIn 0.2s ease-in-out 0s forwards;
           animation: toastDialogIn 0.2s ease-in-out 0s forwards;
 }
