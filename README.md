@@ -186,11 +186,16 @@ $ gulp
 
 #### Changelog
 
+Version 1.2.5
+
+- HotFix: Remove deprecated browserList config
+
 Version 1.2.4
 
 - Fix: [#12](https://github.com/AlexSegen/toastmejs/issues/12) Dialog height broken
 - Fix: Default list-style showing in some browsers
 - Updated: Notification and dialog styles
+- Added: Animation can be disabled (animations: true | false)
 
 Version 1.2.3
 
