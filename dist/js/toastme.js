@@ -1,7 +1,7 @@
 "use strict";
 
 /*!
- * toastmejs v1.2.4
+ * toastmejs v1.2.5
  * Web notifications and dialogs with pure javascript
  * (c) 2021 alexsegen | Twitter https://twitter.com/pixelagil 
  * MIT License
@@ -22,7 +22,6 @@
       duplicates: false
     };
 
-    debugger;
     this.toastArray = [];
     this.timeout = config.timeout || 5000;
     this.distanceX = config.distanceX || 15;

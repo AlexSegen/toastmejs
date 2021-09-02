@@ -186,6 +186,10 @@ $ gulp
 
 #### Changelog
 
+Version 1.2.6
+
+- HotFix: Remove debugger (Sorry!) 
+
 Version 1.2.5
 
 - HotFix: Remove deprecated browserList config
