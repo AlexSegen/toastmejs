@@ -1,7 +1,7 @@
 "use strict";
 
 /*!
- * toastmejs v1.2.5
+ * toastmejs v1.2.6
  * Web notifications and dialogs with pure javascript
  * (c) 2021 alexsegen | Twitter https://twitter.com/pixelagil 
  * MIT License
@@ -228,11 +228,7 @@
   var toastme = new Toastme();
 
   if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
-    module.exports = {
-      Toastme: Toastme,
-      toastme: toastme
-    };
-    module.exports = toastme;
+    module.exports = { Toastme, toastme };
   } else {
     window.toastme = toastme;
     window.Toastme = Toastme;
