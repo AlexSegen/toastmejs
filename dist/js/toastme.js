@@ -228,7 +228,8 @@
   var toastme = new Toastme();
 
   if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
-    module.exports = { Toastme, toastme };
+    module.exports = { Toastme: Toastme, toastme: toastme };
+    exports.toastme = toastme;
   } else {
     window.toastme = toastme;
     window.Toastme = Toastme;
