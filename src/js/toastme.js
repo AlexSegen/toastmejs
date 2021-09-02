@@ -12,7 +12,6 @@
       duplicates: false
     }
   ) {
-    debugger;
     this.toastArray = [];
     this.timeout = config.timeout || 5000;
     this.distanceX = config.distanceX || 15;
