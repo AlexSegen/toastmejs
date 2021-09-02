@@ -186,6 +186,10 @@ $ gulp
 
 #### Changelog
 
+Version 1.2.7
+
+- HotFix: Fix wrong export
+
 Version 1.2.6
 
 - HotFix: Remove debugger (Sorry!) 
