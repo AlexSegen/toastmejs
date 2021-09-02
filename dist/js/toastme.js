@@ -1,7 +1,7 @@
 "use strict";
 
 /*!
- * toastmejs v1.2.6
+ * toastmejs v1.2.7
  * Web notifications and dialogs with pure javascript
  * (c) 2021 alexsegen | Twitter https://twitter.com/pixelagil 
  * MIT License

@@ -1,6 +1,6 @@
 {
 	"name": "toastmejs",
-	"version": "1.2.6",
+	"version": "1.2.7",
 	"description": "Web notifications and dialogs with pure javascript",
 	"main": "./dist/js/toastme.js",
 	"author": {
